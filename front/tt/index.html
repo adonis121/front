@@ -14,16 +14,17 @@
     <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    
 </head>
 
 <body>
     <section class="login-clean">
         <form method="post">
             <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
-            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
+            <div  class="illustration"><i class="icon ion-ios-navigate"></i></div>
+            <div  class="form-group"><input id = "email" class="form-control" type="email" name="email" placeholder="Email"></div>
+            <div class="form-group"><input id="password" class="form-control" type="password" name="password" placeholder="Password"></div>
+            <div  class="form-group"><button id = "submit" class="btn btn-primary btn-block" type="submit">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
         </form>
     </section>
     <footer class="footer-dark">
@@ -56,6 +57,7 @@
     </footer>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="front-back/logInjs.js"></script>
 </body>
 
 </html>
