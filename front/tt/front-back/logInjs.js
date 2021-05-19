@@ -44,9 +44,6 @@ $("#submit").click(function(e) {
                        console.log(e);
                        alert("This user doesn't exists!");
                    }
-                   
-          
-               
            
         }
 

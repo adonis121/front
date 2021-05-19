@@ -23,24 +23,24 @@
             <div class="image-holder"></div>
             <form method="post">
                 <h2 class="text-center"><strong>Create</strong> an account.</h2>
-                <div class="form-group"><input class="form-control" type="text" name="First Name" placeholder="First Name"></div>
-                <div class="form-group"><input class="form-control" type="text" name="Last Name" placeholder="Last Name"></div>
-                <div class="form-group"><input class="form-control" type="date" name="Birthday" placeholder="Birthday"></div>
-                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="E-mail"></div>
-                <div class="form-group"><input class="form-control" type="password" name="Password" placeholder="Password"></div>
-                <div class="form-group"><input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)"></div>
+                <div class="form-group"><input id="input1" class="form-control" type="text" name="First Name" placeholder="First Name"></div>
+                <div class="form-group"><input id="input2"  class="form-control" type="text" name="Last Name" placeholder="Last Name"></div>
+                <div class="form-group"><input  id="input3"class="form-control" type="number" name="Birthday" placeholder="PersonalNumber"></div>
+                <div class="form-group"><input  id="input4"class="form-control" type="email" name="email" placeholder="E-mail"></div>
+                <div class="form-group"><input id="input5"class="form-control" type="password" name="Password" placeholder="Password"></div>
+                <div class="form-group"><input id="input6"class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)"></div>
                 <div class="form-group" id = "chooseRole"><input id = "doctor" type="radio" name="role" value="1">
                     <label id = "roli1"for="doctor">Doctor</label>
                     <input id = "patient" type="radio" name="role" value="2">
                     <label id = "roli1" for="patient">Patient</label></div>
                     <label id = "roli1" for="patient">Please only fill if your are a doctor!</label>
-                    <div class="form-group"><input class="form-control" type="text" name="Department" placeholder="Department Name"></div>
-                    <div class="form-group"><input class="form-control" type="text" name="Specialization" placeholder="Specialization"></div>
+                    <div class="form-group"><input id="input7" class="form-control" type="text" name="Department" placeholder="Department Name"></div>
+                    <div class="form-group"><input id="input8"class="form-control" type="text" name="Specialization" placeholder="Specialization"></div>
                
                 <div class="form-group">
                     <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
                 </div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Sign Up</button></div><a class="already" href="index.html">You already have an account? Login here.</a>
+                <div class="form-group"><button id="submit"class="btn btn-primary btn-block" type="submit">Sign Up</button></div><a class="already" href="index.html">You already have an account? Login here.</a>
             </form>
         </div>
     </section>
@@ -74,6 +74,7 @@
     </footer>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="front-back/registerJs.js"></script>
     
 </body>
 
