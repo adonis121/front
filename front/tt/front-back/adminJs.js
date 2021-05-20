@@ -97,43 +97,48 @@ $("#getDepartments").click(function(event){
      })
 
   }); 
+
+  var addDepartment2 = {
+    depName:"",
+    numberOfRooms:0
+  }
   
 function validateDep(){
-   var input1 = document.getElementById("exampleInputEmail3").value;
-   var input2 = document.getElementById("exampleInputEmail2").value;
    
-   addDepartment = {
-    depName:$("exampleInputEmail3").val(),
-    numberOfRooms:$("exampleInputEmail2").val()
-  }
+    var input1 = document.getElementById("exampleInputDepName").value;
+    var input2 = document.getElementById("exampleInputDepRooms").value;
+
+    addDepartment2 = {
+      depName: $("#exampleInputDepName").val(),
+      numberOfRooms: $("#exampleInputDepRooms").val()
+     }
    if(input1.trim() == "" || input2.trim() == ""){
      alert ("Please fill all the inputs!");
-     return false;
-   }return true;
+   
+   }
 }
 
-var addDepartment = {
-  depName:"",
-  numberOfRooms:0
-}
+
 
   $("#addDep").click(function(e) {
-    if(validateDep()){
-    e.preventDefault();
-    console.log(addDep);
+    validateDep();
+   // e.preventDefault();
+    console.log(addDepartment2);
     // goToDashboard2();
     $.ajax({
             url: "http://localhost:8080/api/systemManagement/admin/addDepartmentt",
             type: 'post',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: JSON.stringify(addDep),
+            data: JSON.stringify(addDepartment2),
             success: function(res) {
                 var y = res.errori;
                 if (y == null) {
+  
                     localStorage.setItem('department', JSON.stringify(res.data))
-                    alert("Department added successfully!")
-                    window.location.href = "admin.html";
+                    alert("Department added successfully!");
+                  //  alert("Department added successfully!")
+                   // window.location.href = "admin.html";
                 } else {
                     alert(res.errori);
                     window.location.href = "admin.html";
@@ -145,6 +150,6 @@ var addDepartment = {
                
             }
         })
-      }
+      
 });
 
