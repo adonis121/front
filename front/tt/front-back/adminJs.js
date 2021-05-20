@@ -127,21 +127,22 @@ function validateDep(){
     // goToDashboard2();
     $.ajax({
             url: "http://localhost:8080/api/systemManagement/admin/addDepartmentt",
-            type: 'post',
+            type: 'POST',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: JSON.stringify(addDepartment2),
             success: function(res) {
                 var y = res.errori;
                 if (y == null) {
-  
+                  alert("Department added successfully!");
                     localStorage.setItem('department', JSON.stringify(res.data))
                     alert("Department added successfully!");
+                    console.log("added");
                   //  alert("Department added successfully!")
                    // window.location.href = "admin.html";
                 } else {
-                    alert(res.errori);
-                    window.location.href = "admin.html";
+                    alert(y);
+                   
 
                 }
             },
@@ -153,3 +154,44 @@ function validateDep(){
       
 });
 
+function validate2(){
+  var inputi = document.getElementById(departmentsName).value;
+  if(inputi.trim()== ""){
+    alert("Write departments Name");
+}
+}
+//e pa perfunduar
+$("#deleteDep").click(function(e) {
+validate2();
+
+ // e.preventDefault();
+  console.log();
+  // goToDashboard2();
+  $.ajax({
+          url: "http://localhost:8080/api/systemManagement/admin/deleteDep"+inputi,
+          type: 'POST',
+          contentType: "application/json; charset=utf-8",
+          dataType: "json",
+        
+          success: function(res) {
+              var y = res.errori;
+              if (y == null) {
+                alert("Department deleted successfully!");
+                 
+                 
+                  console.log("deleted");
+                //  alert("Department added successfully!")
+                 // window.location.href = "admin.html";
+              } else {
+                  alert(y);
+                 
+
+              }
+          },
+          error: function(error) {
+              console.log(error);
+             
+          }
+      })
+     
+});
