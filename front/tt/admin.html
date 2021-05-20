@@ -18,7 +18,8 @@
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
-        <div class="container-fluid"><a class="navbar-brand" href="#"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1"><a href="#">Admin Dashboard</a>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"></li>
@@ -28,29 +29,378 @@
             </div>
         </div>
     </nav>
-    <div class="row" style="height: 100%;">
-        <div class="col-auto col-lg-4 text-capitalize text-danger" style="min-height: 100%;max-height: 100%;">
-            <div class="list-group"><a class="text-monospace text-left text-black-50 bg-info border-primary list-group-item list-group-item-action" data-toggle="list" href="#list-home" style="height: 80px;min-height: 50px;">Departments</a><a class="text-monospace text-left text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-profile" style="height: 80px;min-height: 50px;">Doctor</a><a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-messages" style="height: 80px;min-height: 50px;">Patient</a><a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-settings" style="height: 80px;min-height: 50px;">Settings</a></div>
+
+    <div class="row " style="height: 100%; ">
+        <div class="col-auto col-lg-2 text-capitalize text-danger  " style="min-height: 100%;max-height: 100%;">
+            <div class="list-group"><a class="text-monospace text-left text-black-50 bg-info border-primary list-group-item list-group-item-action  " data-toggle="list" href="#list-home" style="height: 80px;min-height: 50px;">Home</a><a class="text-monospace text-left text-black-50 bg-light list-group-item list-group-item-action"
+                    data-toggle="list" href="#list-department" style="height: 80px;min-height: 50px;">Department</a><a class="text-monospace text-left text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-profile" style="height: 80px;min-height: 50px;">Doctor</a>
+                <a class=" text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-messages" style="height: 80px;min-height: 50px;">Patient</a> <a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action"
+                    data-toggle="list" href="#list-advertisement" style="height: 80px;min-height: 50px;">Advertisement</a>
+                <a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-settings" style="height: 80px;min-height: 50px;">Settings</a>
+            </div>
         </div>
         <div class="col">
             <div class="tab-content">
-                <div id="list-home" class="tab-pane fade" role="tabpanel">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis id consectetur purus ut faucibus pulvinar. Integer quis auctor elit sed vulputate mi sit. Vitae congue eu consequat ac felis donec. Pellentesque elit eget gravida cum sociis natoque penatibus. Ultrices gravida dictum fusce ut. Justo donec enim diam vulputate ut pharetra sit. Fermentum iaculis eu non diam phasellus vestibulum. Tellus elementum sagittis vitae et leo duis ut. Tristique sollicitudin nibh sit amet commodo.&nbsp;</p>
+                <!-- Home -->
+                <div id="list-home" class="tab-pane fade " role="tabpanel" style="margin-top: 2%;margin-left: 5%;">
+                    <!-- Hapesirat per vendosjen e numrave tek home-->
+                    <div class="container">
+                        <div class="row p-2 d-flex align-items-center">
+                            <div class="col ">
+                                <div class="card" style="width: 10rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nr</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Number of departments</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-primary">Get List</button>
+                            </div>
+                        </div>
+                        <div class="row p-2 d-flex align-items-center">
+                            <div class="col ">
+                                <div class="card" style="width: 10rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nr</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Number of Users</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-primary">Get List</button>
+                            </div>
+                        </div>
+                        <div class="row p-2 d-flex align-items-center">
+                            <div class="col  ">
+                                <div class="card" style="width: 10rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nr</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Number of doctors</h6>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col  ">
+                                <button type="button" class="btn btn-primary ">Get List</button>
+                            </div>
+                        </div>
+                        <div class="row p-2 d-flex align-items-center">
+                            <div class="col">
+                                <div class="card" style="width: 10rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nr</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Number of patients</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-primary">Get List</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Hapesira e Departments-->
+                <div id="list-department" class="tab-pane fade" role="tabpanel">
+                    <div class=" d-grid gap-3 " style="margin-top: 5%; margin-left: 10%;">
+
+                        <div class="p-2 "><button class="btn btn-outline-primary btn-lg" type="button" data-toggle="modal" data-target="#addDepartmentModal">Add Department</button></div>
+                        <div class="p-2 "><button class="btn btn-outline-primary btn-lg" type="button" data-toggle="modal" data-target="#editDepartmentModal">Edit Department</button></div>
+                        <div class="p-2 "><button class="btn btn-outline-primary btn-lg" type="button" data-toggle="modal" data-target="#deleteDepartmentModal">Delete Department</button></div>
+                    </div>
+
+                    <!-- Forma per shtimin e departamenteve-->
+                    <div class="modal fade" id="addDepartmentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Add Department</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Department's Name</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Room's Number</label>
+                                            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter room's number">
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Forma per editimin e departamenteve-->
+                    <div class="modal fade" id="editDepartmentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Edit Department</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Department's Name</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Room's Number</label>
+                                            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter room's number">
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Forma per fshirjen e departamenteve-->
+                    <div class="modal fade" id="deleteDepartmentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete Department</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Department's Name</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hapesira e Doctors-->
                 <div id="list-profile" class="tab-pane fade" role="tabpanel">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien. Id aliquet lectus proin nibh nisl condimentum id. Scelerisque purus semper eget duis. Eu sem integer vitae justo eget. Scelerisque varius morbi enim nunc faucibus. Sit amet consectetur adipiscing elit. Sed pulvinar proin gravida hendrerit lectus. Arcu odio ut sem nulla pharetra diam. Senectus et netus et malesuada fames ac. Nec ultrices dui sapien eget mi proin. Bibendum ut tristique et egestas quis ipsum. Mattis enim ut tellus elementum sagittis vitae. Fusce id velit ut tortor pretium viverra suspendisse potenti nullam.</p>
                 </div>
+                <!-- Hapesira e Patients-->
                 <div id="list-messages" class="tab-pane fade" role="tabpanel">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Natoque penatibus et magnis dis parturient. Elit ut aliquam purus sit amet luctus venenatis. Nunc id cursus metus aliquam eleifend mi in nulla posuere. Lacus vestibulum sed arcu non odio euismod lacinia. Ac turpis egestas maecenas pharetra. Vulputate dignissim suspendisse in est ante in nibh mauris cursus. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Cursus turpis massa tincidunt dui ut ornare lectus. Aliquam etiam erat velit scelerisque in dictum non consectetur. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Potenti nullam ac tortor vitae. At imperdiet dui accumsan sit amet nulla facilisi morbi. Id eu nisl nunc mi ipsum faucibus. Scelerisque varius morbi enim nunc faucibus a pellentesque sit. Tellus mauris a diam maecenas sed. Tristique nulla aliquet enim tortor. Nunc faucibus a pellentesque sit amet porttitor eget dolor. Id velit ut tortor pretium viverra.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Natoque penatibus et magnis dis parturient. Elit ut aliquam purus sit amet luctus venenatis. Nunc id cursus
+                        metus aliquam eleifend mi in nulla posuere. Lacus vestibulum sed arcu non odio euismod lacinia. Ac turpis egestas maecenas pharetra. Vulputate dignissim suspendisse in est ante in nibh mauris cursus. Facilisis magna etiam tempor
+                        orci eu lobortis elementum nibh. Cursus turpis massa tincidunt dui ut ornare lectus. Aliquam etiam erat velit scelerisque in dictum non consectetur. Mollis aliquam ut porttitor leo a diam sollicitudin tempor id. Potenti nullam
+                        ac tortor vitae. At imperdiet dui accumsan sit amet nulla facilisi morbi. Id eu nisl nunc mi ipsum faucibus. Scelerisque varius morbi enim nunc faucibus a pellentesque sit. Tellus mauris a diam maecenas sed. Tristique nulla aliquet
+                        enim tortor. Nunc faucibus a pellentesque sit amet porttitor eget dolor. Id velit ut tortor pretium viverra.</p>
                 </div>
+                <!-- Hapesira e Advertisement-->
+                <div id="list-advertisement" class="tab-pane fade" role="tabpanel">
+                    <div class=" d-grid gap-3 " style="margin-top: 5%; margin-left: 10%;">
+
+                        <div class="p-2 "><button class="btn btn-outline-primary btn-lg" type="button" data-toggle="modal" data-target="#addAdvertModal">Add Advertisment</button></div>
+                        <div class="p-2 "><button class="btn btn-outline-primary btn-lg" type="button" data-toggle="modal" data-target="#deleteAdvertModal">Delete Advertisment</button></div>
+                    </div>
+                    <!-- Moduli per shtimin e reklamave-->
+                    <div class="modal fade" id="addAdvertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Add Advertisement</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Advertisment's Name</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Advertisment's URL</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter URL">
+
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Moduli per fshirjen e reklamave-->
+                    <div class="modal fade" id="deleteAdvertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete Advertisement</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Advertisment's Name</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hapesira e settings (Clinic & User)-->
                 <div id="list-settings" class="tab-pane fade" role="tabpanel">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Malesuada proin libero nunc consequat. Gravida neque convallis a cras semper auctor. Metus aliquam eleifend mi in nulla posuere sollicitudin. Id velit ut tortor pretium. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Pellentesque habitant morbi tristique senectus et netus et. Non tellus orci ac auctor augue mauris augue neque. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus. Phasellus vestibulum lorem sed risus ultricies tristique nulla.</p>
+
+                    <div class=" d-grid gap-3 " style="margin-top: 5%; margin-left: 10%;">
+
+                        <div class="p-2 "><button class="btn btn-outline-primary btn-lg" type="button" data-toggle="modal" data-target="#getClinicModal">Clinic Info</button></div>
+                        <div class="p-2 "><button class="btn btn-outline-primary btn-lg" type="button" data-toggle="modal" data-target="#editClinicModal">Edit Clinic's Info</button></div>
+                        <div class="p-2 "><button class="btn btn-outline-primary btn-lg" type="button" data-toggle="modal" data-target="#deleteUserModal">Delete User</button></div>
+                    </div>
+                    <!-- Moduli per info te klinikes -->
+                    <div class="modal fade" id="getClinicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Clinic Info</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                                </div>
+                                <!-- Div per getClinic-->
+                                <div class="modal-body">
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Moduli per editimin e klinikes-->
+                    <div class="modal fade" id="editClinicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Edit Clinic</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Address</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter address">
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Telephone Number</label>
+                                            <input type="tel" class="form-control" id="exampleInputEmail1" placeholder="Enter Telephone Number">
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Email</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Partners</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter partners">
+
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Moduli per fshirjen e users-->
+                    <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">User's Personal Number</label>
+                                            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Personal Number">
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-auto col-lg-4 text-capitalize text-danger" style="min-height: 100%;max-height: 100%;">
-            <div class="list-group"><a class="text-monospace text-left text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-home" style="height: 80px;min-height: 50px;">Department 1</a><a class="text-monospace text-left text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-profile" style="height: 80px;min-height: 50px;"><br>Department 2<br><br></a><a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-messages" style="height: 80px;min-height: 50px;"><br>Department 3<br><br></a><a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-settings" style="height: 80px;min-height: 50px;"><br>Department 4<br><br></a></div>
+            <div class="list-group"><a class="text-monospace text-left text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-home" style="height: 80px;min-height: 50px;">Department 1</a>
+                <a class="text-monospace text-left text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-profile" style="height: 80px;min-height: 50px;"><br>Department 2<br><br></a>
+                <a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-messages" style="height: 80px;min-height: 50px;"><br>Department 3<br><br></a>
+                <a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" href="#list-settings" style="height: 80px;min-height: 50px;"><br>Department 4<br><br></a>
+            </div>
         </div>
+
     </div>
     <footer class="footer-dark">
         <div class="container">
@@ -72,12 +422,12 @@
                     </ul>
                 </div>
                 <div class="col-md-6 item text">
-                    <h3>Company Name</h3>
+                    <h3>MedNotes</h3>
                     <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
                 </div>
                 <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
             </div>
-            <p class="copyright">Company Name © 2021</p>
+            <p class="copyright">MedNotes © 2021</p>
         </div>
     </footer>
     <script src="assets/js/jquery.min.js"></script>
