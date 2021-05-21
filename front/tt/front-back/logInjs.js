@@ -58,3 +58,36 @@ $("#submit").click(function(e) {
     })
 }
 });
+
+
+function footeriMedNotes(){
+    $.ajax({
+      type : "GET",
+      url :  "http://localhost:8080/api/systemManagement/admin/getClinic",
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success: function(result){
+         
+          var x = result.data;
+          if(x != null ){
+            document.getElementById("emailiKlinikes").innerHTML = "Email: "+result.data.email;
+            document.getElementById("telefoniKlinikes").innerHTML ="Phone: "+result.data.phone ;
+            document.getElementById("adresaKlinikes").innerHTML = result.data.adrres;
+            document.getElementById("nrPartKlinikes").innerHTML = "Number of partners: "+result.data.partners;
+        
+             
+             
+              
+             
+            console.log("Success: ", result.data);
+          
+           }
+      },
+      error : function(e){
+          
+        $("#hapsiraInfoKlinikes").html("<strong>Error</strong>");
+        console.log("ERROR: ", e);
+      }
+       })
+  
+    }

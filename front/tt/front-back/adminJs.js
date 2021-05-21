@@ -65,7 +65,7 @@ $("#getDepartments").click(function(event){
 
   });  
 
-//errori prej databasen per FK te klinikes
+
   $("#getPatients").click(function(event){
     $('#getResultDiv').empty();
     $('#getResultDiv').append("List of Patients: ");
@@ -442,7 +442,11 @@ return true;
         var x = result.data;
         if(x != null ){
       
-            $('#hapsiraInfoKlinikes').append('<p>'+result.data+'</p>'+'</br>');
+            $('#hapsiraInfoKlinikes').append('<p>'+result.data.name+'</p>'+'</br>');
+            $('#hapsiraInfoKlinikes').append('<p>'+result.data.adrres+'</p>'+'</br>');
+            $('#hapsiraInfoKlinikes').append('<p>'+result.data.email+'</p>'+'</br>');
+            $('#hapsiraInfoKlinikes').append('<p>'+result.data.phone+'</p>'+'</br>');
+            $('#hapsiraInfoKlinikes').append('<p>'+result.data.partners+'</p>'+'</br>');
            
           console.log("Success: ", result.data);
    
@@ -460,6 +464,39 @@ return true;
      })
 
   });  
+
+
+  function footeriMedNotes(){
+  $.ajax({
+    type : "GET",
+    url :  "http://localhost:8080/api/systemManagement/admin/getClinic",
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function(result){
+       
+        var x = result.data;
+        if(x != null ){
+          document.getElementById("emailiKlinikes").innerHTML = "Email: "+result.data.email;
+          document.getElementById("telefoniKlinikes").innerHTML ="Phone: "+result.data.phone ;
+          document.getElementById("adresaKlinikes").innerHTML = result.data.adrres;
+          document.getElementById("nrPartKlinikes").innerHTML = "Number of partners: "+result.data.partners;
+      
+           
+           
+            
+           
+          console.log("Success: ", result.data);
+        
+         }
+    },
+    error : function(e){
+        
+      $("#hapsiraInfoKlinikes").html("<strong>Error</strong>");
+      console.log("ERROR: ", e);
+    }
+     })
+
+  }
 
   $("#fshijUserin").click(function(event) {
     var personalNumber = document.getElementById("nrPersonalUseri").value;
@@ -501,3 +538,155 @@ return true;
   });
 
 
+function getTotalDep(){
+  $.ajax({
+    type : "GET",
+    url :  "http://localhost:8080/api/systemManagement/admin/totalNumberOfDep",
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function(result){
+       
+        var x = result.data;
+        if(x != null ){
+      
+          document.getElementById("totaliDepa").innerHTML = result.data;
+           // $('#hapsiraInfoKlinikes').append('<p>'+result.data+'</p>'+'</br>');
+           
+          console.log("Success: ", result.data);
+   
+        
+                
+         }
+    },
+    error : function(e){
+        
+      $("#hapsiraInfoKlinikes").html("<strong>Error</strong>");
+      console.log("ERROR: ", e);
+    }
+     })
+
+
+}
+
+function getTotalUser(){
+  $.ajax({
+    type : "GET",
+    url :  "http://localhost:8080/api/systemManagement/admin/totalNumberOfUser",
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function(result){
+       
+        var x = result.data;
+        if(x != null ){
+      
+          document.getElementById("totaliUsera").innerHTML = result.data;
+           // $('#hapsiraInfoKlinikes').append('<p>'+result.data+'</p>'+'</br>');
+           
+          console.log("Success: ", result.data);
+   
+        
+                
+         }
+    },
+    error : function(e){
+        
+      $("#hapsiraInfoKlinikes").html("<strong>Error</strong>");
+      console.log("ERROR: ", e);
+    }
+     })
+
+
+}
+function getTotalDoc(){
+  $.ajax({
+    type : "GET",
+    url :  "http://localhost:8080/api/systemManagement/admin/totalNumberOfDoc",
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function(result){
+       
+        var x = result.data;
+        if(x != null ){
+      
+          document.getElementById("totaliMjek").innerHTML = result.data;
+           // $('#hapsiraInfoKlinikes').append('<p>'+result.data+'</p>'+'</br>');
+           
+          console.log("Success: ", result.data);
+   
+        
+                
+         }
+    },
+    error : function(e){
+        
+      $("#hapsiraInfoKlinikes").html("<strong>Error</strong>");
+      console.log("ERROR: ", e);
+    }
+     })
+
+
+}
+function getTotalPac(){
+  $.ajax({
+    type : "GET",
+    url :  "http://localhost:8080/api/systemManagement/admin/totalNumberOfPat",
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function(result){
+       
+        var x = result.data;
+        if(x != null ){
+      
+          document.getElementById("totaliPAcient").innerHTML = result.data;
+           // $('#hapsiraInfoKlinikes').append('<p>'+result.data+'</p>'+'</br>');
+           
+          console.log("Success: ", result.data);
+   
+        
+                
+         }
+    },
+    error : function(e){
+        
+      $("#hapsiraInfoKlinikes").html("<strong>Error</strong>");
+      console.log("ERROR: ", e);
+    }
+     })
+
+
+}
+
+
+
+$("#listaPacientvee").click(function(event){
+  $('#list-messages').empty();
+  $('#list-messages').append("List of Patients: ");
+$.ajax({
+  type : "GET",
+  url :  "http://localhost:8080/api/systemManagement/admin/getAllPatient",
+  contentType: "application/json; charset=utf-8",
+  dataType: "json",
+  success: function(result){
+     
+      var x = result.data;
+      if(x != null ){
+      $.each(x, function(i, item){
+      
+          $('#list-messages').append('<div style="display:flex; flex-direction:row">'+'<p> '+item.name+'</p>'+'<p>'+item.surname+'</p>'+'<p>: '+item.personalNumber+'</p>'+' <p>- and Email: '+item.email+'</p>'+'</div>'+'</br>');
+          
+        console.log("Success: ", item.name);
+ 
+       });
+              
+       }else{
+                  $('#list-messages').append('<p>'+result.errori+'</p>'+'</br>');
+              }
+  },
+  error : function(e){
+      
+    $("#list-messages").html("<strong>Error</strong>");
+    console.log("ERROR: ", e);
+  }
+   })
+
+}); 
