@@ -9,10 +9,11 @@ $("#getDepartments").click(function(event){
        
         var x = result.data;
         if(x != null ){
+          $('#getResultDiv').append("List of Departments:");
         $.each(x, function(i, item){
         
-            $('#getResultDiv').append('<p>'+item.depName+'</p>'+'</br>');
-            $('#getResultDiv').append('<p>prov bre </p>'+'</br>');
+            $('#getResultDiv').append('<div style="display:flex; flex-direction:row; ">'+'<p>'+item.depName+'</p>'+'</br>'+'</div>');
+           
           console.log("Success: ", item.depName);
    
          });
@@ -371,3 +372,132 @@ $("#deleteReklamen").click(function(event) {
         })
        
   });
+
+
+function validateK(){
+
+  var adresa = document.getElementById("enterAdresen").value;
+  var nrTel = document.getElementById("enterNrTelefonit").value;
+  var emaili = document.getElementById("enterEmailin").value;
+  var partners = document.getElementById("enterNumrinPartners").value;
+
+if(adresa.trim() == "" || nrTel.trim()=="" || emaili.trim() == "" || partners.trim()==""){
+  alert("Please fill all the inputs!");
+  return false;
+}
+return true;
+}
+
+
+
+  $("#editKliniken").click(function(event) {
+    if(validateK()){
+    event.preventDefault();
+  var adresa = document.getElementById("enterAdresen").value;
+  var nrTel = document.getElementById("enterNrTelefonit").value;
+  var emaili = document.getElementById("enterEmailin").value;
+  var partners = document.getElementById("enterNumrinPartners").value;
+  
+    $.ajax({
+            url: "http://localhost:8080/api/systemManagement/admin/addClinicInfor/"+adresa+"/"+nrTel+"/"+emaili+"/"+partners,
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+           
+            success: function(res) {
+                var y = res.errori;
+                if (y == null) {
+                  alert ("MedNotes Clinic info was added successfully!");
+                   // localStorage.setItem('clinic', JSON.stringify(res.data))
+                   
+                    console.log("added");
+                  
+                   window.location.href = "admin.html";
+                } else {
+                    alert(y);
+                    window.location.href = "admin.html";
+                   
+  
+                }
+            },
+            error: function(error) {
+                console.log(error);
+               
+            }
+        })
+      } 
+  });
+
+//errori pershkak lidhjes paicent klinik
+  $("#infotKlinikes").click(function(event){
+    event.preventDefault();
+    $('#hapsiraInfoKlinikes').empty();
+  $.ajax({
+    type : "GET",
+    url :  "http://localhost:8080/api/systemManagement/admin/getClinic",
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function(result){
+       
+        var x = result.data;
+        if(x != null ){
+      
+            $('#hapsiraInfoKlinikes').append('<p>'+result.data+'</p>'+'</br>');
+           
+          console.log("Success: ", result.data);
+   
+        
+                
+         }else{
+                    $('#hapsiraInfoKlinikes').append('<p>'+result.errori+'</p>'+'</br>');
+                }
+    },
+    error : function(e){
+        
+      $("#hapsiraInfoKlinikes").html("<strong>Error</strong>");
+      console.log("ERROR: ", e);
+    }
+     })
+
+  });  
+
+  $("#fshijUserin").click(function(event) {
+    var personalNumber = document.getElementById("nrPersonalUseri").value;
+    if(personalNumber.trim() !=""){
+    event.preventDefault();
+
+    $.ajax({
+            url: "http://localhost:8080/api/systemManagement/admin/deleteUser/"+personalNumber,
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+           
+            success: function(res) {
+                var y = res.errori;
+                if (y == null) {
+                  alert (res.mesazhi);
+                   // localStorage.setItem('clinic', JSON.stringify(res.data))
+                   
+                    console.log("added");
+                  
+                   window.location.href = "admin.html";
+                } else {
+                    alert(y);
+                    window.location.href = "admin.html";
+                   
+  
+                }
+            },
+            error: function(error) {
+                console.log(error);
+               
+            }
+        })
+
+      }
+      else {
+        alert("Please specify users personalNumber!");
+      } 
+  });
+
+
