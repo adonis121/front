@@ -118,11 +118,9 @@ function validateDep(){
    }
 }
 
-
-
-  $("#addDep").click(function(e) {
+  $("#addDep").click(function(event) {
     validateDep();
-   // e.preventDefault();
+    event.preventDefault();
     console.log(addDepartment2);
     // goToDashboard2();
     $.ajax({
@@ -134,14 +132,15 @@ function validateDep(){
             success: function(res) {
                 var y = res.errori;
                 if (y == null) {
-                  alert("Department added successfully!");
+                  alert ("Department added successfully!");
                     localStorage.setItem('department', JSON.stringify(res.data))
-                    alert("Department added successfully!");
+                    alert ("Department added successfully!");
                     console.log("added");
                   //  alert("Department added successfully!")
-                   // window.location.href = "admin.html";
+                   window.location.href = "admin.html";
                 } else {
                     alert(y);
+                    window.location.href = "admin.html";
                    
 
                 }
@@ -154,38 +153,89 @@ function validateDep(){
       
 });
 
-function validate2(){
-  var inputi = document.getElementById(departmentsName).value;
-  if(inputi.trim()== ""){
-    alert("Write departments Name");
-}
-}
-//e pa perfunduar
-$("#deleteDep").click(function(e) {
-validate2();
+function validateDep2(){
+   
+  var depName =document.getElementById("enterDepName").value;
+  var numberOfRooms =document.getElementById("enterDepRoom").value;
 
- // e.preventDefault();
-  console.log();
+  if(depName.trim() == "" || numberOfRooms.trim() == ""){
+    alert("please fill all the inputs!");
+  }
+
+
+}
+$("#editDep").click(function(event) {
+  validateDep2();
+  event.preventDefault();
+  var depName =document.getElementById("enterDepName").value;
+  var numberOfRooms =document.getElementById("enterDepRoom").value;
+  
   // goToDashboard2();
   $.ajax({
-          url: "http://localhost:8080/api/systemManagement/admin/deleteDep"+inputi,
+          url: "http://localhost:8080/api/systemManagement/admin/editDep/"+depName+"/"+numberOfRooms,
           type: 'POST',
+          contentType: "application/json; charset=utf-8",
+          dataType: "json",
+         
+          success: function(res) {
+              var y = res.errori;
+              if (y == null) {
+              //  event.preventDefault();
+                  //localStorage.setItem('department', JSON.stringify(res.data))
+                  alert ("Department edited successfully!");
+                  console.log("added");
+                //  alert("Department added successfully!")
+                  window.location.href = "admin.html";
+              } else {
+                //event.preventDefault();
+                  alert(y);
+                  window.location.href = "admin.html";
+
+              }
+          },
+          error: function(error) {
+              console.log(error);
+             
+          }
+      })
+    
+});
+
+
+function validate2(){
+  var inputi = document.getElementById("departmentsName").value;
+  if(inputi.trim() == ""){
+    alert("Please Write Departments Name");
+    
+}
+}
+
+$("#deleteDepartment").click(function(event) {
+validate2();
+event.preventDefault();
+var inputi = document.getElementById("departmentsName").value;
+  console.log(inputi);
+  $.ajax({
+          url: "http://localhost:8080/api/systemManagement/admin/deleteDep/"+inputi,
+          type: 'post',
           contentType: "application/json; charset=utf-8",
           dataType: "json",
         
           success: function(res) {
               var y = res.errori;
               if (y == null) {
+               // event.preventDefault();
+
                 alert("Department deleted successfully!");
                  
-                 
+                window.location.href = "admin.html";
                   console.log("deleted");
                 //  alert("Department added successfully!")
                  // window.location.href = "admin.html";
               } else {
                   alert(y);
-                 
-
+                 // event.preventDefault();
+                 window.location.href = "admin.html";
               }
           },
           error: function(error) {
@@ -195,3 +245,129 @@ validate2();
       })
      
 });
+
+
+$("#kompletMjeket").click(function(event){
+  $('#list-profile').empty();
+  $('#list-profile').append("List of Doctors:");
+$.ajax({
+  type : "GET",
+  url :  "http://localhost:8080/api/systemManagement/admin/getAllDoctors",
+  contentType: "application/json; charset=utf-8",
+  dataType: "json",
+  success: function(result){
+     
+      var x = result.data;
+      if(x != null ){
+      $.each(x, function(i, item){
+      
+          $('#list-profile').append('<div style="display:flex; flex-direction:row">'+'<p> '+item.doctorName+'</p>'+'<p>'+item.doctorSurname+'</p>'+'<p>: '+item.personalNumber+'</p>'+'<p> - Department:'+item.departmentN+'</p>'+
+          '<p> -> '+item.email+'</div>'+'</br>');
+         
+        console.log("Success: ", item.doctorName);
+ 
+       });
+              
+       }else{
+                  $('#list-profile').append('<p>'+result.errori+'</p>'+'</br>');
+              }
+  },
+  error : function(e){
+      
+    $("#list-profile").html("<strong>Error</strong>");
+    console.log("ERROR: ", e);
+  }
+   })
+
+});  
+
+function validateAdv(){
+  var advertName = document.getElementById("emriReklames").value;
+  var aPath = document.getElementById("pathReklames").value;
+
+  if(advertName.trim() == "" || aPath.trim() == ""){
+    alert("Please fill all the inputs!");
+  }
+}
+
+//errori per fk te Admin-it
+$("#shtoReklama").click(function(event) {
+  validateAdv();
+  event.preventDefault();
+  var advertName = document.getElementById("emriReklames").value;
+  var aPath = document.getElementById("pathReklames").value;
+console.log(aPath);
+
+  $.ajax({
+          url: "http://localhost:8080/api/systemManagement/admin/addAdvert/"+advertName+"/"+aPath,
+          type: 'POST',
+          contentType: "application/json; charset=utf-8",
+          dataType: "json",
+         
+          success: function(res) {
+              var y = res.errori;
+              if (y == null) {
+                alert ("Advertisement added successfully!");
+                  localStorage.setItem('advertisement', JSON.stringify(res.data))
+                 
+                  console.log("added");
+                
+                 window.location.href = "admin.html";
+              } else {
+                  alert(y);
+                  window.location.href = "admin.html";
+                 
+
+              }
+          },
+          error: function(error) {
+              console.log(error);
+             
+          }
+      })
+    
+});
+
+function validate3(){
+  var advertName = document.getElementById("fshijeAdvertin").value;
+
+  if(advertName.trim() == ""){
+    alert("Please fill all the inputs");
+  }
+}
+
+$("#deleteReklamen").click(function(event) {
+  validate3();
+  event.preventDefault();
+  var advertName = document.getElementById("fshijeAdvertin").value;
+    console.log(advertName);
+    $.ajax({
+            url: "http://localhost:8080/api/systemManagement/admin/deleteDep/"+advertName,
+            type: 'post',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+          
+            success: function(res) {
+                var y = res.errori;
+                if (y == null) {
+                 // event.preventDefault();
+  
+                  alert("Advertisement deleted successfully!");
+                   
+                  window.location.href = "admin.html";
+                    console.log("deleted");
+                  //  alert("Department added successfully!")
+                   // window.location.href = "admin.html";
+                } else {
+                    alert(y);
+                   // event.preventDefault();
+                   window.location.href = "admin.html";
+                }
+            },
+            error: function(error) {
+                console.log(error);
+               
+            }
+        })
+       
+  });
