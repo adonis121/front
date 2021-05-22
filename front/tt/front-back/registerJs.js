@@ -80,13 +80,10 @@ register = {
  
  }
 
-$("#submit").click(function(e) {
+$("#submit2").click(function(event) {
     console.log(1);
     validate();
-    
- 
-     
-
+    event.preventDefault();
     $.ajax({
         url: "http://localhost:8080/api/systemManagement/registerUser",
         type: 'post',
@@ -94,7 +91,6 @@ $("#submit").click(function(e) {
         dataType: "json",
         data: JSON.stringify(register),
         success: function(res) {
-                
                    var e = res.errori;       
                    if(e == null){
                        if(res.mesazhi == "Roli:1"){
@@ -104,9 +100,7 @@ $("#submit").click(function(e) {
                        localStorage.setItem('patient', JSON.stringify(res.data))
                         alert("You are a patient");
                        }
-                   
-                   
-                  
+                
                     }
                     else {
                         alert(e);

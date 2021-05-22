@@ -10,10 +10,10 @@ function validate(){
    
 }
 
-$("#submit").click(function(e) {
+$("#submit").click(function(event) {
     console.log(1);
     validate();
-    e.preventDefault();
+    event.preventDefault();
     var email =document.getElementById("email").value;
     var password =document.getElementById("password").value;
     
@@ -35,7 +35,7 @@ $("#submit").click(function(e) {
                         alert("You are a patient");
                        }else{
                     console.log(res.data);
-                   window.location.href = "admin.html"
+                    window.location.href="admin.html";
                        }
                    // console.log(res.mesazhi);
                    

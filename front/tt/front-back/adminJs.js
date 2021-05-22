@@ -430,7 +430,7 @@ $("#editKliniken").click(function(event) {
 
 //errori pershkak lidhjes paicent klinik
 $("#infotKlinikes").click(function(event) {
-    event.preventDefault();
+    //event.preventDefault();
     $('#hapsiraInfoKlinikes').empty();
     $.ajax({
         type: "GET",
