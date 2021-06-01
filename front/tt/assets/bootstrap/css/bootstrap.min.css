@@ -3091,19 +3091,19 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-success {
-    color: #28a745;
-    border-color: #28a745
+    color: var(--gray-dark);
+    border-color: var(--gray-dark);
 }
 
 .btn-outline-success:hover {
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745
+    background-color: var(--gray-dark);
+    border-color: var(--gray-dark)
 }
 
 .btn-outline-success.focus,
 .btn-outline-success:focus {
-    box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .5)
+    box-shadow: 0 0 0 .2rem rgba(40, 74, 167, 0.5)
 }
 
 .btn-outline-success.disabled,
