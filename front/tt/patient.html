@@ -62,44 +62,48 @@
                         <a class="nav-link" href="#contactUs">Contact Us</a>
                     </li>
                     <li class="nav-item">
+
+
+
+                        <ul class="nav" role="navigation">
+                            <li class="dropdown">
+                                <a id="drop1" href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-comments"></i></a>
+                                <ul style="color: rgb(95, 92, 92);text-decoration: none;" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <li><a style="color: rgb(95, 92, 92);text-decoration: none;" href="#ourDoctors">Chat</a></li>
+                                    <li><button style="color: rgb(95, 92, 92);text-decoration: none;" data-toggle="modal" data-target="#chatListModal" href="#">All Conversations</button></li>
+
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="chatListModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ...
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link " href="#profile"><i class="fas fa-user"></i></a>
 
                     </li>
-                    <li>
-                        <div class="p-2 "><button class="btn btn-outline-primary btn-lg" type="button" data-toggle="modal" data-target="#addDepartmentModal">Add Department</button></div>
-                        <div class="modal fade" id="addDepartmentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Add Department</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Department's Name</label>
-                                                <input type="text" class="form-control" id="exampleInputDepName" placeholder="Enter name">
 
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Room's Number</label>
-                                                <input type="number" class="form-control" id="exampleInputDepRooms" placeholder="Enter room's number">
 
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button id="addDep" type="submit" class="btn btn-primary">Save changes</button>
-                                            </div>
-
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </li>
                 </ul>
 
             </div>
@@ -165,6 +169,7 @@
 
 
     </section>
+
     <section id="ourDoctors">
         <p class="fs-1 title" style="margin-left: 42%;">CLINIC STAFF</p>
 
@@ -194,7 +199,7 @@
                             <div class="card mb-2">
                                 <img class="card-img-top profile" src="assets/img/femdoc.jpg" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
+                                    <h4 class="card-title">Dr.</h4>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <button class="btn btn-outline-primary " type="button" data-toggle="modal" data-target="#chatModal">Chat</button>
                                     <!-- Chat -->
@@ -203,6 +208,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Chat</h5>
+
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                               </button>
@@ -225,29 +231,11 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    How are you doing?
-                                                                </div>
-                                                            </div>
 
-                                                            <div class="message-box-holder">
-                                                                <div class="message-sender">
-                                                                    Mamun Khandaker
-                                                                </div>
-                                                                <div class="message-box message-partner">
-                                                                    I'm doing fine. How about you?
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    I am fine.
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                         <input type="text" class="form-control" id="recipient-name" placeholder="Type a message...">
                                                         <div class="modal-footer">
+                                                            <button class="btn btn-primary">Delete Conversation</button>
 
                                                             <button class="btn btn-primary">Send</button>
                                                         </div>
@@ -266,7 +254,7 @@
                             <div class="card mb-2">
                                 <img class="card-img-top profile" src="assets/img/olddoc.jpg" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
+                                    <h4 class="card-title">Dr</h4>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <button class="btn btn-outline-primary " type="button" data-toggle="modal" data-target="#chatModal">Chat</button>
                                     <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -296,29 +284,11 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    How are you doing?
-                                                                </div>
-                                                            </div>
 
-                                                            <div class="message-box-holder">
-                                                                <div class="message-sender">
-                                                                    Mamun Khandaker
-                                                                </div>
-                                                                <div class="message-box message-partner">
-                                                                    I'm doing fine. How about you?
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    I am fine.
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                         <input type="text" class="form-control" id="recipient-name" placeholder="Type a message...">
                                                         <div class="modal-footer">
+                                                            <button class="btn btn-primary">Delete Conversation</button>
 
                                                             <button class="btn btn-primary">Send</button>
                                                         </div>
@@ -337,7 +307,7 @@
                             <div class="card mb-2">
                                 <img class="card-img-top profile" src="assets/img/departments-bg.jpg" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
+                                    <h4 class="card-title">Dr</h4>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <button class="btn btn-outline-primary " type="button" data-toggle="modal" data-target="#chatModal">Chat</button>
                                     <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -367,29 +337,11 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    How are you doing?
-                                                                </div>
-                                                            </div>
 
-                                                            <div class="message-box-holder">
-                                                                <div class="message-sender">
-                                                                    Mamun Khandaker
-                                                                </div>
-                                                                <div class="message-box message-partner">
-                                                                    I'm doing fine. How about you?
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    I am fine.
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                         <input type="text" class="form-control" id="recipient-name" placeholder="Type a message...">
                                                         <div class="modal-footer">
+                                                            <button class="btn btn-primary">Delete Conversation</button>
 
                                                             <button class="btn btn-primary">Send</button>
                                                         </div>
@@ -475,7 +427,7 @@
                                                         </div>
                                                         <input type="text" class="form-control" id="recipient-name" placeholder="Type a message...">
                                                         <div class="modal-footer">
-
+                                                            <button class="btn btn-primary">Delete Conversation</button>
                                                             <button class="btn btn-primary">Send</button>
                                                         </div>
 
@@ -546,6 +498,7 @@
                                                         </div>
                                                         <input type="text" class="form-control" id="recipient-name" placeholder="Type a message...">
                                                         <div class="modal-footer">
+                                                            <button class="btn btn-primary">Delete Conversation</button>
 
                                                             <button class="btn btn-primary">Send</button>
                                                         </div>
