@@ -69,37 +69,51 @@
 
 
 
-                        <ul class="nav" role="navigation">
-                            <li class="dropdown">
-                                <a id="drop1" href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-comments"></i></a>
-                                <ul style="color: rgb(95, 92, 92);text-decoration: none;" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                    <li><a style="color: rgb(95, 92, 92);text-decoration: none;" href="#ourDoctors">Chat</a></li>
-                                    <li><button style="color: rgb(95, 92, 92);text-decoration: none;" data-toggle="modal" data-target="#chatListModal" href="#">All Conversations</button></li>
+                        <li class="nav-item">
 
 
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="chatListModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    ...
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                            </div>
+
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fas fa-comments"></i> <span class="caret"></span></a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a style="color:darkslategrey" href="#ourDoctors">Chat</a></li>
+                                    <li><a style="color:darkslategrey" href="#" data-toggle="modal" data-target="#listChat">All Conversations</a></li>
+                                </ul>
+                            </div>
+
+                            <!--lista e bisedave -->
+
+                            <div class="modal fade" id="listChat" tabindex="-1" role="dialog" aria-labelledby="modal1-label">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h2 class="modal-title">All Conversations</h2>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                                        </div>
+                                        <div class="listOfChats">
+                                            <ul>
+                                                <li>
+                                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_01.jpg" alt="">
+                                                    <div>
+                                                        <h2>Prénom Nom</h2>
+
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_02.jpg" alt="">
+                                                    <div>
+                                                        <h2>Prénom Nom</h2>
+
+                                                    </div>
+
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
+                                </div>
 
-                                </ul>
-                            </li>
-
-                        </ul>
+                        </li>
 
                     </li>
                     <li class="nav-item">
@@ -110,96 +124,138 @@
 
                 </ul>
 
-            </div>
+                </div>
 
         </nav>
-    </div>
-    <section class="hero-banner">
-        <div class="container-fluid d-block hero-content ">
-            <div class="hero-shade">
-                <p class="fs-1 fw-lighter row justify-content-md-center" style="color: #fff; font-size: 4.375rem;font-weight: 100; ">WELCOME TO MEDNOTES! </p>
+        </div>
+        <section class="hero-banner">
+            <div class="container-fluid d-block hero-content ">
+                <div class="hero-shade">
+                    <p class="fs-1 fw-lighter row justify-content-md-center" style="color: #fff; font-size: 4.375rem;font-weight: 100; ">WELCOME TO MEDNOTES! </p>
 
-                <div class="form-group has-search" style="margin-top: 6%;">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <span class="fa fa-search form-control-feedback"></span>
+                    <div class="form-group has-search" style="margin-top: 6%;">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="fa fa-search form-control-feedback"></span>
+                    </div>
+
+                    <div class="arrow ">
+                        <p style="margin-bottom: 2%; font-weight: 100;">Set an appointment! </p>
+                        <a class="fa fa-arrow-down  bounce fa-2x" href="#appointment"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aboutUs">
+            <div class="aboutus-container">
+                <img src="assets/img/well-hospital-chen-jumbo.jpg" class="img-fluid rounded float-end aboutusImg" alt="...">
+                <div class="aboutus-text">
+                    <p class="fs-1 title">ABOUT US</p>
+                    <p class="fs-3">Since our founding, MedNote has been known for quality services, exceptional efficiency and the highest level of professionalism. No matter what service you’re looking for, we guarantee to not only meet, but exceed your expectations
+                        and ensure your full satisfaction. Our team is up for every job, managing projects with the skill and experience our clients have come to expect. Please get in touch to learn more about our team, our company or for details about
+                        the services we provide.
+
+                    </p>
+
                 </div>
 
-                <div class="arrow ">
-                    <p style="margin-bottom: 2%; font-weight: 100;">Set an appointment! </p>
-                    <a class="fa fa-arrow-down  bounce fa-2x" href="#appointment"></a>
+            </div>
+        </section>
+
+
+        <hr class="style-four"></hr>
+        <section id="repart">
+            <div class="repart-container">
+                <p class="fs-1 title" style="margin-left: 38%;">DEPARTMENTS</p>
+                <div class="row">
+
+
+                    <div class="col"><img src="assets/img/doctors_hospital_corridor_nurse_pushing_gurney_stretcher_bed.jpg" class="img-fluid" style="border-radius: 50%;width:12.5rem;
+                            height: 12.5rem;" alt="... ">
+                        <p class="fs-3 ">Department Title</p>
+                    </div>
+                    <div class="col "><img src="assets/img/hsrooms.jpg " class="img-fluid " style="border-radius: 50%;width:12.5rem; height: 12.5rem; " alt="...">
+                        <p class="fs-3">Department Title</p>
+                    </div>
+                    <div class="col"><img src="assets/img/download.jpg" class="img-fluid" style="border-radius: 50%;width:12.5rem;
+                            height: 12.5rem;" alt="... ">
+                        <p class="fs-3 ">Department Title</p>
+                    </div>
+                    <div class="col "><img src="assets/img/images.jpg " class="img-fluid " style="border-radius: 50%;width:12.5rem; height: 12.5rem; " alt="...">
+                        <p class="fs-3">Department Title</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <img src="assets/img/Int.16.jpg" class="img-fluid" style="border-radius: 50%;width:12.5rem;
+                            height: 12.5rem;" alt="... ">
+                        <p class="fs-3 ">Department Title</p>
+                    </div>
+                    <div class="col "><img src="assets/img/hospital-doctor-consulting-room.jpg " class="img-fluid " style="border-radius: 50%;width:12.5rem; height: 12.5rem; " alt="... ">
+                        <p class="fs-3 ">Department Title</p>
+                    </div>
+                    <div class="col ">
+                        <img src="assets/img/Int.16.jpg " class="img-fluid " style="border-radius: 50%;width:12.5rem; height: 12.5rem; " alt="... ">
+                        <p class="fs-3 ">Department Title</p>
+                    </div>
+                    <div class="col "><img src="assets/img/download.jpg " class="img-fluid " style="border-radius: 50%; width:12.5rem; height: 12.5rem; " alt="... ">
+                        <p class="fs-3 ">Department Title</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <hr class="style-four">
+        <section id="appointment">
+
+            <div class="appointment-container">
+                <div class="calendar">Calendar </div>
+                <div class="appointment-guide">
+                    <p class="fs-1 titleA">Need an appointment? </p>
+                    <p class="fs-3 paragraph">Follow the simple steps below and get your appointment fixed online! </p>
+                    <ul class="fs-3 rules " style="list-style: none;">
+                        <li> <i class="fas fa-exclamation "><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; ">    You must be logged-in!</a></i>
+
+                        </li>
+                        <li> <i class="far fa-plus-square"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select the department</a></i>
+
+                        </li>
+                        <li>
+                            <i class="far fa-calendar-alt"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select Date of Appointment</a></i>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="aboutUs">
-        <div class="aboutus-container">
-            <img src="assets/img/well-hospital-chen-jumbo.jpg" class="img-fluid rounded float-end aboutusImg" alt="...">
-            <div class="aboutus-text">
-                <p class="fs-1 title">ABOUT US</p>
-                <p class="fs-3">Since our founding, MedNote has been known for quality services, exceptional efficiency and the highest level of professionalism. No matter what service you’re looking for, we guarantee to not only meet, but exceed your expectations and
-                    ensure your full satisfaction. Our team is up for every job, managing projects with the skill and experience our clients have come to expect. Please get in touch to learn more about our team, our company or for details about the services
-                    we provide.
 
-                </p>
+        </section>
 
-            </div>
+        <section id="ourDoctors">
+            <p class="fs-1 title" style="margin-left: 42%;">CLINIC STAFF</p>
 
-        </div>
-    </section>
+            <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
 
 
-    <section id="appointment">
+                <!--Indicators-->
+                <ol class="carousel-indicators">
+                    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                    <li data-target="#multi-item-example" data-slide-to="1"></li>
 
-        <div class="appointment-container">
-            <div class="calendar">Calendar </div>
-            <div class="appointment-guide">
-                <p class="fs-1 titleA">Need an appointment? </p>
-                <p class="fs-3 paragraph">Follow the simple steps below and get your appointment fixed online! </p>
-                <ul class="fs-3 rules " style="list-style: none;">
-                    <li> <i class="fas fa-exclamation "><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; ">    You must be logged-in!</a></i>
-
-                    </li>
-                    <li> <i class="far fa-plus-square"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select the department</a></i>
-
-                    </li>
-                    <li>
-                        <i class="far fa-calendar-alt"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select Date of Appointment</a></i>
-                    </li>
-                </ul>
-            </div>
-        </div>
+                </ol>
+                <!--/.Indicators-->
 
 
-    </section>
+                <!--Slides-->
+                <div class="carousel-inner" role="listbox">
 
-    <section id="ourDoctors">
-        <p class="fs-1 title" style="margin-left: 42%;">CLINIC STAFF</p>
+                    <!--First slide-->
+                    <div class="carousel-item active">
 
-        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-
-
-            <!--Indicators-->
-            <ol class="carousel-indicators">
-                <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-                <li data-target="#multi-item-example" data-slide-to="1"></li>
-
-            </ol>
-            <!--/.Indicators-->
-
-
-            <!--Slides-->
-            <div class="carousel-inner" role="listbox">
-
-                <!--First slide-->
-                <div class="carousel-item active">
-
-                    <div  class="cardss " style="display: flex;justify-content: center;">
-                       <a class=" controls-top btn-floating" href="#multi-item-example" data-slide="prev" style="color:black; font-size:2.5rem;margin-right:5%;padding-top: 10%;"><i class="fas fa-chevron-left"></i></a>
-                         <div id="hapsiraKryesore" >
-                      <!---<div class="col-md-3" style="float:left">
+                        <div class="cardss " style="display: flex;justify-content: center;">
+                            <a class=" controls-top btn-floating" href="#multi-item-example" data-slide="prev" style="color:black; font-size:2.5rem;margin-right:5%;padding-top: 10%;"><i class="fas fa-chevron-left"></i></a>
+                            <div id="hapsiraKryesore">
+                                <!---<div class="col-md-3" style="float:left">
                             <div class="card mb-2">
                                 <img class="card-img-top profile" src="assets/img/femdoc.jpg" alt="Card image cap">
                                 <div class="card-body">
@@ -358,17 +414,17 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>--->  
-                    </div>
-                        <a class="controls-top btn-floating" href="#multi-item-example" data-slide="next" style="color:black; font-size:2.5rem;float: right;margin-left:5%;padding-top: 10%;"><i
+                        </div>--->
+                            </div>
+                            <a class="controls-top btn-floating" href="#multi-item-example" data-slide="next" style="color:black; font-size:2.5rem;float: right;margin-left:5%;padding-top: 10%;"><i
                         class="fas fa-chevron-right"></i></a>
+                        </div>
+
+
                     </div>
+                    <!--/.First slide-->
 
-
-                </div>
-                <!--/.First slide-->
-
-                <!--Second slide
+                    <!--Second slide
                 <div class="carousel-item">
 
 
@@ -594,126 +650,126 @@
 
                 </div>-->
 
+                </div>
+
+
             </div>
 
 
-        </div>
+        </section>
+        <section id="contactUs">
+            <div class="contactUs-content row">
 
-
-    </section>
-    <section id="contactUs">
-        <div class="contactUs-content row">
-
-            <div class="col contactUs-text">
-                <p class="fs-1 title">GET IN TOUCH</p>
-                <div class="adressbox ">
-                    <p class="fs-6">500 Terry Francois Street San Francisco, CA 94158</p>
-                    <p class="fs-6" style="margin-left:5%">mednotes@gmail.com</p>
-                    <p class="fs-6" style=" margin-left:7% ">+383456789</p>
+                <div class="col contactUs-text">
+                    <p class="fs-1 title">GET IN TOUCH</p>
+                    <div class="adressbox ">
+                        <p class="fs-6">500 Terry Francois Street San Francisco, CA 94158</p>
+                        <p class="fs-6" style="margin-left:5%">mednotes@gmail.com</p>
+                        <p class="fs-6" style=" margin-left:7% ">+383456789</p>
+                    </div>
                 </div>
+                <div class="col">
+                    <p class="fs-1 title">SEND US A FEEDBACK!</p>
+                    <div class="  text-dark bg-light mb-3" style="max-width: 18rem;">
+                        <textarea class="card-body comment" type="text" placeholder="Comment..."></textarea>
+                    </div>
+                    <button type="button" class="btn btn-outline-secondary" style="color: white; border-color: white;">Submit</button>
+                </div>
+
+
             </div>
-            <div class="col">
-                <p class="fs-1 title">SEND US A FEEDBACK!</p>
-                <div class="  text-dark bg-light mb-3" style="max-width: 18rem;">
-                    <textarea class="card-body comment" type="text" placeholder="Comment..."></textarea>
+
+            <div id="map"></div>
+
+        </section>
+
+        <footer class="footer-dark ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-sm-6 col-md-3 item ">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="# ">Chat with Doctors</a></li>
+                            <li><a href="# ">Add Appointments</a></li>
+                            <li><a href="# ">Find your Doctor</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item ">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="# ">Clinic</a></li>
+                            <li><a href="# ">Staff</a></li>
+                            <li><a href="# ">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text ">
+                        <h3>MedNotes</h3>
+                        <p id="emailiKlinikes "></p>
+                        <p id="telefoniKlinikes "></p>
+                        <p id="adresaKlinikes "></p>
+                        <p id="nrPartKlinikes "></p>
+                    </div>
+                    <div class="col item social "><a href="# "><i class="icon ion-social-facebook "></i></a><a href="# "><i class="icon ion-social-twitter "></i></a><a href="# "><i class="icon ion-social-snapchat "></i></a><a href="# "><i class="icon ion-social-instagram "></i></a></div>
                 </div>
-                <button type="button" class="btn btn-outline-secondary" style="color: white; border-color: white;">Submit</button>
+                <p class="copyright ">MedNotes © 2021</p>
             </div>
+            <script src="assets/js/jquery.min.js "></script>
+            <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+
+        </footer>
 
 
-        </div>
-
-        <div id="map"></div>
-
-    </section>
-
-    <footer class="footer-dark ">
-        <div class="container ">
-            <div class="row ">
-                <div class="col-sm-6 col-md-3 item ">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="# ">Chat with Doctors</a></li>
-                        <li><a href="# ">Add Appointments</a></li>
-                        <li><a href="# ">Find your Doctor</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-md-3 item ">
-                    <h3>About</h3>
-                    <ul>
-                        <li><a href="# ">Clinic</a></li>
-                        <li><a href="# ">Staff</a></li>
-                        <li><a href="# ">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 item text ">
-                    <h3>MedNotes</h3>
-                    <p id="emailiKlinikes "></p>
-                    <p id="telefoniKlinikes "></p>
-                    <p id="adresaKlinikes "></p>
-                    <p id="nrPartKlinikes "></p>
-                </div>
-                <div class="col item social "><a href="# "><i class="icon ion-social-facebook "></i></a><a href="# "><i class="icon ion-social-twitter "></i></a><a href="# "><i class="icon ion-social-snapchat "></i></a><a href="# "><i class="icon ion-social-instagram "></i></a></div>
-            </div>
-            <p class="copyright ">MedNotes © 2021</p>
-        </div>
-        <script src="assets/js/jquery.min.js "></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js "></script>
-
-    </footer>
-
-
-    <script>
-        function initMap() {
-            //42.661911567240736, 21.162545989865308
-            const iconURL = 'https://www.cp-desk.com/wp-content/uploads/2019/02/map-marker-free-download-png.png';
-            const icon = {
-                url: iconURL,
-                scaledSize: new google.maps.Size(100, 100)
-            };
-            const sheshi = {
-                lat: 42.661911567240736,
-                lng: 21.162545989865308
-            }
-
-            let infowindow = new google.maps.InfoWindow();
-
-            let marker, i;
-
-            const locations = [{
-                    countryCode: 'Location 1',
+        <script>
+            function initMap() {
+                //42.661911567240736, 21.162545989865308
+                const iconURL = 'https://www.cp-desk.com/wp-content/uploads/2019/02/map-marker-free-download-png.png';
+                const icon = {
+                    url: iconURL,
+                    scaledSize: new google.maps.Size(100, 100)
+                };
+                const sheshi = {
                     lat: 42.661911567240736,
                     lng: 21.162545989865308
-                }, {
-                    countryCode: 'Location 2',
-                    lat: 42.66485881531764,
-                    lng: 21.16863263444342
-                }, {
-                    countryCode: 'Location 3',
-                    lat: 42.65334140463899,
-                    lng: 21.14679976831176
-                },
+                }
 
-            ]
-            const map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 19,
-                center: sheshi,
+                let infowindow = new google.maps.InfoWindow();
 
-            })
+                let marker, i;
 
-            for (i = 0; i < locations.length; i++) {
+                const locations = [{
+                        countryCode: 'Location 1',
+                        lat: 42.661911567240736,
+                        lng: 21.162545989865308
+                    }, {
+                        countryCode: 'Location 2',
+                        lat: 42.66485881531764,
+                        lng: 21.16863263444342
+                    }, {
+                        countryCode: 'Location 3',
+                        lat: 42.65334140463899,
+                        lng: 21.14679976831176
+                    },
 
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(locations[i]['lat'], locations[i]['lng']),
-                    map: map,
-                });
-                google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                        infowindow.setContent(locations[i]['label']);
-                        infowindow.open(map, marker);
-                    }
-                })(marker, i));
-            }
+                ]
+                const map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 19,
+                    center: sheshi,
+
+                })
+
+                for (i = 0; i < locations.length; i++) {
+
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(locations[i]['lat'], locations[i]['lng']),
+                        map: map,
+                    });
+                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                        return function() {
+                            infowindow.setContent(locations[i]['label']);
+                            infowindow.open(map, marker);
+                        }
+                    })(marker, i));
+                }
 
         }
     </script>
@@ -724,6 +780,9 @@
         window.onload = getDocCards();
         window.onload = faqjaEPersonalizuar();
     </script>
+            }
+  
+       
 </body>
 
 </html>
