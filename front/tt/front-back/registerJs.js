@@ -95,10 +95,15 @@ $("#submit2").click(function(event) {
                    if(e == null){
                        if(res.mesazhi == "Roli:1"){
                           localStorage.setItem('doctor', JSON.stringify(res.data))
+                          localStorage.setItem("persoanlDoc" ,res.data.personalNumber);
+                          var le = localStorage.getItem("persoanlDoc");
                            alert("You are a doctor");
                        }else if(res.mesazhi == "Roli:2"){
                        localStorage.setItem('patient', JSON.stringify(res.data))
-                        alert("You are a patient");
+                       localStorage.setItem("persoanlPat" ,res.data.personalNumber);
+                       // var le = localStorage.getItem("persoanlPat");
+                       // alert("You are a patient "+le);
+                       window.location.href="patient.html";
                        }
                 
                     }

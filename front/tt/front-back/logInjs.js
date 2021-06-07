@@ -30,9 +30,15 @@ $("#submit").click(function(event) {
                    // localStorage.setItem('admin')
                    if(e == null){
                        if(res.mesazhi == "Roli:1"){
-                           alert("You are a doctor");
+                           localStorage.setItem("persoanlDoc" ,res.data.personalNumber);
+                            var le = localStorage.getItem("persoanlDoc");
+                           alert("You are a doctor "+le);
                        }else if(res.mesazhi == "Roli:2"){
-                        alert("You are a patient");
+                       localStorage.setItem("persoanlPat" ,res.data.personalNumber);
+                       // var le = localStorage.getItem("persoanlPat");
+                       // alert("You are a patient "+le);
+                       window.location.href="patient.html";
+
                        }else{
                     console.log(res.data);
                     window.location.href="admin.html";
