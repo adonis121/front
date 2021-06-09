@@ -28,9 +28,10 @@
 
                 <div class="sidebar-nav list-group">
                     <a class="navbar-brand" href="#" style="font-size:1.5rem;color: white;background-color: cornflowerblue;color: white;    margin-bottom: 15%;"><img src="assets/img/MedNotesLogo.png" style="width: 2.5rem;">MedNotes</a>
+                    <a class="navbar-brand"  style="font-size:1rem;color: white;background-color: cornflowerblue;color: white;" id="nrPersonal">Doctor:</a>
 
                     <a class="border-primary list-group-item list-group-item-action " data-toggle="list" href="#list-appointment"><i class="far fa-calendar-check"style="margin-right:3% ;"></i>Appointments</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-chat"><i class="fas fa-comments"style="margin-right:3% ;"></i>Chat</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-chat" id="shfaqBisedat"><i class="fas fa-comments"style="margin-right:3% ;"></i>Chat</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-advice"><i class="far fa-edit"style="margin-right:3% ;"></i>Advice</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-profile"><i class="far fa-address-card" style="margin-right:3% ;"></i>Profile</a>
 
@@ -102,9 +103,9 @@
                                                         </div>
 
                                                         <!--------------------------Lista e chat-------------------------->
-                                                        <div class="users list-group">
+                                                        <div id ="hapsiraListes" class="users list-group">
 
-                                                            <div class="person list-group-item list-group-item-action" data-toggle="list" href="#chat-tabela" style="background-color:white!important ;color: darkslategray;">
+                                                           <!--- <div class="person list-group-item list-group-item-action" data-toggle="list" href="#chat-tabela" style="background-color:white!important ;color: darkslategray;">
                                                                 <div class="user">
                                                                     <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin">
 
@@ -112,6 +113,7 @@
                                                                 <p class="name-time">
                                                                     <span class="name">Steve Bangalter</span>
                                                                 </p>
+
                                                             </div>
 
 
@@ -125,6 +127,7 @@
                                                                     <span class="name">Steve Bangalter</span>
                                                                 </p>
                                                             </div>
+                                                            --->
 
 
 
@@ -134,10 +137,11 @@
                                                 <!--Perfndon lista e chat-->
                                                 <!--Chat -->
                                                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9 tab-pane fade " id="chat-tabela" class="" role="tabpanel">
-                                                    <div class="selected-user">
-                                                        <span>To: <span class="name">Emily Russell</span></span>
-                                                    </div>
-                                                    <div class="chat-container">
+                                                    <div class="selected-user" id="bisedaShaqet">
+                                                        
+                                                      <!--- <span>To: <span class="name">Emily Russell</span></span>
+                                                       </div>
+                                                        <div class="chat-container">
                                                         <ul class="chat-box chatContainerScroll">
                                                             <li class="chat-left">
                                                                 <div class="chat-avatar">
@@ -205,9 +209,10 @@
                                                                   </div>
                                                                 </div>
                                                               </form>
-                                                      
+                                                       ---> 
 
                                                     </div>
+                                                       
                                                 </div>
                                                 <!--Perfundon Chat-->
                                             </div>
@@ -273,6 +278,12 @@
         </div>
         <script src="assets/js/jquery.min.js "></script>
         <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+        <script src="front-back/doctorJs.js"></script>
+        <script>
+            window.onload = nrMjekut();
+        
+        </script>
+                }
 
     </footer>
 

@@ -31,7 +31,8 @@ $("#submit").click(function(event) {
                    if(e == null){
                        if(res.mesazhi == "Roli:1"){
                            localStorage.setItem("persoanlDoc" ,res.data.personalNumber);
-                            var le = localStorage.getItem("persoanlDoc");
+                          //  var le = localStorage.getItem("persoanlDoc");
+                          window.location.href="doctor.html";
                            alert("You are a doctor "+le);
                        }else if(res.mesazhi == "Roli:2"){
                        localStorage.setItem("persoanlPat" ,res.data.personalNumber);

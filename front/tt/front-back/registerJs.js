@@ -96,8 +96,10 @@ $("#submit2").click(function(event) {
                        if(res.mesazhi == "Roli:1"){
                           localStorage.setItem('doctor', JSON.stringify(res.data))
                           localStorage.setItem("persoanlDoc" ,res.data.personalNumber);
-                          var le = localStorage.getItem("persoanlDoc");
-                           alert("You are a doctor");
+
+                        //  var le = localStorage.getItem("persoanlDoc");
+                        //   alert("You are a doctor");
+                           window.location.href="doctor.html";
                        }else if(res.mesazhi == "Roli:2"){
                        localStorage.setItem('patient', JSON.stringify(res.data))
                        localStorage.setItem("persoanlPat" ,res.data.personalNumber);
