@@ -4,7 +4,7 @@ function nrMjekut(){
 }
 
 $("#shfaqBisedat").click(function(event){
-    $("#hapsiraListes").empty();
+   //$("#hapsiraListes").empty();
     var docNumber = localStorage.getItem("persoanlDoc");
     $.ajax({
         type: "GET",
@@ -66,7 +66,7 @@ $(document).on('click', '.bvepVallai', function(event){
                  });
                  $("#fjalttt").append('<div class="selected-user" id="bisedaShaqet2"></div><form onsubmit="return false" action="#" class="bg-light form-group mt-3 mb-0" "><div class="input-group ">'
                  +'<input type="text " placeholder="Type a message " id="fjaliabisedess" aria-describedby="button-addon2 " class="form-control rounded-0 border-0 py-4 bg-light ">'
-                 +'<div class="input-group-append "><button id="button-addon2" type="submit " class="btn btn-link "> <i class="fa fa-paper-plane "></i></button></div></div></form>');
+                 +'<div class="input-group-append "><button type="button" class="btn btn-outline-secondary btn-sm" id="butoniDeleteee" style="margin-left: 60%;">Delete Chat</button><button id="button-addon2" type="submit " class="btn btn-link "> <i class="fa fa-paper-plane "></i></button></div></div></form>');
             } else {
                 $("#bisedaShaqet").append(result.errori);
             }
@@ -76,10 +76,6 @@ $(document).on('click', '.bvepVallai', function(event){
         }
     })
 });
-
-
-
-
 
 
 $(document).on('click', '#button-addon2', function(event){
@@ -103,7 +99,7 @@ if(fjaliaBisedes != ""){
              //var emriPac = document.getElementById("emriPacientit").textContent;
              //var mbriemriPac = document.getElementById("mbiemriP").textContent;
             
-                $.each(y, function(i, item) {
+              
                     
                   
                         $("#bisedaShaqet2").append(' <li class="chat-right"><div class="chat-text">'+fjaliaBisedes+'</div>'
@@ -111,7 +107,7 @@ if(fjaliaBisedes != ""){
                 
 
                    
-                 });
+                
                    } else {
                 $("#bisedaShaqet").append(result.errori);
             }
@@ -125,3 +121,26 @@ if(fjaliaBisedes != ""){
        alert("Please write a message!");       
 }
 });
+
+$(document).on('click', '#butoniDeleteee', function(event){
+    // alert("diqka1");
+    var patNumber = localStorage.getItem("persoanlPat");
+    var docNumber = localStorage.getItem("butoniPerPat");
+    $.ajax({
+        url: "http://localhost:8000/api/conversationManagement/deleteConvPat/"+docNumber+"/"+patNumber,
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(res) {
+           
+            alert("U fshi!");   
+            window.location.reload();                   
+                }
+    ,
+        error: function(error) {
+            console.log(error);
+               
+        }
+    
+    })
+  });
