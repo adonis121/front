@@ -2,7 +2,7 @@ $("#getDepartments").click(function(event) {
     $('#getResultDiv').empty();
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/getAllDep",
+        url: "http://localhost:8090/api/systemManagement/admin/getAllDep",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -37,7 +37,7 @@ $("#getDoctor").click(function(event) {
     $('#getResultDiv').append('<h4 style="color:#a9a9a9">List of Doctors:</h4>');
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/getAllDoctors",
+        url: "http://localhost:8090/api/systemManagement/admin/getAllDoctors",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -71,7 +71,7 @@ $("#getPatients").click(function(event) {
     $('#getResultDiv').append('<h4 style="color:#a9a9a9"> List of Patients: </h4>');
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/getAllPatient",
+        url: "http://localhost:8090/api/systemManagement/admin/getAllPatient",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -125,7 +125,7 @@ $("#addDep").click(function(event) {
     console.log(addDepartment2);
     // goToDashboard2();
     $.ajax({
-        url: "http://localhost:8080/api/systemManagement/admin/addDepartmentt",
+        url: "http://localhost:8090/api/systemManagement/admin/addDepartmentt",
         type: 'POST',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -173,7 +173,7 @@ $("#editDep").click(function(event) {
 
     // goToDashboard2();
     $.ajax({
-        url: "http://localhost:8080/api/systemManagement/admin/editDep/" + depName + "/" + numberOfRooms,
+        url: "http://localhost:8090/api/systemManagement/admin/editDep/" + depName + "/" + numberOfRooms,
         type: 'POST',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -217,7 +217,7 @@ $("#deleteDepartment").click(function(event) {
     var inputi = document.getElementById("departmentsName").value;
     console.log(inputi);
     $.ajax({
-        url: "http://localhost:8080/api/systemManagement/admin/deleteDep/" + inputi,
+        url: "http://localhost:8090/api/systemManagement/admin/deleteDep/" + inputi,
         type: 'post',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -253,7 +253,7 @@ $("#kompletMjeket").click(function(event) {
     $('#list-profile').append('<h4 style="color:#a9a9a9">List of Doctors:</h4>');
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/getAllDoctors",
+        url: "http://localhost:8090/api/systemManagement/admin/getAllDoctors",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -300,7 +300,7 @@ $("#shtoReklama").click(function(event) {
     console.log(aPath);
 
     $.ajax({
-        url: "http://localhost:8080/api/systemManagement/admin/addAdvert/" + advertName + "/" + aPath,
+        url: "http://localhost:8090/api/systemManagement/admin/addAdvert/" + advertName + "/" + aPath,
         type: 'POST',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -343,7 +343,7 @@ $("#deleteReklamen").click(function(event) {
     var advertName = document.getElementById("fshijeAdvertin").value;
     console.log(advertName);
     $.ajax({
-        url: "http://localhost:8080/api/systemManagement/admin/deleteDep/" + advertName,
+        url: "http://localhost:8090/api/systemManagement/admin/deleteDep/" + advertName,
         type: 'post',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -399,7 +399,7 @@ $("#editKliniken").click(function(event) {
         var partners = document.getElementById("enterNumrinPartners").value;
 
         $.ajax({
-            url: "http://localhost:8080/api/systemManagement/admin/addClinicInfor/" + adresa + "/" + nrTel + "/" + emaili + "/" + partners,
+            url: "http://localhost:8090/api/systemManagement/admin/addClinicInfor/" + adresa + "/" + nrTel + "/" + emaili + "/" + partners,
             type: 'POST',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -434,7 +434,7 @@ $("#infotKlinikes").click(function(event) {
     $('#hapsiraInfoKlinikes').empty();
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/getClinic",
+        url: "http://localhost:8090/api/systemManagement/admin/getClinic",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -469,7 +469,7 @@ $("#infotKlinikes").click(function(event) {
 function footeriMedNotes() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/getClinic",
+        url: "http://localhost:8090/api/systemManagement/admin/getClinic",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -504,7 +504,7 @@ $("#fshijUserin").click(function(event) {
         event.preventDefault();
 
         $.ajax({
-            url: "http://localhost:8080/api/systemManagement/admin/deleteUser/" + personalNumber,
+            url: "http://localhost:8090/api/systemManagement/admin/deleteUser/" + personalNumber,
             type: 'POST',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -540,7 +540,7 @@ $("#fshijUserin").click(function(event) {
 function getTotalDep() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/totalNumberOfDep",
+        url: "http://localhost:8090/api/systemManagement/admin/totalNumberOfDep",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -570,7 +570,7 @@ function getTotalDep() {
 function getTotalUser() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/totalNumberOfUser",
+        url: "http://localhost:8090/api/systemManagement/admin/totalNumberOfUser",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -600,7 +600,7 @@ function getTotalUser() {
 function getTotalDoc() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/totalNumberOfDoc",
+        url: "http://localhost:8090/api/systemManagement/admin/totalNumberOfDoc",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -630,7 +630,7 @@ function getTotalDoc() {
 function getTotalPac() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/totalNumberOfPat",
+        url: "http://localhost:8090/api/systemManagement/admin/totalNumberOfPat",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -664,7 +664,7 @@ $("#listaPacientvee").click(function(event) {
     $('#list-messages').append('<h4 style="color:#a9a9a9">List of Patients:</h4>');
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/getAllPatient",
+        url: "http://localhost:8090/api/systemManagement/admin/getAllPatient",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {

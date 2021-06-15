@@ -85,7 +85,7 @@ $("#submit2").click(function(event) {
     validate();
     event.preventDefault();
     $.ajax({
-        url: "http://localhost:8080/api/systemManagement/registerUser",
+        url: "http://localhost:8090/api/systemManagement/registerUser",
         type: 'post',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -129,7 +129,7 @@ $("#submit2").click(function(event) {
 function footeriMedNotes(){
     $.ajax({
       type : "GET",
-      url :  "http://localhost:8080/api/systemManagement/admin/getClinic",
+      url :  "http://localhost:8090/api/systemManagement/admin/getClinic",
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: function(result){

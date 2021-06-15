@@ -19,7 +19,7 @@ $("#submit").click(function(event) {
     
     if(email !="" && password != ""){
     $.ajax({
-        url: "http://localhost:8080/api/systemManagement/login/"+email+"/"+password,
+        url: "http://localhost:8090/api/systemManagement/login/"+email+"/"+password,
         type: 'post',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -70,7 +70,7 @@ $("#submit").click(function(event) {
 function footeriMedNotes(){
     $.ajax({
       type : "GET",
-      url :  "http://localhost:8080/api/systemManagement/admin/getClinic",
+      url :  "http://localhost:8090/api/systemManagement/admin/getClinic",
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: function(result){

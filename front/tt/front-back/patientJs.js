@@ -5,7 +5,7 @@ function getDocCards() {
     
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/getAllDoctors",
+        url: "http://localhost:8090/api/systemManagement/admin/getAllDoctors",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -247,7 +247,7 @@ $(document).on('click', '#dergoMesazhin', function(event) {
 function shfaqDepartametet(){
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/systemManagement/admin/getAllDep",
+        url: "http://localhost:8090/api/systemManagement/admin/getAllDep",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -272,7 +272,7 @@ $(document).on('click', '#shfaqMjektNdep', function(event) {
     var depNumber =  $(this).text();
     
     $.ajax({
-        url: "http://localhost:8080/api/systemManagement/patient/getDoctortByDep/"+depNumber,
+        url: "http://localhost:8090/api/systemManagement/patient/getDoctortByDep/"+depNumber,
         type: 'GET',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
