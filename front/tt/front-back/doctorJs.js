@@ -143,4 +143,4 @@ $(document).on('click', '#butoniDeleteee', function(event){
         }
     
     })
-  });
+});

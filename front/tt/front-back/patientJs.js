@@ -242,3 +242,64 @@ $(document).on('click', '#dergoMesazhin', function(event) {
         })
     
     });
+
+
+function shfaqDepartametet(){
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/api/systemManagement/admin/getAllDep",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+            
+            var y = result.data;
+            if (y != null) {
+                $.each(y, function(i, item) {
+                   $("#depatamentet").append('<div class="col " style="flex: 1 0 15%;padding: 2px; margin:2px;"><button id = "shfaqMjektNdep" style="width:100px; color:rgb(82, 80, 80)">'+item.depId+'</button><p class="fs-3 " style="font-size:20px;"><img src="assets/img/hsrooms.jpg " class="img-fluid " style="border-radius: 50%;width:30px; height: 30px; " alt="...">'+item.depName+'</p></div>');
+                 });
+            } else {
+              alert(result.errori)
+            }
+        },
+        error: function(e) {
+            console.log("ERROR: ", e);
+        }
+    })
+}
+
+
+$(document).on('click', '#shfaqMjektNdep', function(event) {
+    var depNumber =  $(this).text();
+    
+    $.ajax({
+        url: "http://localhost:8080/api/systemManagement/patient/getDoctortByDep/"+depNumber,
+        type: 'GET',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(res) {
+                   
+                   var e = res.errori;
+                   var m
+                   // localStorage.setItem('admin')
+                   if(e == null){
+                       var y = res.data;
+                       
+
+                    $.each(y, function(i, item) {
+                        $("#convList").append('<li><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_02.jpg" alt=""><div><h2>'+item.doctorName+' '+item.doctorSurname+'</h2></div></li>');
+                        console.log(res.data.conversationDes);
+    
+                      });
+                      
+                   }else{
+                    $("#convList").append(e);
+                   }
+                }
+    ,
+        error: function(error) {
+            console.log(error);
+               
+        }
+    })
+});
+
