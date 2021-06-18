@@ -18,15 +18,8 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="extraCss/doctorCss.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(function() {
-            $("#datepicker").datepicker();
-        });
-    </script>
+    <script src = "front-back/doctorJs.js"></script>
+
 </head>
 
 <body>
@@ -36,9 +29,9 @@
 
                 <div class="sidebar-nav list-group">
                     <a class="navbar-brand" href="#" style="font-size:1.5rem;color: white;background-color: cornflowerblue;color: white;    margin-bottom: 15%;"><img src="assets/img/MedNotesLogo.png" style="width: 2.5rem;">MedNotes</a>
-                    <a class="navbar-brand" style="font-size:1rem;color: white;background-color: cornflowerblue;color: white;" id="nrPersonal">Doctor:</a>
+                    <a class="navbar-brand"  style="font-size:1rem;color: white;background-color: cornflowerblue;color: white;" id="nrPersonal">Doctor:</a>
 
-                    <a class="border-primary list-group-item list-group-item-action " id="veqFshij" data-toggle="list" href="#list-appointment"><i class="far fa-calendar-check"style="margin-right:3% ;"></i>Appointments</a>
+                    <a class="border-primary list-group-item list-group-item-action " data-toggle="list" href="#list-appointment"><i class="far fa-calendar-check"style="margin-right:3% ;"></i>Appointments</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-chat" id="shfaqBisedat"><i class="fas fa-comments"style="margin-right:3% ;"></i>Chat</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-advice"><i class="far fa-edit"style="margin-right:3% ;"></i>Advice</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-profile"><i class="far fa-address-card" style="margin-right:3% ;"></i>Profile</a>
@@ -67,109 +60,72 @@
                 <div id="page-content-wrapper" style="height:auto; ">
 
                     <div id="list-appointment" class="tab-pane fade  " role="tabpanel">
-                        <div class="row">
-                            <div class="col">
-                                <p>Date: <input type="text" id="datepicker"></p>
-
-                            </div>
-                            <div class="col">
-                                <h5>Pick the free time slots:</h5>
-
-                                <div class="col   overflow-hidden">
-                                    <div class="row row-cols-2">
-                                        <div class="col time" style="margin-top: 5%;"> <button type="button" class="btn btn-outline-primary" id="oraTerminit"> 8:00 </button></div>
-                                        <div class="col time" style="margin-top: 5%;"> <button type=" button " class="btn btn-outline-primary " id="oraTerminit" > 9:00 </button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">10:00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">11:00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">12:00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">13:00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">14:00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">15:00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">16:00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">17:00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">18:00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">19:00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">20:00</button></div>
 
 
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col ">
-                            <button type="button " class="btn btn-dark " id="shtoTermin">Add an appointment</button>
-                            <button type="button " class="btn btn-outline-secondary ">Cancel an appointment</button>
-                            <button type="button " class="btn btn-outline-secondary " id="terminetMjeku">Get All Appointments</button>
-                        </div>
-                        <div id ="krejtTerminet"></div>
-
-
+                        <p>text</p>
 
                     </div>
-                    <div id="list-chat " class="tab-pane fade " role="tabpanel ">
-                        <div class="container-fluid ">
-                            <div class="page-title ">
-                                <div class="row gutters ">
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
-                                        <h5 class="title ">Chat </h5>
+                    <div id="list-chat" class="tab-pane fade " role="tabpanel">
+                        <div class="container-fluid">
+                            <div class="page-title">
+                                <div class="row gutters">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <h5 class="title">Chat </h5>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 "> </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12"> </div>
                                 </div>
                             </div>
                             <!-- Page header end -->
 
                             <!-- Content wrapper start -->
-                            <div class="content-wrapper ">
+                            <div class="content-wrapper">
 
                                 <!-- Row start -->
-                                <div class="row gutters ">
+                                <div class="row gutters">
 
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-                                        <div class="card m-0 ">
+                                        <div class="card m-0">
 
                                             <!-- Row start -->
 
-                                            <div class="row no-gutters ">
-                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3 ">
-                                                    <div class="users-container ">
-                                                        <div class="chat-search-box ">
-                                                            <div class="input-group ">
-                                                                <input class="form-control " placeholder="Search ">
-                                                                <div class="input-group-btn ">
-                                                                    <button type="button " class="btn btn-info ">
-                                                                    <i class="fa fa-search "></i>
+                                            <div class="row no-gutters">
+                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
+                                                    <div class="users-container">
+                                                        <div class="chat-search-box">
+                                                            <div class="input-group">
+                                                                <input class="form-control" placeholder="Search">
+                                                                <div class="input-group-btn">
+                                                                    <button type="button" class="btn btn-info">
+                                                                    <i class="fa fa-search"></i>
                                                                 </button>
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <!--------------------------Lista e chat-------------------------->
-                                                        <div id="hapsiraListes " class="users list-group ">
+                                                        <div id ="hapsiraListes" class="users list-group">
 
-                                                            <!--- <div class="person list-group-item list-group-item-action " data-toggle="list " href="#chat-tabela " style="background-color:white!important ;color: darkslategray; ">
-                                                                <div class="user ">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png " alt="Retail Admin ">
+                                                           <!--- <div class="person list-group-item list-group-item-action" data-toggle="list" href="#chat-tabela" style="background-color:white!important ;color: darkslategray;">
+                                                                <div class="user">
+                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin">
 
                                                                 </div>
-                                                                <p class="name-time ">
-                                                                    <span class="name ">Steve Bangalter</span>
+                                                                <p class="name-time">
+                                                                    <span class="name">Steve Bangalter</span>
                                                                 </p>
 
                                                             </div>
 
 
-                                                            <div class="person list-group-item list-group-item-action " data-toggle="list " href="#chat-tabela " style="background-color:white!important ;color: darkslategray; ">
-                                                                <div class="user ">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar1.png " alt="Retail Admin ">
+                                                            <div class="person list-group-item list-group-item-action" data-toggle="list" href="#chat-tabela" style="background-color:white!important ;color: darkslategray;">
+                                                                <div class="user">
+                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar1.png" alt="Retail Admin">
 
                                                                 </div>
 
-                                                                <p class="name-time ">
-                                                                    <span class="name ">Steve Bangalter</span>
+                                                                <p class="name-time">
+                                                                    <span class="name">Steve Bangalter</span>
                                                                 </p>
                                                             </div>
                                                             --->
@@ -181,83 +137,83 @@
                                                 </div>
                                                 <!--Perfndon lista e chat-->
                                                 <!--Chat -->
-                                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9 tab-pane fade " id="chat-tabela " class=" " role="tabpanel ">
-                                                    <div class="selected-user " id="bisedaShaqet ">
-
-                                                        <!--- <span>To: <span class="name ">Emily Russell</span></span>
+                                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9 tab-pane fade " id="chat-tabela" class="" role="tabpanel">
+                                                    <div class="selected-user" id="bisedaShaqet">
+                                                        
+                                                      <!--- <span>To: <span class="name">Emily Russell</span></span>
                                                        </div>
-                                                        <div class="chat-container ">
-                                                        <ul class="chat-box chatContainerScroll ">
-                                                            <li class="chat-left ">
-                                                                <div class="chat-avatar ">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png " alt="Retail Admin ">
-                                                                    <div class="chat-name ">Russell</div>
+                                                        <div class="chat-container">
+                                                        <ul class="chat-box chatContainerScroll">
+                                                            <li class="chat-left">
+                                                                <div class="chat-avatar">
+                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin">
+                                                                    <div class="chat-name">Russell</div>
                                                                 </div>
-                                                                <div class="chat-text ">Hello, I'm Russell.
+                                                                <div class="chat-text">Hello, I'm Russell.
                                                                     <br>How can I help you today?</div>
                                                             </li>
-                                                            <li class="chat-right ">
-                                                                <div class="chat-text ">Hi, Russell
+                                                            <li class="chat-right">
+                                                                <div class="chat-text">Hi, Russell
                                                                     <br> I need more information about Developer Plan.</div>
-                                                                <div class="chat-avatar ">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png " alt="Retail Admin ">
-                                                                    <div class="chat-name ">Sam</div>
+                                                                <div class="chat-avatar">
+                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin">
+                                                                    <div class="chat-name">Sam</div>
                                                                 </div>
                                                             </li>
-                                                            <li class="chat-left ">
-                                                                <div class="chat-avatar ">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png " alt="Retail Admin ">
-                                                                    <div class="chat-name ">Russell</div>
+                                                            <li class="chat-left">
+                                                                <div class="chat-avatar">
+                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin">
+                                                                    <div class="chat-name">Russell</div>
                                                                 </div>
-                                                                <div class="chat-text ">Are we meeting today?
+                                                                <div class="chat-text">Are we meeting today?
                                                                     <br>Project has been already finished and I have results to show you.</div>
                                                             </li>
-                                                            <li class="chat-right ">
-                                                                <div class="chat-text ">Well I am not sure.
+                                                            <li class="chat-right">
+                                                                <div class="chat-text">Well I am not sure.
                                                                     <br>I have results to show you.</div>
-                                                                <div class="chat-avatar ">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar5.png " alt="Retail Admin ">
-                                                                    <div class="chat-name ">Joyse</div>
+                                                                <div class="chat-avatar">
+                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar5.png" alt="Retail Admin">
+                                                                    <div class="chat-name">Joyse</div>
                                                                 </div>
                                                             </li>
-                                                            <li class="chat-left ">
-                                                                <div class="chat-avatar ">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png " alt="Retail Admin ">
-                                                                    <div class="chat-name ">Russell</div>
+                                                            <li class="chat-left">
+                                                                <div class="chat-avatar">
+                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin">
+                                                                    <div class="chat-name">Russell</div>
                                                                 </div>
-                                                                <div class="chat-text ">The rest of the team is not here yet.
+                                                                <div class="chat-text">The rest of the team is not here yet.
                                                                     <br>Maybe in an hour or so?</div>
                                                             </li>
-                                                            <li class="chat-right ">
-                                                                <div class="chat-text ">Have you faced any problems at the last phase of the project?</div>
-                                                                <div class="chat-avatar ">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar4.png " alt="Retail Admin ">
-                                                                    <div class="chat-name ">Jin</div>
+                                                            <li class="chat-right">
+                                                                <div class="chat-text">Have you faced any problems at the last phase of the project?</div>
+                                                                <div class="chat-avatar">
+                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar4.png" alt="Retail Admin">
+                                                                    <div class="chat-name">Jin</div>
                                                                 </div>
                                                             </li>
-                                                            <li class="chat-left ">
-                                                                <div class="chat-avatar ">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png " alt="Retail Admin ">
-                                                                    <div class="chat-name ">Russell</div>
+                                                            <li class="chat-left">
+                                                                <div class="chat-avatar">
+                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin">
+                                                                    <div class="chat-name">Russell</div>
                                                                 </div>
-                                                                <div class="chat-text ">Actually everything was fine.
+                                                                <div class="chat-text">Actually everything was fine.
                                                                     <br>I'm very excited to show this to our team.</div>
                                                             </li>
                                                         </ul>
 
 
-                                                        <form onsubmit="return false " action="# " class="bg-light form-group mt-3 mb-0 " ">
-                                            <div class="input-group ">
-                                                <input type="text " placeholder="Type a message " aria-describedby="button-addon2 " class="form-control rounded-0 border-0 py-4 bg-light ">
-                                                <div class="input-group-append ">
-                                                    <button id="button-addon2 " type="submit " class="btn btn-link "> <i class="fa fa-paper-plane "></i></button>
-                                                </div>
-                                            </div>
-                                            </form>
-                                            --->
+                                                        <form onsubmit="return false" action="#" class="bg-light form-group mt-3 mb-0" ">
+                                                                <div class="input-group ">
+                                                                  <input type="text " placeholder="Type a message " aria-describedby="button-addon2 " class="form-control rounded-0 border-0 py-4 bg-light ">
+                                                                  <div class="input-group-append ">
+                                                                    <button id="button-addon2 " type="submit " class="btn btn-link "> <i class="fa fa-paper-plane "></i></button>
+                                                                  </div>
+                                                                </div>
+                                                              </form>
+                                                       ---> 
 
                                                     </div>
-
+                                                       
                                                 </div>
                                                 <!--Perfundon Chat-->
                                             </div>
@@ -268,31 +224,49 @@
 
                                 </div>
                                 <!-- Row end -->
-
+                            
                             </div>
                         </div>
-
+                        
                     </div>
                     <div id="list-advice" class="tab-pane fade " role="tabpanel ">
                         <div class="first">
-                            <h2 class="advice">Advice </h2>
-                        </div>
-                        <div class="second">
-                            <input type="text" id="titulli" placeholder="Title" name="search" color="blue">
-                        </div>
-                        <div class="third">
-                            <textarea id="subject" name="subject" placeholder="Write an advice.." style="height:200px  ;"></textarea>
-                        </div>
-                        <input type="submit" id="add" value="ADD">
+                        <h2 class="advice">Advice </h2>
+                    </div>
+                    <div class="second">
+                        <input type="text" id="titulli" placeholder="Title" name="search" color="blue">
+                        <div class="error" id="titulliErr"></div>
+                    </div>
+                    <div class="third">
+                        <textarea id="subject" name="subject" placeholder="Write an advice.." style="height:200px  ;"></textarea>
+                        <div class="error" id="subjectErr"></div>
+                    </div>
+                    <input class="btn" id="add" type="submit" name="submitbtn" onclick="noDataAdd()" value="Add" />
 
                     </div>
+                    
                     <div id="list-profile" class="tab-pane fade " role="tabpanel ">
+                        <div class="profile">
+                          
+                            <h2 style="margin-left: 140px;">Edit Profile</h2>
+                    
+                            <label for="fname"><i class="fa fa-user"></i> Degree</label>
+                            <input type="text" id="degree" name="firstname" placeholder="Name">
+                          
+                            <label for="fname"><i class="fa fa-user"></i>Specializimi</label>
+                            <input type="text" id="special" name="firstname" placeholder="Specializimi">
+                            <input class="btn" id="edit" type="submit" name="submitbtn" onclick="noDataEdit()" value="Edit" />
+
+                        
+                           
+
+                        
 
 
-                        <p>text</p>
+                        </div>
 
                     </div>
-
+                    
                 </div>
             </div>
         </div>
@@ -329,11 +303,14 @@
             </div>
             <p class="copyright ">MedNotes © 2021</p>
         </div>
+        <script src="assets/js/jquery.min.js "></script>
         <script src="assets/bootstrap/js/bootstrap.min.js "></script>
         <script src="front-back/doctorJs.js"></script>
         <script>
             window.onload = nrMjekut();
+        
         </script>
+                }
 
     </footer>
 
