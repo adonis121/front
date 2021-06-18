@@ -856,32 +856,39 @@ ul {
     box-shadow: none;
 }
 
-.advice {
+.advice{
     padding-top: 0%;
 }
 
-#add {
+#add{
     width: 60%;
-    color: white;
+    color:white; 
     margin-left: 25%;
-    background-color: cornflowerblue;
+    background-color:  cornflowerblue;
     border-radius: 10px;
-    border: 3px blue;
+    border:3px blue;
+
+
 }
 
-#add:hover {
-    background-color: rgb(78, 76, 76);
-    color: white;
-    border-radius: 10px;
-    border: 3px blue;
+#add:hover{
+    
+        background-color: rgb(78, 76, 76);
+        color: white;
+        border-radius: 10px;
+    border:3px blue;
+        
+      
 }
-
-.first {
+.first{
+   
+ 
     margin-top: 10px;
     margin-left: 50%;
+    
 }
 
-#titulli {
+#titulli{
     margin-left: 40%;
     width: 30%;
     height: 40px;
@@ -890,10 +897,12 @@ ul {
     resize: vertical;
     margin-top: 10px;
     border-radius: 10px;
-    border: 3px blue;
+    border: 2px solid rgb(39, 138, 230);
+    
+
 }
 
-#subject {
+#subject{
     width: 60%;
     padding-top: 12px;
     border: 3px solid rgb(204, 204, 204);
@@ -902,9 +911,51 @@ ul {
     resize: vertical;
     margin-top: 10px;
     border-radius: 10px;
-    border: 3px blue;
+    border:2px solid rgb(39, 138, 230);
+  }
+
+  #list-profile {
+    background-color: #f2f2f2;
+    padding: 10px 20px 15px 20px;
+    border: 2px solid rgb(65, 67, 194);
+    border-radius: 10px;
+    width: 50%;
+    margin-left: 30%;
+    margin-top: 0%;
+    
+  }
+
+  input[type=text] {
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 2px solid rgb(39, 138, 230);
+    border-radius: 3px;
+    margin-left: 30px;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    display: block;
+  }
+  #edit{
+    width: 60%;
+    color:white; 
+    margin-left: 18%;
+    background-color:  cornflowerblue;
+    border-radius: 10px;
+    border:3px blue;
+
+
 }
 
-.time {
-    margin-bottom: 2%;
+#edit:hover{
+    
+        background-color: rgb(78, 76, 76);
+        color: white;
+        border-radius: 10px;
+        border:3px blue;
+        
+      
 }
+  
