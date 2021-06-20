@@ -175,7 +175,7 @@ $("#veqFshij").click(function(event){
     $("#krejtTerminet").empty();
 });
 
-
+//gabim pi kthen !!!!
 $("#terminetMjeku").click(function(event){
     //$("#hapsiraListes").empty();
     $("#krejtTerminet").empty();
@@ -186,11 +186,18 @@ $("#terminetMjeku").click(function(event){
          contentType: "application/json; charset=utf-8",
          dataType: "json",
          success: function(result) {
-
+            $("#krejtTerminet").append("Total Appointments:");
              var y = result.data;
              if (y != null) {
+
                  $.each(y, function(i, item) {
-                    $("#krejtTerminet").append('<p>'+item.dateAndTime+'</p>');
+                    
+                     var date = new Date(item.dateAndTime);
+                     var dita = date.getDay();
+                     var muji = date.getMonth();
+                     var viti = date.getFullYear();
+                     
+                    $("#krejtTerminet").append('<p>'+viti+'/'+muji+'/'+dita+' : at: '+item.time+'</p>');
                     //localStorage.setItem('idPacienetit' , item.personalNumber);
                   });
              } else {
@@ -203,40 +210,80 @@ $("#terminetMjeku").click(function(event){
      })
  });
 
+$(document).on('click', '#oraTerminit', function(event){
+     var oraTerm = $(this).text();
+     document.getElementById("inputPerOre").innerHTML = oraTerm;
+     localStorage.setItem("oraT" , oraTerm);
+    // alert(localStorage.getItem("oraT"));
+    // alert(localStorage.getItem("oraT"));
+    
+ });
+
 
  //Butoni per me shtu termine te lira ende i pa perfunduar
-/* $(document).on('click', '#oraTerminit', function(event){
+/*$(document).on('click', '#oraTerminit', function(event){
      var oraTerm = $(this).text();
      localStorage.setItem("oraT" , oraTerm);
- });
-function validoDaten(){
+ });*/
+
+
+ function validate4() {
+     var int = document.getElementById("datepicker").value;
+     var int2 = document.getElementById("inputPerOre").textContent;
+    
+   //  alert(int +' prov '+int2);
+    // var prov =localStorage.getItem("persoanlDoc");
+     $("#krejtTerminet").append("<p id ='nrPer'>"+localStorage.getItem("persoanlDoc")+"</p>");
+     $("#krejtTerminet").append("<p id ='nrPer2'>"+localStorage.getItem("oraT")+"</p>");
+    addfreeApp = {
+        data: $("#datepicker").value,
+        docPrNumber: $("#nrPer").textContent,
+        time:$("#nrPer2").textContent
+    }
+
+    if(int.trim() == "" || int2.trim() == ""){
+        alert("Please chose date and time");
+        return false;
+    }
+    return true;
 }
+addfreeApp = {
+    data: "",
+    docPrNumber:"",
+    time:""
+}
+
+
+//ora null??
  $("#shtoTermin").click(function(event){
     //$("#hapsiraListes").empty();
+    if(validate4()){
     $("#krejtTerminet").empty();
      var personalNumber = localStorage.getItem("persoanlDoc");
      $.ajax({
-         type: "GET",
-         url: "http://localhost:8030/api/appointmentManagement/getAppByDoc/"+personalNumber,
+         type: "POST",
+         url: "http://localhost:8030/api/appointmentManagement/addNewAppointmentDoc",
          contentType: "application/json; charset=utf-8",
          dataType: "json",
+         data: JSON.stringify(addfreeApp),
          success: function(result) {
-           
+           alert("erdh kerksa");
              var y = result.data;
              if (y != null) {
-                 $.each(y, function(i, item) {
+               //  $.each(y, function(i, item) {
                  //   $("#krejtTerminet").append('<p>'+item.dateAndTime+'</p>');
                     //localStorage.setItem('idPacienetit' , item.personalNumber);
-                    alert(result.mesaazhi);
-                  });
+                    alert("Appointment added");
+                 // });
              } else {
                //  $("#krejtTerminet").append(result.errori);
-                 alert(result.errori);
+               $("#krejtTerminet").append(result.errori);
              }
          },
          error: function(e) {
              console.log("ERROR: ", e);
          }
      })
+    }
  });
-*/ 
+ 
