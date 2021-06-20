@@ -171,3 +171,72 @@ function noDataEdit(){
 }
 }
 
+$("#veqFshij").click(function(event){
+    $("#krejtTerminet").empty();
+});
+
+
+$("#terminetMjeku").click(function(event){
+    //$("#hapsiraListes").empty();
+    $("#krejtTerminet").empty();
+     var personalNumber = localStorage.getItem("persoanlDoc");
+     $.ajax({
+         type: "GET",
+         url: "http://localhost:8030/api/appointmentManagement/getAppByDoc/"+personalNumber,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+         success: function(result) {
+
+             var y = result.data;
+             if (y != null) {
+                 $.each(y, function(i, item) {
+                    $("#krejtTerminet").append('<p>'+item.dateAndTime+'</p>');
+                    //localStorage.setItem('idPacienetit' , item.personalNumber);
+                  });
+             } else {
+                 $("#krejtTerminet").append(result.errori);
+             }
+         },
+         error: function(e) {
+             console.log("ERROR: ", e);
+         }
+     })
+ });
+
+
+ //Butoni per me shtu termine te lira ende i pa perfunduar
+/* $(document).on('click', '#oraTerminit', function(event){
+     var oraTerm = $(this).text();
+     localStorage.setItem("oraT" , oraTerm);
+ });
+function validoDaten(){
+}
+ $("#shtoTermin").click(function(event){
+    //$("#hapsiraListes").empty();
+    $("#krejtTerminet").empty();
+     var personalNumber = localStorage.getItem("persoanlDoc");
+     $.ajax({
+         type: "GET",
+         url: "http://localhost:8030/api/appointmentManagement/getAppByDoc/"+personalNumber,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+         success: function(result) {
+           
+             var y = result.data;
+             if (y != null) {
+                 $.each(y, function(i, item) {
+                 //   $("#krejtTerminet").append('<p>'+item.dateAndTime+'</p>');
+                    //localStorage.setItem('idPacienetit' , item.personalNumber);
+                    alert(result.mesaazhi);
+                  });
+             } else {
+               //  $("#krejtTerminet").append(result.errori);
+                 alert(result.errori);
+             }
+         },
+         error: function(e) {
+             console.log("ERROR: ", e);
+         }
+     })
+ });
+*/ 
