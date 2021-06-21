@@ -175,7 +175,7 @@ $("#veqFshij").click(function(event){
     $("#krejtTerminet").empty();
 });
 
-//gabim pi kthen !!!!
+
 $("#terminetMjeku").click(function(event){
     //$("#hapsiraListes").empty();
     $("#krejtTerminet").empty();
@@ -192,12 +192,15 @@ $("#terminetMjeku").click(function(event){
 
                  $.each(y, function(i, item) {
                     
-                     var date = new Date(item.dateAndTime);
-                     var dita = date.getDay();
-                     var muji = date.getMonth();
-                     var viti = date.getFullYear();
+                   //  var date = new Date(item.dateAndTime);
+                     //var dita = date.getDay();
+                     //var muji = date.getMonth();
+                     //var viti = date.getFullYear();
+                     var myDate = item.dateAndTime;
+                     var sdi = myDate.split("T");
                      
-                    $("#krejtTerminet").append('<p>'+viti+'/'+muji+'/'+dita+' : at: '+item.time+'</p>');
+                    // myDate.format("mm/dd/yy");
+                    $("#krejtTerminet").append('<button>'+sdi[0]+'  at: '+item.time+'</button>');
                     //localStorage.setItem('idPacienetit' , item.personalNumber);
                   });
              } else {
@@ -209,6 +212,73 @@ $("#terminetMjeku").click(function(event){
          }
      })
  });
+
+ $("#terminetSot").click(function(event){
+    //$("#hapsiraListes").empty();
+    $("#krejtTerminet").empty();
+    
+    $("#listaTermineveSot").empty();
+     var docId = localStorage.getItem("persoanlDoc");
+     $.ajax({
+         type: "GET",
+         url: "http://localhost:8030/api/appointmentManagement/getTodaysAppDoc/"+docId,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+         success: function(result) {
+           // $("#krejtTerminet").append("Total Appointments:");
+             var y = result.data;
+             if (y != null) {
+
+                 $.each(y, function(i, item) {
+                    
+                   //  var date = new Date(item.dateAndTime);
+                     //var dita = date.getDay();
+                     //var muji = date.getMonth();
+                     //var viti = date.getFullYear();
+                     var myDate = item.dateAndTime;
+                     var sdi = myDate.split("T");
+                   if(item.freeAppoint == false){
+                     $("#listaTermineveSot").append('<li>'+sdi[0]+'  at: '+item.time+'</li>');
+                    // myDate.format("mm/dd/yy");
+                   }
+                    //localStorage.setItem('idPacienetit' , item.personalNumber);
+                  });
+             } else {
+                 $("#krejtTerminet").append(result.errori);
+             }
+         },
+         error: function(e) {
+             console.log("ERROR: ", e);
+         }
+     })
+ });
+
+ function notification2(){
+    var docId = localStorage.getItem("persoanlDoc");
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8030/api/appointmentManagement/getTodaysAppDoc/"+docId,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+          // $("#krejtTerminet").append("Total Appointments:");
+            var y = result.data;
+            if (y != null) {
+                $.each(y, function(i, item) {
+                    if(item.freeAppoint == false){
+                document.getElementById("terminetSot").style.background="#FF0000";
+                    }
+                
+            });
+            } else {
+                
+            }
+        },
+        error: function(e) {
+            console.log("ERROR: ", e);
+        }
+    })   
+ }
 
 $(document).on('click', '#oraTerminit', function(event){
      var oraTerm = $(this).text();
@@ -258,10 +328,11 @@ addfreeApp = {
 
 //ora null??
  $("#shtoTermin").click(function(event){
-    
+    $("#krejtTerminet").empty();
     //$("#hapsiraListes").empty();
     if(validate4()){
     $("#krejtTerminet").empty();
+    
      var doctorPersonalNumber = localStorage.getItem("persoanlDoc");
      var oraTerminit = localStorage.getItem("oraPerTermin");
      $.ajax({
