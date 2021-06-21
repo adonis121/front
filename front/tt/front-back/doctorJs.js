@@ -212,8 +212,9 @@ $("#terminetMjeku").click(function(event){
 
 $(document).on('click', '#oraTerminit', function(event){
      var oraTerm = $(this).text();
-     document.getElementById("inputPerOre").innerHTML = oraTerm;
-     localStorage.setItem("oraT" , oraTerm);
+     localStorage.setItem("oraPerTermin" , oraTerm);
+    document.getElementById("inputPerOre2").innerHTML = oraTerm;
+    // localStorage.setItem("oraPerTermin" , oraTerm);
     // alert(localStorage.getItem("oraT"));
     // alert(localStorage.getItem("oraT"));
     
@@ -229,51 +230,57 @@ $(document).on('click', '#oraTerminit', function(event){
 
  function validate4() {
      var int = document.getElementById("datepicker").value;
-     var int2 = document.getElementById("inputPerOre").textContent;
+    // alert(int);
+     var int2 = document.getElementById("inputPerOre2").textContent;
     
    //  alert(int +' prov '+int2);
     // var prov =localStorage.getItem("persoanlDoc");
-     $("#krejtTerminet").append("<p id ='nrPer'>"+localStorage.getItem("persoanlDoc")+"</p>");
-     $("#krejtTerminet").append("<p id ='nrPer2'>"+localStorage.getItem("oraT")+"</p>");
+     $("#krejtTerminet").append("<button id ='nrPer'>"+localStorage.getItem("persoanlDoc")+"</button>");
+     $("#krejtTerminet").append("<button id ='nrPer2'>"+localStorage.getItem("oraPerTermin")+"</button>");
+
+   // alert("diqka");
     addfreeApp = {
-        data: $("#datepicker").value,
-        docPrNumber: $("#nrPer").textContent,
-        time:$("#nrPer2").textContent
+        data: $("#datepicker").val(),
+      //  doctorPersonalNumber: localStorage.getItem("persoanlDoc")
     }
 
-    if(int.trim() == "" || int2.trim() == ""){
+    if(int.trim() == ""  || int2.trim() == ""){
         alert("Please chose date and time");
         return false;
     }
     return true;
 }
 addfreeApp = {
-    data: "",
-    docPrNumber:"",
-    time:""
+    data: 0,
+  //doctorPersonalNumber:0
 }
 
 
 //ora null??
  $("#shtoTermin").click(function(event){
+    
     //$("#hapsiraListes").empty();
     if(validate4()){
     $("#krejtTerminet").empty();
-     var personalNumber = localStorage.getItem("persoanlDoc");
+     var doctorPersonalNumber = localStorage.getItem("persoanlDoc");
+     var oraTerminit = localStorage.getItem("oraPerTermin");
      $.ajax({
-         type: "POST",
-         url: "http://localhost:8030/api/appointmentManagement/addNewAppointmentDoc",
+         type: "post",
+         url: "http://localhost:8030/api/appointmentManagement/addNewAppointmentDoc/"+oraTerminit+"/"+doctorPersonalNumber,
          contentType: "application/json; charset=utf-8",
          dataType: "json",
          data: JSON.stringify(addfreeApp),
          success: function(result) {
-           alert("erdh kerksa");
+//         alert("erdh kerksa");
+//           window.location.reload();
              var y = result.data;
              if (y != null) {
                //  $.each(y, function(i, item) {
                  //   $("#krejtTerminet").append('<p>'+item.dateAndTime+'</p>');
                     //localStorage.setItem('idPacienetit' , item.personalNumber);
                     alert("Appointment added");
+                    
+                    
                  // });
              } else {
                //  $("#krejtTerminet").append(result.errori);
