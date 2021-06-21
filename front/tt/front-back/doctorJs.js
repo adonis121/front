@@ -173,12 +173,15 @@ function noDataEdit(){
 
 $("#veqFshij").click(function(event){
     $("#krejtTerminet").empty();
+    $("#krejtTerminet2").empty();
 });
 
 
 $("#terminetMjeku").click(function(event){
     //$("#hapsiraListes").empty();
     $("#krejtTerminet").empty();
+   
+    $("#krejtTerminet2").empty();
      var personalNumber = localStorage.getItem("persoanlDoc");
      $.ajax({
          type: "GET",
@@ -186,22 +189,30 @@ $("#terminetMjeku").click(function(event){
          contentType: "application/json; charset=utf-8",
          dataType: "json",
          success: function(result) {
-            $("#krejtTerminet").append("Total Appointments:");
+          //  $("#krejtTerminet").append("Total Appointments:");
              var y = result.data;
              if (y != null) {
-
+               $("#krejtTerminet").append("Free Appointments:");
+               $("#krejtTerminet2").append("All Appointments:");
                  $.each(y, function(i, item) {
                     
                    //  var date = new Date(item.dateAndTime);
                      //var dita = date.getDay();
                      //var muji = date.getMonth();
                      //var viti = date.getFullYear();
+                     if(item.freeAppoint == true){
                      var myDate = item.dateAndTime;
                      var sdi = myDate.split("T");
                      
                     // myDate.format("mm/dd/yy");
-                    $("#krejtTerminet").append('<button>'+sdi[0]+'  at: '+item.time+'</button>');
+                    $("#krejtTerminet").append('</br><button>'+sdi[0]+'  at: '+item.time+'</button></br>');
                     //localStorage.setItem('idPacienetit' , item.personalNumber);
+                     }
+                     else{
+                        var myDate = item.dateAndTime;
+                        var sdi = myDate.split("T");
+                        $("#krejtTerminet2").append('</br><button>'+sdi[0]+'  at: '+item.time+'</button></br>');
+                     }
                   });
              } else {
                  $("#krejtTerminet").append(result.errori);
@@ -216,6 +227,7 @@ $("#terminetMjeku").click(function(event){
  $("#terminetSot").click(function(event){
     //$("#hapsiraListes").empty();
     $("#krejtTerminet").empty();
+    $("#krejtTerminet2").empty();
     
     $("#listaTermineveSot").empty();
      var docId = localStorage.getItem("persoanlDoc");
@@ -329,9 +341,11 @@ addfreeApp = {
 //ora null??
  $("#shtoTermin").click(function(event){
     $("#krejtTerminet").empty();
+    $("#krejtTerminet2").empty();
     //$("#hapsiraListes").empty();
     if(validate4()){
     $("#krejtTerminet").empty();
+    $("#krejtTerminet2").empty();
     
      var doctorPersonalNumber = localStorage.getItem("persoanlDoc");
      var oraTerminit = localStorage.getItem("oraPerTermin");
