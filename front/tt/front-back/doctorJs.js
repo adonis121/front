@@ -182,6 +182,7 @@ $("#terminetMjeku").click(function(event){
     $("#krejtTerminet").empty();
    
     $("#krejtTerminet2").empty();
+    $("#krejtTerminetCan").empty();
      var personalNumber = localStorage.getItem("persoanlDoc");
      $.ajax({
          type: "GET",
@@ -194,19 +195,24 @@ $("#terminetMjeku").click(function(event){
              if (y != null) {
                $("#krejtTerminet").append("Free Appointments:");
                $("#krejtTerminet2").append("All Appointments:");
+               $("#krejtTerminetCan").append("Canceled Appointments:");
                  $.each(y, function(i, item) {
                     
                    //  var date = new Date(item.dateAndTime);
                      //var dita = date.getDay();
                      //var muji = date.getMonth();
                      //var viti = date.getFullYear();
-                     if(item.freeAppoint == true){
+                     if(item.freeAppoint == true && item.canceledByDoc == false){
                      var myDate = item.dateAndTime;
                      var sdi = myDate.split("T");
                      
                     // myDate.format("mm/dd/yy");
                     $("#krejtTerminet").append('</br><button>'+sdi[0]+'  at: '+item.time+'</button></br>');
                     //localStorage.setItem('idPacienetit' , item.personalNumber);
+                     }else if(item.freeAppoint == false && item.canceledByPat == true){
+                        var myDate = item.dateAndTime;
+                     var sdi = myDate.split("T");
+                    $("#krejtTerminetCan").append('</br><button>'+sdi[0]+'  at: '+item.time+' - canceled by patient!</button></br>');
                      }
                      else{
                         var myDate = item.dateAndTime;
@@ -228,6 +234,8 @@ $("#terminetMjeku").click(function(event){
     //$("#hapsiraListes").empty();
     $("#krejtTerminet").empty();
     $("#krejtTerminet2").empty();
+    $("#krejtTerminetCan").empty();
+    
     
     $("#listaTermineveSot").empty();
      var docId = localStorage.getItem("persoanlDoc");
@@ -249,9 +257,11 @@ $("#terminetMjeku").click(function(event){
                      //var viti = date.getFullYear();
                      var myDate = item.dateAndTime;
                      var sdi = myDate.split("T");
-                   if(item.freeAppoint == false){
+                   if(item.freeAppoint == false && item.canceledByPat == false && item.canceledByDoc == false){
                      $("#listaTermineveSot").append('<li>'+sdi[0]+'  at: '+item.time+'</li>');
                     // myDate.format("mm/dd/yy");
+                   }else if(item.canceledByPat == true){
+                    $("#listaTermineveSot").append('<li>'+sdi[0]+'  at: '+item.time+'- Canceled</li>');
                    }
                     //localStorage.setItem('idPacienetit' , item.personalNumber);
                   });
@@ -277,7 +287,7 @@ $("#terminetMjeku").click(function(event){
             var y = result.data;
             if (y != null) {
                 $.each(y, function(i, item) {
-                    if(item.freeAppoint == false){
+                    if(item.freeAppoint == false && item.canceledByDoc == false){
                 document.getElementById("terminetSot").style.background="#FF0000";
                     }
                 
@@ -337,11 +347,10 @@ addfreeApp = {
   //doctorPersonalNumber:0
 }
 
-
-//ora null??
  $("#shtoTermin").click(function(event){
     $("#krejtTerminet").empty();
     $("#krejtTerminet2").empty();
+    $("#krejtTerminetCan").empty();
     //$("#hapsiraListes").empty();
     if(validate4()){
     $("#krejtTerminet").empty();
@@ -379,3 +388,44 @@ addfreeApp = {
     }
  });
  
+
+ $("#fshijTerminin").click(function(event){
+    $("#krejtTerminet").empty();
+    $("#krejtTerminet2").empty();
+    $("#krejtTerminetCan").empty();
+    //$("#hapsiraListes").empty();
+    if(validate4()){
+    $("#krejtTerminet").empty();
+    $("#krejtTerminet2").empty();
+    
+     var doctorPersonalNumber = localStorage.getItem("persoanlDoc");
+     var oraTerminit = localStorage.getItem("oraPerTermin");
+     $.ajax({
+         type: "post",
+         url: "http://localhost:8030/api/appointmentManagement/cancelAppointment/"+oraTerminit+"/"+doctorPersonalNumber,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+         data: JSON.stringify(addfreeApp),
+         success: function(result) {
+//         alert("erdh kerksa");
+//           window.location.reload();
+             var y = result.data;
+             if (y != null) {
+               //  $.each(y, function(i, item) {
+                 //   $("#krejtTerminet").append('<p>'+item.dateAndTime+'</p>');
+                    //localStorage.setItem('idPacienetit' , item.personalNumber);
+                    alert("Appointment Canceled");
+                    
+                    
+                 // });
+             } else {
+               //  $("#krejtTerminet").append(result.errori);
+               $("#krejtTerminet").append(result.errori);
+             }
+         },
+         error: function(e) {
+             console.log("ERROR: ", e);
+         }
+     })
+    }
+ });
