@@ -255,7 +255,7 @@ function shfaqDepartametet(){
             var y = result.data;
             if (y != null) {
                 $.each(y, function(i, item) {
-                   $("#depatamentet").append('<div class="col " style="flex: 1 0 15%;padding: 2px; margin:2px;"><button id = "shfaqMjektNdep" style="width:100px; color:rgb(82, 80, 80)">'+item.depId+'</button><p class="fs-3 " style="font-size:20px;"><img src="assets/img/hsrooms.jpg " class="img-fluid " style="border-radius: 50%;width:30px; height: 30px; " alt="...">'+item.depName+'</p></div>');
+                   $("#depatamentet").append('<div class="col " style="flex: 1 0 15%;padding: 2px; margin:2px;"><button type="button" data-toggle="modal" data-target="#getClinicModal" id = "shfaqMjektNdep" style="width:100px; color:rgb(82, 80, 80)">'+item.depId+'</button><p class="fs-3 " style="font-size:20px;"><img src="assets/img/hsrooms.jpg " class="img-fluid " style="border-radius: 50%;width:30px; height: 30px; " alt="...">'+item.depName+'</p></div>');
                  });
             } else {
               alert(result.errori)
@@ -267,6 +267,33 @@ function shfaqDepartametet(){
     })
 }
 
+/*$(document).on('click', '#shfaqMjektNdep', function(event) {
+        
+ 
+    var depNumber = 
+    $.ajax({
+        
+        url: "http://localhost:8090/api/systemManagement/patient/getDoctortByDep/"+depNumber,
+        type: 'get',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(res) {
+            $("#fjalet").empty();
+            $("#sendFjalet").empty();
+            $("#sendFjalet2").empty();
+            $("#sendFjalet").append("There is no conversation!");      
+                            
+                }
+    ,
+        error: function(error) {
+            console.log(error);
+               
+        }
+    
+    })
+
+});
+*/
 
 $(document).on('click', '#shfaqMjektNdep', function(event) {
     var depNumber =  $(this).text();
@@ -286,13 +313,13 @@ $(document).on('click', '#shfaqMjektNdep', function(event) {
                        
 
                     $.each(y, function(i, item) {
-                        $("#convList").append('<li><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_02.jpg" alt=""><div><h2>'+item.doctorName+' '+item.doctorSurname+'</h2></div></li>');
+                        $("#listaTermineveSot").append('<li><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_02.jpg" alt=""><div><h2>'+item.doctorName+' '+item.doctorSurname+'</h2></div></li>');
                         console.log(res.data.conversationDes);
     
                       });
                       
                    }else{
-                    $("#convList").append(e);
+                    $("#listaTermineveSot").append(e);
                    }
                 }
     ,
