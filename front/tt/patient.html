@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="extraCss/patientCss.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <style>
         /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -92,8 +97,8 @@
 
                                         </div>
                                         <div class="listOfChats">
-                                            <ul id="convList" >
-                                                
+                                            <ul id="convList">
+
                                                 <!--<li>
                                                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_02.jpg" alt="">
                                                     <div>
@@ -102,14 +107,14 @@
                                                     </div>
 
                                                 </li>--->
-                                                
+
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                
+
 
                         </li>
 
@@ -165,37 +170,20 @@
         <section id="repart">
             <div class="repart-container">
                 <p class="fs-1 title" style="margin-left: 38%;">DEPARTMENTS</p>
-                <div class="row" id = "depatamentet">
+                <div class="row" id="depatamentet">
 
 
                     <!---<div class="col"><img src="assets/img/doctors_hospital_corridor_nurse_pushing_gurney_stretcher_bed.jpg" class="img-fluid" style="border-radius: 50%;width:12.5rem;
                             height: 12.5rem;" alt="... ">
                         <p class="fs-3 ">Department Title</p>
                     </div>
-                    <div class="col "><img src="assets/img/hsrooms.jpg " class="img-fluid " style="border-radius: 50%;width:12.5rem; height: 12.5rem; " alt="...">
-                        <p class="fs-3">Department Title</p>
-                    </div>
-                    <div class="col"><img src="assets/img/download.jpg" class="img-fluid" style="border-radius: 50%;width:12.5rem;
-                            height: 12.5rem;" alt="... ">
-                        <p class="fs-3 ">Department Title</p>
-                    </div>
+                 
                     <div class="col "><img src="assets/img/images.jpg " class="img-fluid " style="border-radius: 50%;width:12.5rem; height: 12.5rem; " alt="...">
                         <p class="fs-3">Department Title</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <img src="assets/img/Int.16.jpg" class="img-fluid" style="border-radius: 50%;width:12.5rem;
-                            height: 12.5rem;" alt="... ">
-                        <p class="fs-3 ">Department Title</p>
-                    </div>
-                    <div class="col "><img src="assets/img/hospital-doctor-consulting-room.jpg " class="img-fluid " style="border-radius: 50%;width:12.5rem; height: 12.5rem; " alt="... ">
-                        <p class="fs-3 ">Department Title</p>
-                    </div>
-                    <div class="col ">
-                        <img src="assets/img/Int.16.jpg " class="img-fluid " style="border-radius: 50%;width:12.5rem; height: 12.5rem; " alt="... ">
-                        <p class="fs-3 ">Department Title</p>
-                    </div>
+                  
                     <div class="col "><img src="assets/img/download.jpg " class="img-fluid " style="border-radius: 50%; width:12.5rem; height: 12.5rem; " alt="... ">
                         <p class="fs-3 ">Department Title</p>
                     </div>--->
@@ -207,25 +195,62 @@
         <section id="appointment">
 
             <div class="appointment-container">
-                <div class="calendar">Calendar </div>
-                <div class="appointment-guide">
-                    <p class="fs-1 titleA">Need an appointment? </p>
-                    <p class="fs-3 paragraph">Follow the simple steps below and get your appointment fixed online! </p>
-                    <ul class="fs-3 rules " style="list-style: none;">
-                        <li> <i class="fas fa-exclamation "><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; ">    You must be logged-in!</a></i>
+                <div class="containerApp">
+                    <div class="Directions">
+                        <div class="appointment-guide">
+                            <p class="fs-1 titleA">Need an appointment? </p>
+                            <p class="fs-3 paragraph">Follow the simple steps below and get your appointment fixed online! </p>
+                            <ul class="fs-3 rules " style="list-style: none;">
+                                <li> <i class="fas fa-exclamation "><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; ">    You must be logged-in!</a></i>
 
-                        </li>
-                        <li> <i class="far fa-plus-square"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select the department</a></i>
+                                </li>
+                                <li> <i class="far fa-plus-square"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select the department</a></i>
 
-                        </li>
-                        <li>
-                            <i class="far fa-calendar-alt"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select Date of Appointment</a></i>
-                        </li>
-                    </ul>
+                                </li>
+                                <li>
+                                    <i class="far fa-calendar-alt"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select Date of Appointment</a></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="calendar">
+                        <p>Date: <input type="date" id="datepicker"></p>
+                    </div>
+                    <div class="hour">
+                        <div class="col">
+                            <h5>Pick the hour:</h5>
+
+                            <div class="col   overflow-hidden">
+                                <div class="row row-cols-2">
+                                    <div class="col time" style="margin-top: 5%;"> <button type="button" class="btn btn-outline-primary" id="oraTerminit"> 8:00 </button></div>
+                                    <div class="col time" style="margin-top: 5%;"> <button type=" button " class="btn btn-outline-primary " id="oraTerminit"> 9:00 </button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">10.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">11.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">12.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">13.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">14.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">15.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">16.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">17.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">18.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">19.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">20.00</button></div>
+
+                                </div>
+                                <h5>Appointment at: </h5>
+                                <p id="inputPerOre2"></p>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
+
             </div>
-
-
         </section>
 
         <section id="ourDoctors">
@@ -308,109 +333,9 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3" style="float:left">
-                            <div class="card mb-2">
-                                <img class="card-img-top profile" src="assets/img/olddoc.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Dr</h4>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <button class="btn btn-outline-primary " type="button" data-toggle="modal" data-target="#chatModal">Chat</button>
-                                    <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Chat</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form onsubmit="return false;">
-                                                        <div class="chat-messages">
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    Hello
-                                                                </div>
-                                                            </div>
+                        
 
-                                                            <div class="message-box-holder">
-                                                                <div class="message-sender">
-                                                                    Mamun Khandaker
-                                                                </div>
-                                                                <div class="message-box message-partner">
-                                                                    Hi.
-                                                                </div>
-                                                            </div>
-
-
-                                                        </div>
-                                                        <input type="text" class="form-control" id="recipient-name" placeholder="Type a message...">
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-primary">Delete Conversation</button>
-
-                                                            <button class="btn btn-primary">Send</button>
-                                                        </div>
-
-                                                    </form>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3" style="float:left">
-                            <div class="card mb-2">
-                                <img class="card-img-top profile" src="assets/img/departments-bg.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Dr</h4>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <button class="btn btn-outline-primary " type="button" data-toggle="modal" data-target="#chatModal">Chat</button>
-                                    <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Chat</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form onsubmit="return false;">
-                                                        <div class="chat-messages">
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    Hello
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-sender">
-                                                                    Mamun Khandaker
-                                                                </div>
-                                                                <div class="message-box message-partner">
-                                                                    Hi.
-                                                                </div>
-                                                            </div>
-
-
-                                                        </div>
-                                                        <input type="text" class="form-control" id="recipient-name" placeholder="Type a message...">
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-primary">Delete Conversation</button>
-
-                                                            <button class="btn btn-primary">Send</button>
-                                                        </div>
-
-                                                    </form>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                       
                             </div>
                         </div>--->
                             </div>
@@ -463,26 +388,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    How are you doing?
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-sender">
-                                                                    Mamun Khandaker
-                                                                </div>
-                                                                <div class="message-box message-partner">
-                                                                    I'm doing fine. How about you?
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    I am fine.
-                                                                </div>
-                                                            </div>
+                                                       
                                                         </div>
                                                         <input type="text" class="form-control" id="recipient-name" placeholder="Type a message...">
                                                         <div class="modal-footer">
@@ -500,147 +406,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3" style="float:left">
-                            <div class="card mb-2">
-                                <img class="card-img-top  profile" src="assets/img/femdoc.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <button class="btn btn-outline-primary " type="button" data-toggle="modal" data-target="#chatModal">Chat</button>
-                                    <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Chat</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form onsubmit="return false;">
-                                                        <div class="chat-messages">
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    Hello
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-sender">
-                                                                    Mamun Khandaker
-                                                                </div>
-                                                                <div class="message-box message-partner">
-                                                                    Hi.
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    How are you doing?
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-sender">
-                                                                    Mamun Khandaker
-                                                                </div>
-                                                                <div class="message-box message-partner">
-                                                                    I'm doing fine. How about you?
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    I am fine.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <input type="text" class="form-control" id="recipient-name" placeholder="Type a message...">
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-primary">Delete Conversation</button>
-
-                                                            <button class="btn btn-primary">Send</button>
-                                                        </div>
-
-                                                    </form>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3" style="float:left">
-                            <div class="card mb-2">
-                                <img class="card-img-top profile" src="assets/img/doctor-large-1.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <button class="btn btn-outline-primary " type="button" data-toggle="modal" data-target="#chatModal">Chat</button>
-                                    <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Chat</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form onsubmit="return false;">
-                                                        <div class="chat-messages">
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    Hello
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-sender">
-                                                                    Mamun Khandaker
-                                                                </div>
-                                                                <div class="message-box message-partner">
-                                                                    Hi.
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    How are you doing?
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-sender">
-                                                                    Mamun Khandaker
-                                                                </div>
-                                                                <div class="message-box message-partner">
-                                                                    I'm doing fine. How about you?
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    I am fine.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <input type="text" class="form-control" id="recipient-name" placeholder="Type a message...">
-                                                        <div class="modal-footer">
-
-                                                            <button class="btn btn-primary">Send</button>
-                                                        </div>
-
-                                                    </form>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                      
                         </div><a class="controls-top btn-floating" href="#multi-item-example" data-slide="next" style="color:black; font-size:2.5rem;float: right;margin-left:5%;padding-top: 10%;"><i
                      class="fas fa-chevron-right"></i></a>
                     </div>
@@ -711,7 +477,7 @@
                 </div>
                 <p class="copyright ">MedNotes © 2021</p>
             </div>
-            <script src="assets/js/jquery.min.js "></script>
+
             <script src="assets/bootstrap/js/bootstrap.min.js "></script>
 
         </footer>
@@ -769,19 +535,19 @@
                     })(marker, i));
                 }
 
-        }
-    </script>
-    <!-- Pass your API key instead of YOUR_API_KEY -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs6kz4vjgFFQ9Wj84dcAiDBQXZmRynDFg&callback=initMap " type="text/javascript "></script>
-    <script src="front-back/patientJs.js"></script>
-    <script>
-        window.onload = getDocCards();
-        window.onload = faqjaEPersonalizuar();
-        window.onload = shfaqDepartametet();
-    </script>
             }
-  
-       
+        </script>
+        <!-- Pass your API key instead of YOUR_API_KEY -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs6kz4vjgFFQ9Wj84dcAiDBQXZmRynDFg&callback=initMap " type="text/javascript "></script>
+        <script src="front-back/patientJs.js"></script>
+        <script>
+            window.onload = getDocCards();
+            window.onload = faqjaEPersonalizuar();
+            window.onload = shfaqDepartametet();
+        </script>
+        }
+
+
 </body>
 
 </html>

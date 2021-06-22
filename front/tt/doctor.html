@@ -56,89 +56,95 @@
                     <span class="fa fa-search form-control-feedback"></span>
                 </div>
                 <div class="nav-item row">
-                <button id="terminetSot" type="button" data-toggle="modal" data-target="#getClinicModal"><a class="nav-link "><i class="far fa-bell"></i></a></button>
-                <div class="modal fade" id="getClinicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Today's Appointment:</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button id="terminetSot" type="button" data-toggle="modal" data-target="#getClinicModal"><a class="nav-link "><i class="far fa-bell"></i></a></button>
+                    <div class="modal fade" id="getClinicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Today's Appointment:</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
-                            </div>
-                           
-                            <div id="hapsiraInfoKlinikes" class="modal-body">
-                                    <ol id = "listaTermineveSot"></0l>
-                            </div>
-                            <div class="modal-footer">
-                                <button id="infotKlinikes" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
 
+                                <div id="hapsiraInfoKlinikes" class="modal-body">
+                                    <ol id="listaTermineveSot">
+                                        </0l>
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="infotKlinikes" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                   <button type = "button" > <a class="nav-link "  href="index.html"><i class="fas fa-sign-out-alt"></i></a></button>
+                    <button type="button"> <a class="nav-link "  href="index.html"><i class="fas fa-sign-out-alt"></i></a></button>
 
                 </div>
 
             </nav>
         </div>
-        <div class="Content">
+        <div class="Content" style="height: 100%;">
             <div class="tab-content">
-                <div id="page-content-wrapper" style="height:auto; ">
 
 
 
 
-                    <div id="list-appointment" class="tab-pane fade  " role="tabpanel">
-                        <div class="row">
-                            <div class="col">
-                                <p>Date: <input type="date" id="datepicker"></p>
 
-                            </div>
-                            <div class="col">
+                <div id="list-appointment" class="tab-pane fade  " role="tabpanel">
+                    <div class="row">
+                        <div class="col">
+                            <p>Date: <input type="date" id="datepicker"></p>
+
+                        </div>
+                        <div class="col">
+
+
+                            <div class="col   overflow-hidden">
                                 <h5>Pick the free time slots:</h5>
 
-                                <div class="col   overflow-hidden">
-                                    <div class="row row-cols-2">
-                                        <div class="col time" style="margin-top: 5%;"> <button type="button" class="btn btn-outline-primary" id="oraTerminit"> 8:00 </button></div>
-                                        <div class="col time" style="margin-top: 5%;"> <button type=" button " class="btn btn-outline-primary " id="oraTerminit"> 9:00 </button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">10.00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">11.00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">12.00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">13.00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">14.00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">15.00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">16.00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">17.00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">18.00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">19.00</button></div>
-                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">20.00</button></div>
-                                        <div class="col time "><p>Appointment at: </p> <p  id="inputPerOre2"></p></div>
-
-
-                                    </div>
-
+                                <div class="row row-cols-2">
+                                    <div class="col time" style="margin-top: 5%;"> <button type="button" class="btn btn-outline-primary" id="oraTerminit"> 8:00 </button></div>
+                                    <div class="col time" style="margin-top: 5%;"> <button type=" button " class="btn btn-outline-primary " id="oraTerminit"> 9:00 </button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">10.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">11.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">12.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">13.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">14.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">15.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">16.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">17.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">18.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">19.00</button></div>
+                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">20.00</button></div>
 
 
                                 </div>
+                                <h5>Appointment at: </h5>
+                                <p id="inputPerOre2"></p>
+
+
+
+
+
                             </div>
                         </div>
-                        <div class="col ">
-                            <button type="button " class="btn btn-dark " id="shtoTermin">Add an appointment</button>
-                            <button type="button " class="btn btn-outline-secondary ">Cancel an appointment</button>
-                            <button type="button " class="btn btn-outline-secondary " id="terminetMjeku">Get All Appointments</button>
-                            
-                        </div>
-                        <div style="display:flex; flex-direction:row; justify-content: space-around;">
-                        <div id="krejtTerminet"></div>
-                        <div id="krejtTerminet2"></div>
-                        </div>
-
+                    </div>
+                    <div class="col ">
+                        <button type="button " class="btn btn-dark " id="shtoTermin">Add an appointment</button>
+                        <button type="button " class="btn btn-outline-secondary ">Cancel an appointment</button>
+                        <button type="button " class="btn btn-outline-secondary " id="terminetMjeku">Get All Appointments</button>
 
                     </div>
+                    <div style="display:flex; flex-direction:row; justify-content: space-around;">
+                        <div id="krejtTerminet"></div>
+                        <div id="krejtTerminet2"></div>
+                    </div>
+
 
                 </div>
+
+
                 <div id="list-chat" class="tab-pane fade " role="tabpanel">
                     <div class="container-fluid">
                         <div class="page-title">
@@ -192,16 +198,7 @@
                                                             </div>
 
 
-                                                            <div class="person list-group-item list-group-item-action" data-toggle="list" href="#chat-tabela" style="background-color:white!important ;color: darkslategray;">
-                                                                <div class="user">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar1.png" alt="Retail Admin">
-
-                                                                </div>
-
-                                                                <p class="name-time">
-                                                                    <span class="name">Steve Bangalter</span>
-                                                                </p>
-                                                            </div>
+                                                          
                                                             --->
 
 
@@ -242,37 +239,7 @@
                                                                 <div class="chat-text">Are we meeting today?
                                                                     <br>Project has been already finished and I have results to show you.</div>
                                                             </li>
-                                                            <li class="chat-right">
-                                                                <div class="chat-text">Well I am not sure.
-                                                                    <br>I have results to show you.</div>
-                                                                <div class="chat-avatar">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar5.png" alt="Retail Admin">
-                                                                    <div class="chat-name">Joyse</div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="chat-left">
-                                                                <div class="chat-avatar">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin">
-                                                                    <div class="chat-name">Russell</div>
-                                                                </div>
-                                                                <div class="chat-text">The rest of the team is not here yet.
-                                                                    <br>Maybe in an hour or so?</div>
-                                                            </li>
-                                                            <li class="chat-right">
-                                                                <div class="chat-text">Have you faced any problems at the last phase of the project?</div>
-                                                                <div class="chat-avatar">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar4.png" alt="Retail Admin">
-                                                                    <div class="chat-name">Jin</div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="chat-left">
-                                                                <div class="chat-avatar">
-                                                                    <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin">
-                                                                    <div class="chat-name">Russell</div>
-                                                                </div>
-                                                                <div class="chat-text">Actually everything was fine.
-                                                                    <br>I'm very excited to show this to our team.</div>
-                                                            </li>
+                                                        
                                                         </ul>
 
 
@@ -342,11 +309,11 @@
                 </div>
 
             </div>
+
         </div>
     </div>
+
     </div>
-
-
     <footer class="footer-dark ">
         <div class="container ">
             <div class="row ">
