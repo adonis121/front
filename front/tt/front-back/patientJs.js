@@ -379,3 +379,73 @@ $(document).on('click', '#terminetMjekutPerkates', function(event) {
     })
 });
 
+//terminetSot mi shfaq
+function notification3(){
+    var patId = localStorage.getItem("persoanlPat");
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8030/api/appointmentManagement/getTodaysAppPat/"+patId,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+          // $("#krejtTerminet").append("Total Appointments:");
+            var y = result.data;
+            if (y != null) {
+                $.each(y, function(i, item) {
+                    if(item.canceledByPat == false && item.freeAppoint == false){
+                document.getElementById("terminetSotPacienti").style.background="#FF0000";
+                    }
+                
+            });
+            } else {
+                
+            }
+        },
+        error: function(e) {
+            console.log("ERROR: ", e);
+        }
+    })   
+ }
+
+ $("#terminetSotPacienti").click(function(event){
+    //$("#hapsiraListes").empty();
+   
+    
+    
+    $("#listaTermineveSot3").empty();
+     var patId = localStorage.getItem("persoanlPat");
+     $.ajax({
+         type: "GET",
+         url: "http://localhost:8030/api/appointmentManagement/getTodaysAppPat/"+patId,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+         success: function(result) {
+           // $("#krejtTerminet").append("Total Appointments:");
+             var y = result.data;
+             if (y != null) {
+
+                 $.each(y, function(i, item) {
+                    
+                   //  var date = new Date(item.dateAndTime);
+                     //var dita = date.getDay();
+                     //var muji = date.getMonth();
+                     //var viti = date.getFullYear();
+                     var myDate = item.dateAndTime;
+                     var sdi = myDate.split("T");
+                   if(item.freeAppoint == false && item.canceledByPat == false && item.canceledByDoc == false){
+                     $("#listaTermineveSot3").append('<li>'+sdi[0]+'  at: '+item.time+'</li>');
+                    // myDate.format("mm/dd/yy");
+                   }else if(item.canceledByDoc == true){
+                    $("#listaTermineveSot3").append('<li>'+sdi[0]+'  at: '+item.time+'- Canceled</li>');
+                   }
+                    //localStorage.setItem('idPacienetit' , item.personalNumber);
+                  });
+             } else {
+                 $("#listaTermineveSot3").append('<li>'+result.errori+'</li>');
+             }
+         },
+         error: function(e) {
+             console.log("ERROR: ", e);
+         }
+     })
+ });
