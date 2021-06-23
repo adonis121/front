@@ -245,6 +245,7 @@ $(document).on('click', '#dergoMesazhin', function(event) {
 
 
 function shfaqDepartametet(){
+    $("#listaTermineveSot").empty();
     $.ajax({
         type: "GET",
         url: "http://localhost:8090/api/systemManagement/admin/getAllDep",
@@ -255,7 +256,7 @@ function shfaqDepartametet(){
             var y = result.data;
             if (y != null) {
                 $.each(y, function(i, item) {
-                   $("#depatamentet").append('<div class="col " style="flex: 1 0 15%;padding: 2px; margin:2px;"><button type="button" data-toggle="modal" data-target="#getClinicModal" id = "shfaqMjektNdep" style="width:100px; color:rgb(82, 80, 80)">'+item.depId+'</button><p class="fs-3 " style="font-size:20px;"><img src="assets/img/hsrooms.jpg " class="img-fluid " style="border-radius: 50%;width:30px; height: 30px; " alt="...">'+item.depName+'</p></div>');
+                   $("#depatamentet").append('<div class="col " style="flex: 1 0 15%;padding: 2px; margin:2px;"><button type="button" data-toggle="modal" data-target="#getClinicModal" id = "shfaqMjektNdep" style="width:100px; color:rgb(82, 80, 80)">'+item.depName+'</button><p class="fs-3 " style="font-size:20px;"><img src="assets/img/hsrooms.jpg " class="img-fluid " style="border-radius: 50%;width:30px; height: 30px; " alt="...">'+item.depId+'</p></div>');
                  });
             } else {
               alert(result.errori)
@@ -297,9 +298,9 @@ function shfaqDepartametet(){
 
 $(document).on('click', '#shfaqMjektNdep', function(event) {
     var depNumber =  $(this).text();
-    
+    $("#listaTermineveSot").empty();
     $.ajax({
-        url: "http://localhost:8090/api/systemManagement/patient/getDoctortByDep/"+depNumber,
+        url: "http://localhost:8090/api/systemManagement/admin/getAllDoctors",
         type: 'GET',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -313,9 +314,14 @@ $(document).on('click', '#shfaqMjektNdep', function(event) {
                        
 
                     $.each(y, function(i, item) {
-                        $("#listaTermineveSot").append('<li><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_02.jpg" alt=""><div><h2>'+item.doctorName+' '+item.doctorSurname+'</h2></div></li>');
-                        console.log(res.data.conversationDes);
-    
+                        if(depNumber == item.departmentN){
+                        //if(item.depId == depNumber){
+                          //  alert("erdh kerksa");
+                        $("#listaTermineveSot").append('<li><button>'+item.personalNumber+'</button>'+item.doctorName+' '+item.doctorSurname+'</li>');
+                     
+                        }
+                     
+                        //}
                       });
                       
                    }else{
