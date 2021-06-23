@@ -299,6 +299,7 @@ function shfaqDepartametet(){
 $(document).on('click', '#shfaqMjektNdep', function(event) {
     var depNumber =  $(this).text();
     $("#listaTermineveSot").empty();
+    $("#listaTermineveSot2").empty();
     $.ajax({
         url: "http://localhost:8090/api/systemManagement/admin/getAllDoctors",
         type: 'GET',
@@ -317,7 +318,49 @@ $(document).on('click', '#shfaqMjektNdep', function(event) {
                         if(depNumber == item.departmentN){
                         //if(item.depId == depNumber){
                           //  alert("erdh kerksa");
-                        $("#listaTermineveSot").append('<li><button>'+item.personalNumber+'</button>'+item.doctorName+' '+item.doctorSurname+'</li>');
+                        $("#listaTermineveSot").append('<li><button id="terminetMjekutPerkates">'+item.personalNumber+'</button>'+item.doctorName+' '+item.doctorSurname+'</li>');
+                        
+                        }
+                     
+                        //}
+                      });
+                      
+                   }else{
+                    $("#listaTermineveSot").append(e);
+                   }
+                }
+    ,
+        error: function(error) {
+            console.log(error);
+               
+        }
+    })
+});
+
+$(document).on('click', '#terminetMjekutPerkates', function(event) {
+    var personalNumber =  $(this).text();
+    $("#listaTermineveSot2").empty();
+    $.ajax({
+        url: "http://localhost:8030/api/appointmentManagement/getAppByDoc/"+personalNumber,
+        type: 'GET',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(res) {
+                   
+                   var e = res.errori;
+                   var m
+                   // localStorage.setItem('admin')
+                   if(e == null){
+                       var y = res.data;
+                       $("#listaTermineveSot2").append("Appointments By:" +personalNumber);
+                    $.each(y, function(i, item) {
+                     //   $("#listaTermineveSot2").append('Appointments by: '+item.doctorName+' '+item.doctorSurname);
+                        if(item.freeAppoint == true && item.canceledByDoc == false){
+                        //if(item.depId == depNumber){
+                          //  alert("erdh kerksa");
+                          var myDate = item.dateAndTime;
+                         var sdi = myDate.split("T");
+                        $("#listaTermineveSot2").append('<li>Date: '+sdi[0]+' at: '+item.time+':00</li>');
                      
                         }
                      
