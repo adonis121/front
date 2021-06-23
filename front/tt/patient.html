@@ -95,19 +95,19 @@
                                     <span aria-hidden="true">&times;</span>
                                   </button>
                                         </div>
-        
+
                                         <div id="hapsiraInfoKlinikes" class="modal-body">
                                             <ol id="listaTermineveSot">
 
-                                                
-                                                </ol>
-                                                <ol id ="listaTermineveSot2"></ol>
 
-                                                
+                                            </ol>
+                                            <ol id="listaTermineveSot2"></ol>
+
+
                                         </div>
                                         <div class="modal-footer">
                                             <button id="infotKlinikes" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
+
                                         </div>
                                     </div>
                                 </div>
@@ -223,56 +223,72 @@
 
             <div class="appointment-container">
                 <div class="containerApp">
-                    <div class="Directions">
-                        <div class="appointment-guide">
-                            <p class="fs-1 titleA">Need an appointment? </p>
-                            <p class="fs-3 paragraph">Follow the simple steps below and get your appointment fixed online! </p>
-                            <ul class="fs-3 rules " style="list-style: none;">
-                                <li> <i class="fas fa-exclamation "><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; ">    You must be logged-in!</a></i>
+                    <div class="container">
+                        <div class="directions">
+                            <div class="appointment-guide">
+                                <p class="fs-1 titleA">Need an appointment? </p>
+                                <p class="fs-3 paragraph">Follow the simple steps below and get your appointment fixed online! </p>
+                                <ul class="fs-3 rules " style="list-style: none;">
+                                    <li> <i class="fas fa-exclamation "><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; ">    You must be logged-in!</a></i>
 
-                                </li>
-                                <li> <i class="far fa-plus-square"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select the department</a></i>
+                                    </li>
+                                    <li> <i class="far fa-plus-square"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select the doctor</a></i>
 
-                                </li>
-                                <li>
-                                    <i class="far fa-calendar-alt"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select Date of Appointment</a></i>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="calendar">
-                        <p>Date: <input type="date" id="datepicker"></p>
-                    </div>
-                    <div class="hour">
-                        <div class="col">
-                            <h5>Pick the hour:</h5>
-
-                            <div class="col   overflow-hidden">
-                                <div class="row row-cols-2">
-                                    <div class="col time" style="margin-top: 5%;"> <button type="button" class="btn btn-outline-primary" id="oraTerminit"> 8:00 </button></div>
-                                    <div class="col time" style="margin-top: 5%;"> <button type=" button " class="btn btn-outline-primary " id="oraTerminit"> 9:00 </button></div>
-                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">10.00</button></div>
-                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">11.00</button></div>
-                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">12.00</button></div>
-                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">13.00</button></div>
-                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">14.00</button></div>
-                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">15.00</button></div>
-                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">16.00</button></div>
-                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">17.00</button></div>
-                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">18.00</button></div>
-                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">19.00</button></div>
-                                    <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">20.00</button></div>
-
-                                </div>
-                                <h5>Appointment at: </h5>
-                                <p id="inputPerOre2"></p>
-
-
-
-
+                                    </li>
+                                    <li>
+                                        <i class="far fa-calendar-alt"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select date and hour of  the appointment</a></i>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+                        <div class="medics">
+
+
+
+                            <select name="medics" id="doctorss" class="btn btn-secondary ">
+                                    <option value="medic1">Medic1</option>
+                                     <option value="medic2">Medic2</option> 
+                                    <option value="medic3">Medic3</option>
+                   
+                                  </select>
+
+                        </div>
+                        <div class="calendar">
+                            <p>Date: <input type="date" id="datepicker"></p>
+                        </div>
+                        <div class="hour">
+                            <div class="col">
+                                <h5>Pick the hour:</h5>
+
+                                <div class="col   overflow-hidden">
+                                    <div class="row row-cols-2">
+                                        <div class="col time" style="margin-top: 5%;"> <button type="button" class="btn btn-outline-primary" id="oraTerminit"> 8:00 </button></div>
+                                        <div class="col time" style="margin-top: 5%;"> <button type=" button " class="btn btn-outline-primary " id="oraTerminit"> 9:00 </button></div>
+                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">10.00</button></div>
+                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">11.00</button></div>
+                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">12.00</button></div>
+                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">13.00</button></div>
+                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">14.00</button></div>
+                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">15.00</button></div>
+                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">16.00</button></div>
+                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">17.00</button></div>
+                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">18.00</button></div>
+                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">19.00</button></div>
+                                        <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">20.00</button></div>
+
+                                    </div>
+                                    <h5>Appointment at: </h5>
+                                    <p id="inputPerOre2"></p>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
 
 
                 </div>

@@ -107,7 +107,7 @@
         margin-bottom: 6%;
     }
     
-    5% .paragraph {
+    .paragraph {
         font-size: 1.0rem;
     }
     
@@ -125,10 +125,6 @@
         position: relative;
         height: 80vh;
         max-height: max-content;
-    }
-    
-    .appointment-guide {
-        margin-left: 5%;
     }
     
     .titleA {
@@ -506,18 +502,24 @@
         margin-left: 10px;
     }
     
-    .containerApp {
-        padding-top: 5%;
+    .container {
+        padding-top: 3%;
         display: grid;
-        grid-template-columns: 1.7fr 0.5fr 1.2fr;
+        grid-template-columns: 1.6fr 0.2fr 0.9fr;
         grid-template-rows: 1fr 1fr 1fr;
         gap: 0px 10px;
         grid-auto-flow: row;
-        grid-template-areas: "Directions calendar hour" "Directions calendar hour" "Directions calendar hour";
+        grid-template-areas: "directions medics hour" "directions calendar hour" "directions . hour";
+        width: 98.3%;
+        height: 100%;
     }
     
-    .Directions {
-        grid-area: Directions;
+    .directions {
+        grid-area: directions;
+    }
+    
+    .medics {
+        grid-area: medics;
     }
     
     .calendar {
@@ -529,5 +531,5 @@
     }
     
     .time {
-        margin-bottom: 3%;
+        margin-bottom: 5%;
     }
