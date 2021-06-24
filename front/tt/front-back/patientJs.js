@@ -570,7 +570,7 @@ $(document).on('click', '#oraTerminit2', function(event) {
     alert(time);
     var inputi1 = document.getElementById("inputPerOre3").textContent;
     var inputi2 = document.getElementById("inputPerOre2").textContent;
-    if(inputi1.trim() != "" || inputi2.trim() != "" || dateAndTime.trim() != ""){
+    if(inputi1.trim() != "" && inputi2.trim() != "" && dateAndTime.trim() != ""){
     $("#terminnetETeZgjedhurit").empty();
     $.ajax({
         url: "http://localhost:8030/api/appointmentManagement/addNewAppointmentPat/"+patPrNumber+"/"+docNumber+"/"+dateAndTime+"/"+time,

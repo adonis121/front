@@ -570,7 +570,7 @@ function getTotalDep() {
 function getTotalUser() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:9000/api/systemManagement/admin/totalNumberOfUser",
+        url: "http://localhost:8030/api/appointmentManagement/admin/totalAppointments",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -579,6 +579,36 @@ function getTotalUser() {
             if (x != null) {
 
                 document.getElementById("totaliUsera").innerHTML = result.data;
+                // $('#hapsiraInfoKlinikes').append('<p>'+result.data+'</p>'+'</br>');
+
+                console.log("Success: ", result.data);
+
+
+
+            }
+        },
+        error: function(e) {
+
+            $("#hapsiraInfoKlinikes").html("<strong>Error</strong>");
+            console.log("ERROR: ", e);
+        }
+    })
+
+
+}
+
+function getUpApp() {
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8030/api/appointmentManagement/admin/getAppointmentsForNextDays",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+
+            var x = result.data;
+            if (x != null) {
+
+                document.getElementById("totaliUsera2").innerHTML = result.data;
                 // $('#hapsiraInfoKlinikes').append('<p>'+result.data+'</p>'+'</br>');
 
                 console.log("Success: ", result.data);

@@ -45,9 +45,9 @@
                 <!-- Home -->
                 <div id="list-home" class="tab-pane fade " role="tabpanel" style="margin-top: 2%;margin-left: 5%;">
                     <!-- Hapesirat per vendosjen e numrave tek home-->
-                    <div class="container">
+                    <div class="container" style="display: flex; flex-direction:column;">
                         <div class="row p-2 d-flex align-items-center">
-                            <div class="col ">
+                            <div class="col " >
                                 <div class="card" style="width: 10rem;">
                                     <div class="card-body">
                                         <h5 id="totaliDepa" class="card-title">Nr</h5>
@@ -62,18 +62,30 @@
                             </div>
                         </div>
                         <div class="row p-2 d-flex align-items-center">
-                            <div class="col ">
+                            <div class="col " style="display: flex; flex-direction: row;">
                                 <div class="card" style="width: 10rem;">
                                     <div class="card-body">
                                         <h5 id="totaliUsera" class="card-title">Nr</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Number of Users</h6>
+                                        <h6 class="card-subtitle mb-2 text-muted">Number of Appointments - Total</h6>
 
                                     </div>
+                            
+                                   
+                                   
                                 </div>
+                                <div class="card" style="width: 10rem; margin-left: 25%;">
+                                    <div class="card-body" >
+                                        <h5 id="totaliUsera2" class="card-title">Nr</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Number of upcoming Appointments</h6>
+
+                                    </div>
+                            
+                                   
+                                   
+                                </div>
+                               
                             </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-primary">Get List</button>
-                            </div>
+                            
                         </div>
                         <div class="row p-2 d-flex align-items-center">
                             <div class="col  ">
@@ -449,6 +461,7 @@
         window.onload = getTotalDoc();
         window.onload = getTotalUser();
         window.onload = footeriMedNotes();
+        window.onload = getUpApp();
     </script>
 </body>
 
