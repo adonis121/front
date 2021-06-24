@@ -566,11 +566,11 @@ function getTotalDep() {
 
 
 }
-
+//Me gateway 9000
 function getTotalUser() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8090/api/systemManagement/admin/totalNumberOfUser",
+        url: "http://localhost:9000/api/systemManagement/admin/totalNumberOfUser",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {

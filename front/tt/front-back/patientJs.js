@@ -394,6 +394,7 @@ function notification3(){
                 $.each(y, function(i, item) {
                     if(item.canceledByPat == false && item.freeAppoint == false){
                 document.getElementById("terminetSotPacienti").style.background="#FF0000";
+            
                     }
                 
             });
@@ -435,6 +436,7 @@ function notification3(){
                    if(item.freeAppoint == false && item.canceledByPat == false && item.canceledByDoc == false){
                      $("#listaTermineveSot3").append('<li>'+sdi[0]+'  at: '+item.time+'</li>');
                     // myDate.format("mm/dd/yy");
+                    console.log(sdi[0]);
                    }else if(item.canceledByDoc == true){
                     $("#listaTermineveSot3").append('<li>'+sdi[0]+'  at: '+item.time+'- Canceled</li>');
                    }
@@ -449,3 +451,151 @@ function notification3(){
          }
      })
  });
+
+//dropBox per mjekt
+ function dropBoxMjekt(){
+    var depNumber =  $(this).text();
+  
+    $.ajax({
+        url: "http://localhost:8090/api/systemManagement/admin/getAllDoctors",
+        type: 'GET',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(res) {
+                   
+                   var e = res.errori;
+                   var m
+                   // localStorage.setItem('admin')
+                   if(e == null){
+                       var y = res.data;
+                       
+
+                    $.each(y, function(i, item) {
+                      
+                        //if(item.depId == depNumber){
+                          //  alert("erdh kerksa");
+                        $("#doctorss").append('<option id="opsioni" >'+item.doctorName+" "+item.doctorSurname+' <button>'+item.personalNumber+'</button></option>');
+                        document.getElementById("opsioni").value = item.personalNumber;
+                         
+                        
+                        //}
+                      });
+                      
+                   }else{
+                    $("#doctorss").append("No doctors to choose");
+                   }
+                }
+    ,
+        error: function(error) {
+            console.log(error);
+               
+        }
+    })
+
+
+ }
+
+
+ $(document).on('click', '#opsioni', function(event) {
+     var vlera = $(this).text();
+     var vleraDuhur =vlera.split(" ");
+     document.getElementById("inputPerOre3").innerHTML=vlera;
+     localStorage.setItem("idMjekutDropbox" , vleraDuhur[2]);
+     localStorage.setItem("emriMjekut", vleraDuhur[0]+""+vleraDuhur[1])
+
+    // alert(vleraDuhur[2]);
+ });
+
+
+ $(document).on('click', '#opsioni', function(event) {
+    var personalNumber =  localStorage.getItem('idMjekutDropbox');
+    $("#terminnetETeZgjedhurit").empty();
+    $.ajax({
+        url: "http://localhost:8030/api/appointmentManagement/getAppByDoc/"+personalNumber,
+        type: 'GET',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(res) {
+                   
+                   var e = res.errori;
+                   var m
+                   // localStorage.setItem('admin')
+                   if(e == null){
+                       var y = res.data;
+                       var emriMj  = localStorage.getItem("emriMjekut");
+                       $("#terminnetETeZgjedhurit").append("Appointments By:" +emriMj);
+                    $.each(y, function(i, item) {
+                     //   $("#listaTermineveSot2").append('Appointments by: '+item.doctorName+' '+item.doctorSurname);
+                        if(item.freeAppoint == true && item.canceledByDoc == false){
+                        //if(item.depId == depNumber){
+                          //  alert("erdh kerksa");
+                          var myDate = item.dateAndTime;
+                         var sdi = myDate.split("T");
+                        $("#terminnetETeZgjedhurit").append('<li>Date: '+sdi[0]+' at: '+item.time+':00</li>');
+                     
+                        }
+                     
+                        //}
+                      });
+                      
+                   }else{
+                    $("#terminnetETeZgjedhurit").append(e);
+                   }
+                }
+    ,
+        error: function(error) {
+            console.log(error);
+               
+        }
+    })
+});
+
+$(document).on('click', '#oraTerminit', function(event){
+    var oraTerm = $(this).text();
+    localStorage.setItem("oraPerTermin" , oraTerm);
+   document.getElementById("inputPerOre2").innerHTML = oraTerm;
+   // localStorage.setItem("oraPerTermin" , oraTerm);
+   // alert(localStorage.getItem("oraT"));
+   // alert(localStorage.getItem("oraT"));
+   
+});
+
+
+$(document).on('click', '#oraTerminit2', function(event) {
+    var docNumber =  localStorage.getItem('idMjekutDropbox');
+    var patPrNumber = localStorage.getItem("persoanlPat");
+    var dateAndTime = document.getElementById('datepicker').value;
+   
+    var time = localStorage.getItem('oraPerTermin');
+    alert(time);
+    var inputi1 = document.getElementById("inputPerOre3").textContent;
+    var inputi2 = document.getElementById("inputPerOre2").textContent;
+    if(inputi1.trim() != "" || inputi2.trim() != "" || dateAndTime.trim() != ""){
+    $("#terminnetETeZgjedhurit").empty();
+    $.ajax({
+        url: "http://localhost:8030/api/appointmentManagement/addNewAppointmentPat/"+patPrNumber+"/"+docNumber+"/"+dateAndTime+"/"+time,
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(res) {
+                   
+                   var e = res.errori;
+                   if(e == null){
+                       
+                      
+                   alert("Appointment added!");
+                      
+                   }else{
+                    alert(e);
+                   }
+                }
+    ,
+        error: function(error) {
+            console.log(error);
+               
+        }
+    })
+}else {
+    alert("Please choose all the needed inputs");
+}
+});
