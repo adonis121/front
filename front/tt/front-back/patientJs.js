@@ -599,3 +599,84 @@ $(document).on('click', '#oraTerminit2', function(event) {
     alert("Please choose all the needed inputs");
 }
 });
+
+// cancel terminin
+$(document).on('click', '#oraTerminit3', function(event) {
+    var docId =  localStorage.getItem('idMjekutDropbox');
+    var patId = localStorage.getItem("persoanlPat");
+    var date = document.getElementById('datepicker').value; 
+    var time = localStorage.getItem('oraPerTermin');
+    alert(time);
+    var inputi1 = document.getElementById("inputPerOre3").textContent;
+    var inputi2 = document.getElementById("inputPerOre2").textContent;
+    if(inputi1.trim() != "" && inputi2.trim() != "" && date.trim() != ""){
+    $("#terminnetETeZgjedhurit").empty();
+    $.ajax({
+        url: "http://localhost:8030/api/appointmentManagement/deleteAppointment/"+docId+"/"+date+"/"+patId+"/"+time,
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(res) {
+                   
+                   var e = res.errori;
+                   if(e == null){
+                       
+                      
+                   alert("Appointment canceled!");
+                      
+                   }else{
+                    alert(e);
+                   }
+                }
+    ,
+        error: function(error) {
+            console.log(error);
+               
+        }
+    })
+}else {
+    alert("Please choose all the needed inputs");
+}
+});
+
+
+function getPersoanlApp(){
+   
+     $("#listaTermineveAll").empty();
+ var personalNumber = localStorage.getItem("persoanlPat");
+
+     $.ajax({
+         type: "GET",
+         url: "http://localhost:8030/api/appointmentManagement/getAppByPat/"+personalNumber,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+         success: function(result) {
+             var y = result.data;
+             if (y != null) {
+                 $.each(y, function(i, item) {
+                    console.log(y);
+                     if(item.freeAppoint == false && item.canceledByDoc == false && item.canceledByPat == false){
+                     var myDate = item.dateAndTime;
+                     var sdi = myDate.split("T");
+                     
+                    // myDate.format("mm/dd/yy");
+                    $("#listaTermineveAll").append('<li>'+sdi[0]+'  at: '+item.time+'</li>');
+                    
+                    //localStorage.setItem('idPacienetit' , item.personalNumber);
+                     }else if(item.canceledByDoc == true){
+                        var myDate = item.dateAndTime;
+                        var sdi = myDate.split("T");
+                        $("#listaTermineveAll").append('<li>'+sdi[0]+'  at: '+item.time+'</li> - Canceled!');
+                     }else {
+                        $("#listaTermineveAll").append('<li>You dont have upcoming appointments</li>');
+                     }
+                  });
+             } else {
+                 $("#listaTermineveAll").append('<li>'+result.errori+'</li>');
+             }
+         },
+         error: function(e) {
+             console.log("ERROR: ", e);
+         }
+     })
+}

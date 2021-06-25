@@ -116,24 +116,36 @@
 
         </nav>
         </div>
+        <div style="display: flex; flex-direction: row; justify-content: space-evenly;">
     <div id="list-profile" >
         <div class="profile">
-        <h2 style="margin-left: 140px;">Edit Profile</h2>
+         <h2 style="margin-left: 140px;">Edit Profile</h2>
                     
-        <label for="fname"><i class="fa fa-user"></i> ------------</label>
-        <input type="text" id="degree" name="firstname" placeholder="-------------">
+         <label for="fname"><i class="fa fa-user"></i> ------------</label>
+         <input type="text" id="degree" name="firstname" placeholder="-------------">
       
-        <label for="fname"><i class="fa fa-user"></i>-------------</label>
-        <input type="text" id="special" name="firstname" placeholder="-------------">
-        <label for="fname"><i class="fa fa-user"></i>----------</label>
+         <label for="fname"><i class="fa fa-user"></i>-------------</label>
+         <input type="text" id="special" name="firstname" placeholder="-------------">
+         <label for="fname"><i class="fa fa-user"></i>----------</label>
          <input type="text" id="special" name="firstname" placeholder="-----">
          <label for="fname"><i class="fa fa-user"></i>--------------</label>
          <input type="text" id="special" name="firstname" placeholder="-----">
-        <input class="btn" id="edit" type="submit" name="submitbtn" onclick="noDataEdit()" value="Edit" />
+          <input class="btn" id="edit" type="submit" name="submitbtn" onclick="noDataEdit()" value="Edit" />
 
-      </div>
-      </div>
+        </div>
+    </div>
 
+      <div id="list-profile" >
+        <div class="profile">
+         <h2>All upcoming Appointments:</h2>
+                    
+           <ol id="listaTermineveAll">
+             
+           </ol>
+
+        </div>
+       </div>
+    </div>
 
       <footer class="footer-dark ">
         <div class="container ">
@@ -184,7 +196,10 @@
 
     </footer>
 
-
+    <script src="front-back/patientJs.js"></script>
+    <script>
+          window.onload = getPersoanlApp();
+    </script>
 
   </body>
 </html>
