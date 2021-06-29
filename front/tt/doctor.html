@@ -43,6 +43,7 @@
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-chat" id="shfaqBisedat"><i class="fas fa-comments"style="margin-right:3% ;"></i>Chat</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-advice"><i class="far fa-edit"style="margin-right:3% ;"></i>Advice</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-profile"><i class="far fa-address-card" style="margin-right:3% ;"></i>Profile</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-pacient"><i class="far fa-address-card" style="margin-right:3% ;"></i>Pacient</a>
 
                 </div>
             </div>
@@ -291,12 +292,12 @@
                 <div id="list-profile" class="tab-pane fade " role="tabpanel ">
                     <div class="profile">
 
-                        <h2 style="margin-left: 140px;">Edit Profile</h2>
+                        <h2 style="margin-left: 180px;">Edit Profile</h2>
 
-                        <label for="fname"><i class="fa fa-user"></i> Degree</label>
+                        <label for="fname" style="margin-left: 25px;"><i class="fa fa-user"></i> Degree</label>
                         <input type="text" id="degree" name="firstname" placeholder="Name">
 
-                        <label for="fname"><i class="fa fa-user"></i>Specializimi</label>
+                        <label for="fname" style="margin-left: 25px;"><i class="fa fa-user"></i>Specializimi</label>
                         <input type="text" id="special" name="firstname" placeholder="Specializimi">
                         <input class="btn" id="edit" type="submit" name="submitbtn" onclick="noDataEdit()" value="Edit" />
 
@@ -307,6 +308,71 @@
 
 
                     </div>
+
+                </div>
+
+                        
+                <div id="list-pacient" class="tab-pane fade " role="tabpanel ">
+                    
+                    <div class="profilee">
+                        <h2 style="margin-left:125%;" ">HistoryRaport</h2>
+
+                       
+
+                        <label for="fname"><i class="fa fa-user"></i>Date</label>
+                        <input type="date" id="date" name="firstname" placeholder="Date" style="width: 130%;">
+
+                        <label for="fname"><i class="fa fa-user"></i>Patient Name</label>
+                        <input type="text" id="name" name="firstname" placeholder="Name" style="width: 130%;">
+
+                        <label for="fname"><i class="fa fa-user"></i>D.O.B/Age</label>
+                        <input type="text" id="age" name="firstname" placeholder="D.O.B/Age" style="width: 130%;">
+
+                        <label for="fname"><i class="fa fa-user"></i>Adress</label>
+                        <input type="text" id="adress" name="firstname" placeholder="Exmp:'IbrahimBanushi',nr.5" style="width: 130%;">
+
+                        <label for="fname"><i class="fa fa-user"></i>Tel</label>
+                        <input type="number" id="tel" name="firstname" placeholder="Telephone number" style="width: 130%;">
+
+                        <label for="fname"><i class="fa fa-user"></i>Blood group</label>
+                        <input type="text" id="blood" name="firstname" placeholder="Blood group" style="width: 130%;">
+
+                        <label for="fname"><i class="fa fa-user"></i>Height</label>
+                        <input type="number" id="height" name="firstname" placeholder="In meters" style="width: 130%;">
+
+                        <label for="fname"><i class="fa fa-user"></i>Weight</label >
+                        <input type="number" id="weight" name="firstname" placeholder="In kg" style="width: 130%;">
+                    </div>
+                            <div class="text" id="text">
+                                
+                                <label for="fname" style="margin-left: 30%;"><i class="fa fa-user"></i>Medicaton</label>
+                            <textarea id="subject1" name="subject" placeholder="" style="height:300px  ;"></textarea>
+                            <div class="error" id="subjectErr"></div>
+                        
+                    
+
+                        
+                            <label for="fname" style="margin-left: 30%;"><i class="fa fa-user"></i>Diagnosis</label>
+                            <textarea id="subject1" name="subject" placeholder="" style="height:300px  ;"></textarea>
+                            <div class="error" id="subjectErr"></div>
+                            <input class="btn" id="edit1" type="submit" name="submitbtn" onclick="noDataEditt()" value="Edit" />
+                            
+
+                        
+                        
+                        
+
+
+                        
+
+
+
+
+
+
+
+                            </div>
+                           
 
                 </div>
 

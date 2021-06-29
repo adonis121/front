@@ -171,6 +171,26 @@ function noDataEdit(){
 }
 }
 
+function noDataEditt(){
+    var input4=document.getElementById("date").value;
+    var input5=document.getElementById("name").value;
+    var input6=document.getElementById("age").value;
+    var input7=document.getElementById("adress").value;
+    var input8=document.getElementById("tel").value;
+    var input9=document.getElementById("blood").value;
+    var inpu510=document.getElementById("height").value;
+    var input11=document.getElementById("weight").value;
+
+
+    if (input4.trim() == '' || input5.trim() == ''|| input6.trim() == '' || input7.trim() == ''|| input8.trim() == ''|| 
+     input9.trim() == ''|| input10.trim() == '' || input11.trim() == '' ) {
+        alert("Please fill the required fields!");
+    }else{
+    window.open('doctor.html');
+}
+}
+
+
 $("#veqFshij").click(function(event){
     $("#krejtTerminet").empty();
     $("#krejtTerminet2").empty();

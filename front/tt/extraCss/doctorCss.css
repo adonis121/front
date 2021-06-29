@@ -871,6 +871,7 @@ ul {
     background-color: cornflowerblue;
     border-radius: 10px;
     border: 3px blue;
+    margin-top: 0%;
 }
 
 #add:hover {
@@ -904,9 +905,10 @@ ul {
     margin-left: 25%;
     box-sizing: border-box;
     resize: vertical;
-    margin-top: 10px;
+    
     border-radius: 10px;
     border: 2px solid rgb(39, 138, 230);
+    
 }
 
 #list-profile {
@@ -916,27 +918,45 @@ ul {
     border-radius: 10px;
     width: 50%;
     margin-left: 30%;
-    margin-top: 0%;
+    margin-top:15%;
 }
 
 input[type=text] {
-    width: 80%;
+    width: 90%;
     margin-bottom: 20px;
     padding: 12px;
     border: 2px solid rgb(39, 138, 230);
     border-radius: 3px;
-    margin-left: 30px;
+    margin-left: 50px;
 }
+input[type=number] {
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 2px solid rgb(39, 138, 230);
+    border-radius: 3px;
+    margin-left: 50px;
+}
+input[type=date] {
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 2px solid rgb(39, 138, 230);
+    border-radius: 3px;
+    margin-left: 50px;
+}
+
 
 label {
     margin-bottom: 10px;
     display: block;
+    margin-left:25%;
 }
 
 #edit {
     width: 60%;
     color: white;
-    margin-left: 18%;
+    margin-left: 22%;
     background-color: cornflowerblue;
     border-radius: 10px;
     border: 3px blue;
@@ -951,4 +971,45 @@ label {
 
 .time {
     margin-bottom: 3%;
+}
+#list-pacient{
+    display: flex;
+    background-color: #f2f2f2;
+    padding: 10px 15px 10px 15px ;
+    border: 2px solid rgb(65, 67, 194);
+    border-radius: 10px;
+    width: 80%;
+    margin-left: 10%;
+    flex-direction: row;
+   
+}
+#text{
+    display: flex;
+    padding:70px 15px 10px 10px ;
+    flex-direction: column;
+    width:80% ;
+    margin-bottom: 5%;
+    
+    
+}
+
+#edit1 {
+    width: 50%;
+    color: white;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    border: 3px blue;
+    
+   
+}
+#subject1 {
+    width: 60%;
+    padding-top: 30px;
+    border: 3px solid rgb(204, 204, 204);
+    margin-left: 30%;
+    box-sizing: border-box;
+    resize: vertical;
+    border-radius: 5px;
+    border: 2px solid rgb(39, 138, 230);
+    margin-bottom: 20%;
 }
