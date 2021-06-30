@@ -714,3 +714,93 @@ $("#searchbtn").click(function(event) {
 
     }
 });
+
+
+function getPersoanlInfo() {
+
+    $("#listaInnformatavPersonale").empty();
+    var nrPersonal = localStorage.getItem("persoanlPat");
+
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8090/api/systemManagement/admin/PatientByPersonal/"+nrPersonal,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+           
+            if (result != null) {
+    
+            $("#listaInnformatavPersonale").append('<li>Name and Surname: ' +result.name+ ' ' + result.surname + '</li>'+
+            '<li>Email: ' +result.email+ '</li><li>Personal Number: ' + result.personalNumber + '</li>'+
+            '<li>Blood Type: ' +result.bloodG+ ' - Height: ' + result.height + ' - Weight: '+result.weight+'</li>');
+
+                  
+            } else {
+                $("#listaInnformatavPersonale").append('<li>' + result + '</li>');
+            }
+        },
+        error: function(e) {
+            console.log("ERROR: ", e);
+        }
+    })
+}
+
+$("#edit").click(function(event) {
+
+    var pId = localStorage.getItem("persoanlPat");
+    var blood = document.getElementById("degree").value;
+    var w = document.getElementById("special2").value;
+    var h = document.getElementById("special").value;
+    if (blood != ""  && w!= "" && h!="") {
+
+        $.ajax({
+            url: "http://localhost:8090/api/systemManagement/patient/editProfile/"+pId+"/"+blood+"/"+w+"/"+h,
+            type: 'GET',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+
+            success: function(res) {
+               alert("Profile edited successfully!");
+            },
+            error: function(e) {
+
+                $("#resultdiv").html("<strong>Error</strong>");
+                console.log("ERROR: ", e);
+            }
+        })
+
+    }else {
+        alert("Please fill all the forms!");
+    }
+});
+
+
+//diagnosat mi shfaqq
+function getPersoanlDiagnosis() {
+    var patId = localStorage.getItem("persoanlPat");
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8010/api/doctorLogicManagement/getDiagnosisByPat/"+patId,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+            // $("#krejtTerminet").append("Total Appointments:");
+            var y = result.data;
+            if (y != null) {
+                alert("suksesss");
+              /*  $.each(y, function(i, item) {
+                    if (item.canceledByPat == false && item.freeAppoint == false) {
+                        document.getElementById("terminetSotPacienti").style.background = "#FF0000";
+
+                    }
+
+                });*/
+            } else {
+
+            }
+        },
+        error: function(e) {
+            console.log("ERROR: ", e);
+        }
+    })
+}

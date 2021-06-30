@@ -5,7 +5,7 @@ function nrMjekut(){
 
 $("#shfaqBisedat").click(function(event){
    //$("#hapsiraListes").empty();
-    var docNumber = localStorage.getItem("persoanlDoc");
+   var docNumber = localStorage.getItem("persoanlDoc");
     $.ajax({
         type: "GET",
         url: "http://localhost:8000/api/conversationManagement/conversationListDoctor/"+docNumber,
@@ -548,3 +548,32 @@ $("#deleteAdvice").click(function(event){
      })
     }
  });
+
+ $("#edit").click(function(event) {
+
+    var docId = localStorage.getItem("persoanlDoc");
+    var specialization = document.getElementById("special").value;
+  
+    if (specialization != "") {
+
+        $.ajax({
+            url: "http://localhost:8090/api/systemManagement/doctor/editP/"+docId+"/"+specialization,
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+
+            success: function(res) {
+               alert("Profile edited successfully!");
+            },
+            error: function(e) {
+
+                $("#resultdiv").html("<strong>Error</strong>");
+                console.log("ERROR: ", e);
+            }
+        })
+
+    }else {
+        alert("Please fill all the forms!");
+    }
+});
+

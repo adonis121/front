@@ -121,19 +121,29 @@
         <div class="profile">
          <h2 style="margin-left: 140px;">Edit Profile</h2>
                     
-         <label for="fname"><i class="fa fa-user"></i> ------------</label>
-         <input type="text" id="degree" name="firstname" placeholder="-------------">
+         <label for="fname"><i class="fa fa-user"></i> Add your blood type:</label>
+         <input class="gjaku" type="text" id="degree" name="firstname" placeholder="blood type...">
       
-         <label for="fname"><i class="fa fa-user"></i>-------------</label>
-         <input type="text" id="special" name="firstname" placeholder="-------------">
-         <label for="fname"><i class="fa fa-user"></i>----------</label>
-         <input type="text" id="special" name="firstname" placeholder="-----">
-         <label for="fname"><i class="fa fa-user"></i>--------------</label>
-         <input type="text" id="special" name="firstname" placeholder="-----">
-          <input class="btn" id="edit" type="submit" name="submitbtn" onclick="noDataEdit()" value="Edit" />
+         <label for="fname"><i class="fa fa-user"></i>Please specify your height</label>
+         <input class="gjatesia" type="text" id="special" name="firstname" placeholder="height...">
+         <label for="fname"><i class="fa fa-user"></i>Please specify your weight</label>
+         <input class ="pesha" type="text" id="special2" name="firstname" placeholder="weight...">
+        <input class="btn" id="edit" type="submit" name="submitbtn"  value="Edit" />
 
         </div>
     </div>
+
+    <div id="list-profile" >
+        <div class="profile">
+         <h2>Personal Info:</h2>
+                    
+           <ul id="listaInnformatavPersonale">
+             
+           </ul>
+
+        </div>
+       </div>
+   
 
       <div id="list-profile" >
         <div class="profile">
@@ -199,6 +209,8 @@
     <script src="front-back/patientJs.js"></script>
     <script>
           window.onload = getPersoanlApp();
+          window.onload = getPersoanlInfo();
+          window.onload = getPersoanlDiagnosis();
     </script>
 
   </body>
