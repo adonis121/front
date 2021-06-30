@@ -70,29 +70,29 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contactUs" id="nrPersonal"></a>
                     </li>
-                   <li class="nav-item"> <button id="terminetSotPacienti" type="button" data-toggle="modal" data-target="#getClinicModal2"><a class="nav-link "><i class="far fa-bell"></i></a></button>
-                   </li>
-                   <div class="modal fade" id="getClinicModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Today's Appointment:</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <li class="nav-item"> <button id="terminetSotPacienti" type="button" data-toggle="modal" data-target="#getClinicModal2"><a class="nav-link "><i class="far fa-bell"></i></a></button>
+                    </li>
+                    <div class="modal fade" id="getClinicModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Today's Appointment:</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
-                            </div>
+                                </div>
 
-                            <div id="hapsiraInfoKlinikes3" class="modal-body">
-                                <ol id="listaTermineveSot3">
+                                <div id="hapsiraInfoKlinikes3" class="modal-body">
+                                    <ol id="listaTermineveSot3">
                                     </ol>
-                            </div>
-                            <div class="modal-footer">
-                                <button id="infotKlinikes3" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="infotKlinikes3" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
                     <li class="nav-item">
 
@@ -151,14 +151,7 @@
                                         <div class="listOfChats">
                                             <ul id="convList">
 
-                                                <!--<li>
-                                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_02.jpg" alt="">
-                                                    <div>
-                                                        <h2>Prénom Nom</h2>
 
-                                                    </div>
-
-                                                </li>--->
 
                                             </ul>
                                         </div>
@@ -189,11 +182,14 @@
                     <p class="fs-1 fw-lighter row justify-content-md-center" style="color: #fff; font-size: 4.375rem;font-weight: 100; ">WELCOME TO MEDNOTES! </p>
 
                     <div class="form-group has-search" style="margin-top: 6%;">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <span class="fa fa-search form-control-feedback"></span>
+                        <input type="text" class="form-control" placeholder="Search" id="searchInput">
+                        <button type="submit" id="searchbtn" style="
+                        border: none;"><i class="fa fa-search form-control-feedback"></i></button>
+                        <div class="modal-search" id="resultdiv" style="background: white;color: black; border-radius:  13px;"></div>
                     </div>
 
-                    <div class="arrow ">
+
+                    <div class="arrowss ">
                         <p style="margin-bottom: 2%; font-weight: 100;">Set an appointment! </p>
                         <a class="fa fa-arrow-down  bounce fa-2x" href="#appointment"></a>
                     </div>
@@ -225,20 +221,6 @@
                 <div class="row" id="depatamentet">
 
 
-                    <!---<div class="col"><img src="assets/img/doctors_hospital_corridor_nurse_pushing_gurney_stretcher_bed.jpg" class="img-fluid" style="border-radius: 50%;width:12.5rem;
-                            height: 12.5rem;" alt="... ">
-                        <p class="fs-3 ">Department Title</p>
-                    </div>
-                 
-                    <div class="col "><img src="assets/img/images.jpg " class="img-fluid " style="border-radius: 50%;width:12.5rem; height: 12.5rem; " alt="...">
-                        <p class="fs-3">Department Title</p>
-                    </div>
-                </div>
-                <div class="row">
-                  
-                    <div class="col "><img src="assets/img/download.jpg " class="img-fluid " style="border-radius: 50%; width:12.5rem; height: 12.5rem; " alt="... ">
-                        <p class="fs-3 ">Department Title</p>
-                    </div>--->
                 </div>
 
             </div>
@@ -263,9 +245,9 @@
                                     <li>
                                         <i class="far fa-calendar-alt"><a class="fs-3" style="font-size: 1.235rem; color: rgb(66, 66, 66); text-decoration: none; " >   Select date and hour of  the appointment</a></i>
                                     </li>
-                                    
+
                                 </ul>
-                                
+
                                 <ol id="terminnetETeZgjedhurit">
 
                                 </ol>
@@ -273,21 +255,21 @@
                         </div>
                         <div class="medics">
 
-                          
-                              <!--- <label for="doctorss">Please choose the doctor:</label>--->
-                             <div> <button type="button " class="btn btn-outline-primary " id="oraTerminit2">Add Appointment</button></div>
-                              <div><button type="button " class="btn btn-outline-primary " id="oraTerminit3">Cancel Appointment</button></div>
+
+                            <!--- <label for="doctorss">Please choose the doctor:</label>--->
+                            <div> <button type="button " class="btn btn-outline-primary " id="oraTerminit2">Add Appointment</button></div>
+                            <div><button type="button " class="btn btn-outline-primary " id="oraTerminit3">Cancel Appointment</button></div>
                             <select name="medics" id="doctorss" class="btn btn-secondary ">
                                     <option value="medic1">Choose the doctor:</option>
                                     <!--- //<option value="medic2">Medic2</option> 
                                     //<option value="medic3">Medic3</option>---->
                    
                                   </select>
-                                  <p id="inputPerOre3"></p>
+                            <p id="inputPerOre3"></p>
 
                         </div>
                         <div class="calendar">
-                            <p>Date: <input type="date" id="datepicker"/></p>
+                            <p>Date: <input type="date" id="datepicker" /></p>
                         </div>
                         <div class="hour">
                             <div class="col">
@@ -308,7 +290,7 @@
                                         <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">18</button></div>
                                         <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">19</button></div>
                                         <div class="col time "> <button type="button " class="btn btn-outline-primary " id="oraTerminit">20</button></div>
-                                         
+
 
                                     </div>
                                     <h5>Appointment at: </h5>
@@ -355,276 +337,162 @@
                         <div class="cardss " style="display: flex;justify-content: center;">
                             <a class=" controls-top btn-floating" href="#multi-item-example" data-slide="prev" style="color:black; font-size:2.5rem;margin-right:5%;padding-top: 10%;"><i class="fas fa-chevron-left"></i></a>
                             <div id="hapsiraKryesore">
-                                <!---<div class="col-md-3" style="float:left">
-                            <div class="card mb-2">
-                                <img class="card-img-top profile" src="assets/img/femdoc.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Dr.</h4>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <button class="btn btn-outline-primary " type="button" data-toggle="modal" data-target="#chatModal">Chat</button>
-                                    Chat 
-                                    <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Chat</h5>
-
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form onsubmit="return false;">
-                                                        <div class="chat-messages">
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    Hello
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-sender">
-                                                                    Mamun Khandaker
-                                                                </div>
-                                                                <div class="message-box message-partner">
-                                                                    Hi.
-                                                                </div>
-                                                            </div>
 
 
-                                                        </div>
-                                                        <input type="text" class="form-control" id="recipient-name" placeholder="Type a message...">
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-primary">Delete Conversation</button>
 
-                                                            <button class="btn btn-primary">Send</button>
-                                                        </div>
 
-                                                    </form>
-                                                </div>
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
-
-                        
-
-                       
-                            </div>
-                        </div>--->
-                            </div>
-                            <a class="controls-top btn-floating" href="#multi-item-example" data-slide="next" style="color:black; font-size:2.5rem;float: right;margin-left:5%;padding-top: 10%;"><i
+                        <a class="controls-top btn-floating" href="#multi-item-example" data-slide="next" style="color:black; font-size:2.5rem;float: right;margin-left:5%;padding-top: 10%;"><i
                         class="fas fa-chevron-right"></i></a>
-                        </div>
-
-
-                    </div>
-                    <!--/.First slide-->
-
-                    <!--Second slide
-                <div class="carousel-item">
-
-
-
-                    <div id ="prov"class="cardss" style="display: flex;justify-content: center;"> <a class="controls-top btn-floating" href="#multi-item-example" data-slide="prev" style="color:black; font-size:2.5rem;margin-right:5%;padding-top: 10%;"><i class="fas fa-chevron-left"></i></a>
-
-                       <div class="col-md-3" style="float:left">
-                            <div class="card mb-2">
-                                <img class="card-img-top profile" src="assets/img/olddoc.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <button class="btn btn-outline-primary " type="button" data-toggle="modal" data-target="#chatModal">Chat</button>
-                                    <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Chat</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form onsubmit="return false;">
-                                                        <div class="chat-messages">
-                                                            <div class="message-box-holder">
-                                                                <div class="message-box">
-                                                                    Hello
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="message-box-holder">
-                                                                <div class="message-sender">
-                                                                    Mamun Khandaker
-                                                                </div>
-                                                                <div class="message-box message-partner">
-                                                                    Hi.
-                                                                </div>
-                                                            </div>
-
-                                                       
-                                                        </div>
-                                                        <input type="text" class="form-control" id="recipient-name" placeholder="Type a message...">
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-primary">Delete Conversation</button>
-                                                            <button class="btn btn-primary">Send</button>
-                                                        </div>
-
-                                                    </form>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                      
-                        </div><a class="controls-top btn-floating" href="#multi-item-example" data-slide="next" style="color:black; font-size:2.5rem;float: right;margin-left:5%;padding-top: 10%;"><i
-                     class="fas fa-chevron-right"></i></a>
                     </div>
 
-
-                </div>-->
 
                 </div>
+                <!--/.First slide-->
+
+
+
+
+
 
 
             </div>
 
 
-        </section>
-        <section id="contactUs">
-            <div class="contactUs-content row">
+    </div>
 
-                <div class="col contactUs-text">
-                    <p class="fs-1 title">GET IN TOUCH</p>
-                    <div class="adressbox ">
-                        <p class="fs-6">500 Terry Francois Street San Francisco, CA 94158</p>
-                        <p class="fs-6" style="margin-left:5%">mednotes@gmail.com</p>
-                        <p class="fs-6" style=" margin-left:7% ">+383456789</p>
-                    </div>
+
+    </section>
+    <section id="contactUs">
+        <div class="contactUs-content row">
+
+            <div class="col contactUs-text">
+                <p class="fs-1 title">GET IN TOUCH</p>
+                <div class="adressbox ">
+                    <p class="fs-6">500 Terry Francois Street San Francisco, CA 94158</p>
+                    <p class="fs-6" style="margin-left:5%">mednotes@gmail.com</p>
+                    <p class="fs-6" style=" margin-left:7% ">+383456789</p>
                 </div>
-                <div class="col">
-                    <p class="fs-1 title">SEND US A FEEDBACK!</p>
-                    <div class="  text-dark bg-light mb-3" style="max-width: 18rem;">
-                        <textarea class="card-body comment" type="text" placeholder="Comment..."></textarea>
-                    </div>
-                    <button type="button" class="btn btn-outline-secondary" style="color: white; border-color: white;">Submit</button>
+            </div>
+            <div class="col">
+                <p class="fs-1 title">SEND US A FEEDBACK!</p>
+                <div class="  text-dark bg-light mb-3" style="max-width: 18rem;">
+                    <textarea class="card-body comment" type="text" placeholder="Comment..."></textarea>
                 </div>
-
-
+                <button type="button" class="btn btn-outline-secondary" style="color: white; border-color: white;">Submit</button>
             </div>
 
-            <div id="map"></div>
 
-        </section>
+        </div>
 
-        <footer class="footer-dark ">
-            <div class="container ">
-                <div class="row ">
-                    <div class="col-sm-6 col-md-3 item ">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="# ">Chat with Doctors</a></li>
-                            <li><a href="# ">Add Appointments</a></li>
-                            <li><a href="# ">Find your Doctor</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 item ">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="# ">Clinic</a></li>
-                            <li><a href="# ">Staff</a></li>
-                            <li><a href="# ">Careers</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 item text ">
-                        <h3>MedNotes</h3>
-                        <p id="emailiKlinikes "></p>
-                        <p id="telefoniKlinikes "></p>
-                        <p id="adresaKlinikes "></p>
-                        <p id="nrPartKlinikes "></p>
-                    </div>
-                    <div class="col item social "><a href="# "><i class="icon ion-social-facebook "></i></a><a href="# "><i class="icon ion-social-twitter "></i></a><a href="# "><i class="icon ion-social-snapchat "></i></a><a href="# "><i class="icon ion-social-instagram "></i></a></div>
+        <div id="map"></div>
+
+    </section>
+
+    <footer class="footer-dark ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-sm-6 col-md-3 item ">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="# ">Chat with Doctors</a></li>
+                        <li><a href="# ">Add Appointments</a></li>
+                        <li><a href="# ">Find your Doctor</a></li>
+                    </ul>
                 </div>
-                <p class="copyright ">MedNotes © 2021</p>
+                <div class="col-sm-6 col-md-3 item ">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="# ">Clinic</a></li>
+                        <li><a href="# ">Staff</a></li>
+                        <li><a href="# ">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 item text ">
+                    <h3>MedNotes</h3>
+                    <p id="emailiKlinikes "></p>
+                    <p id="telefoniKlinikes "></p>
+                    <p id="adresaKlinikes "></p>
+                    <p id="nrPartKlinikes "></p>
+                </div>
+                <div class="col item social "><a href="# "><i class="icon ion-social-facebook "></i></a><a href="# "><i class="icon ion-social-twitter "></i></a><a href="# "><i class="icon ion-social-snapchat "></i></a><a href="# "><i class="icon ion-social-instagram "></i></a></div>
             </div>
+            <p class="copyright ">MedNotes © 2021</p>
+        </div>
 
-            <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js "></script>
 
-        </footer>
+    </footer>
 
 
-        <script>
-            function initMap() {
-                //42.661911567240736, 21.162545989865308
-                const iconURL = 'https://www.cp-desk.com/wp-content/uploads/2019/02/map-marker-free-download-png.png';
-                const icon = {
-                    url: iconURL,
-                    scaledSize: new google.maps.Size(100, 100)
-                };
-                const sheshi = {
+    <script>
+        function initMap() {
+            //42.661911567240736, 21.162545989865308
+            const iconURL = 'https://www.cp-desk.com/wp-content/uploads/2019/02/map-marker-free-download-png.png';
+            const icon = {
+                url: iconURL,
+                scaledSize: new google.maps.Size(100, 100)
+            };
+            const sheshi = {
+                lat: 42.661911567240736,
+                lng: 21.162545989865308
+            }
+
+            let infowindow = new google.maps.InfoWindow();
+
+            let marker, i;
+
+            const locations = [{
+                    countryCode: 'Location 1',
                     lat: 42.661911567240736,
                     lng: 21.162545989865308
-                }
+                }, {
+                    countryCode: 'Location 2',
+                    lat: 42.66485881531764,
+                    lng: 21.16863263444342
+                }, {
+                    countryCode: 'Location 3',
+                    lat: 42.65334140463899,
+                    lng: 21.14679976831176
+                },
 
-                let infowindow = new google.maps.InfoWindow();
+            ]
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 19,
+                center: sheshi,
 
-                let marker, i;
+            })
 
-                const locations = [{
-                        countryCode: 'Location 1',
-                        lat: 42.661911567240736,
-                        lng: 21.162545989865308
-                    }, {
-                        countryCode: 'Location 2',
-                        lat: 42.66485881531764,
-                        lng: 21.16863263444342
-                    }, {
-                        countryCode: 'Location 3',
-                        lat: 42.65334140463899,
-                        lng: 21.14679976831176
-                    },
+            for (i = 0; i < locations.length; i++) {
 
-                ]
-                const map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 19,
-                    center: sheshi,
-
-                })
-
-                for (i = 0; i < locations.length; i++) {
-
-                    marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(locations[i]['lat'], locations[i]['lng']),
-                        map: map,
-                    });
-                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                        return function() {
-                            infowindow.setContent(locations[i]['label']);
-                            infowindow.open(map, marker);
-                        }
-                    })(marker, i));
-                }
-
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i]['lat'], locations[i]['lng']),
+                    map: map,
+                });
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent(locations[i]['label']);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
             }
-        </script>
-        <!-- Pass your API key instead of YOUR_API_KEY -->
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs6kz4vjgFFQ9Wj84dcAiDBQXZmRynDFg&callback=initMap " type="text/javascript "></script>
-        <script src="front-back/patientJs.js"></script>
-        <script>
-            window.onload = getDocCards();
-            window.onload = faqjaEPersonalizuar();
-            window.onload = shfaqDepartametet();
-            window.onload = notification3();
-            window.onload = dropBoxMjekt();
-        </script>
+
         }
+    </script>
+    <!-- Pass your API key instead of YOUR_API_KEY -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs6kz4vjgFFQ9Wj84dcAiDBQXZmRynDFg&callback=initMap " type="text/javascript "></script>
+    <script src="front-back/patientJs.js"></script>
+    <script>
+        window.onload = getDocCards();
+        window.onload = faqjaEPersonalizuar();
+        window.onload = shfaqDepartametet();
+        window.onload = notification3();
+        window.onload = dropBoxMjekt();
+    </script>
+    }
 
 
 </body>
