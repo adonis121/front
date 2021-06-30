@@ -449,3 +449,102 @@ addfreeApp = {
      })
     }
  });
+
+ //shto keshill
+
+ $("#add").click(function(event){
+  
+    //$("#hapsiraListes").empty();
+    if(validate5()){
+    var title = document.getElementById("titulli").value;
+    var content = document.getElementById("subject").value;
+    var nrPersonal = localStorage.getItem("persoanlDoc");
+   //  var oraTerminit = localStorage.getItem("oraPerTermin");
+     $.ajax({
+         type: "post",
+         url: "http://localhost:8010/api/doctorLogicManagement/addAdvice/"+title+"/"+content+"/"+nrPersonal,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+         data: JSON.stringify(addfreeApp),
+         success: function(result) {
+//         alert("erdh kerksa");
+//           window.location.reload();
+             var y = result.errori;
+             if (y == null) {
+               //  $.each(y, function(i, item) {
+                 //   $("#krejtTerminet").append('<p>'+item.dateAndTime+'</p>');
+                    //localStorage.setItem('idPacienetit' , item.personalNumber);
+                    alert("Advice Added");
+                    
+                    
+                 // });
+             } else {
+               //  $("#krejtTerminet").append(result.errori);
+               alert(result.errori);
+             }
+         },
+         error: function(e) {
+             console.log("ERROR: ", e);
+         }
+     })
+    }
+ });
+
+ 
+ function validate5() {
+    var int = document.getElementById("titulli").value; 
+    var int2 = document.getElementById("subject").value;
+   if(int.trim() == null || int2.trim() == null){
+       return false;
+   }
+   return true;
+
+}
+function validate6() {
+    var int = document.getElementById("titulli").value; 
+ 
+   if(int.trim() == null){
+       return false;
+   }
+   return true;
+}
+
+
+
+$("#deleteAdvice").click(function(event){
+  
+    //$("#hapsiraListes").empty();
+    if(validate6()){
+    var title = document.getElementById("titulli").value;
+
+    var docId = localStorage.getItem("persoanlDoc");
+   //  var oraTerminit = localStorage.getItem("oraPerTermin");
+     $.ajax({
+         type: "post",
+         url: "http://localhost:8010/api/doctorLogicManagement/deleteAdvice/"+title+"/"+docId,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+         data: JSON.stringify(addfreeApp),
+         success: function(result) {
+//         alert("erdh kerksa");
+//           window.location.reload();
+             var y = result.errori;
+             if (y == null) {
+               //  $.each(y, function(i, item) {
+                 //   $("#krejtTerminet").append('<p>'+item.dateAndTime+'</p>');
+                    //localStorage.setItem('idPacienetit' , item.personalNumber);
+                    alert("Advice Deleted!");
+                    
+                    
+                 // });
+             } else {
+               //  $("#krejtTerminet").append(result.errori);
+               alert(result.errori);
+             }
+         },
+         error: function(e) {
+             console.log("ERROR: ", e);
+         }
+     })
+    }
+ });

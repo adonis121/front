@@ -880,6 +880,22 @@ ul {
     border-radius: 10px;
     border: 3px blue;
 }
+#deleteAdvice {
+    width: 60%;
+    color: white;
+    margin-left: 25%;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    border: 3px blue;
+    margin-top: 0%;
+}
+
+#deleteAdvice:hover {
+    background-color: rgb(78, 76, 76);
+    color: white;
+    border-radius: 10px;
+    border: 3px blue;
+}
 
 .first {
     margin-top: 10px;
