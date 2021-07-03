@@ -39,7 +39,7 @@
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-chat" id="shfaqBisedat"><i class="fas fa-comments"style="margin-right:3% ;"></i>Chat</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-advice"><i class="far fa-edit"style="margin-right:3% ;"></i>Advice</a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-profile"><i class="far fa-address-card" style="margin-right:3% ;"></i>Profile</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-pacient"><i class="far fa-address-card" style="margin-right:3% ;"></i>Pacient</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-pacient" onclick="dropBoxPacientit()"><i class="far fa-address-card" style="margin-right:3% ;"></i>Pacient</a>
 
                 </div>
             </div>
@@ -310,15 +310,20 @@
                 <div id="list-pacient" class="tab-pane fade " role="tabpanel ">
 
                     <div class="profilee">
-                        <h2 style="margin-left:125%;" ">HistoryRaport</h2>
+                        <div>
+                            <select name="medics" id="doctorss" class="btn btn-secondary ">
+                             <option value="medic1">Choose your patient:</option>
+                             <!---<option value="medic2">Medic2</option> 
+                             //<option value="medic3">Medic3</option>---->
+            
+                           </select>
+                            <p id="inputPerOre3"></p>
 
-                       
-
-                        <label for="fname "><i class="fa fa-user "></i>Date</label>
-                        <input type="date " id="date " name="firstname " placeholder="Date " style="width: 130%; ">
-
-                        <label for="fname "><i class="fa fa-user "></i>Patient Name</label>
-                        <input type="text " id="name " name="firstname " placeholder="Name " style="width: 130%; ">
+                         </div>
+                        <h2 style="margin-left:125%; margin-bottom: 10px; margin-bottom: 30px;">HistoryRaport</h2>
+                     <div id="profiliPacieentit">
+                      <!----  <label for="fname "><i class="fa fa-user "></i>Patient Name</label>
+                        <p type="text "  style="border:2px; border-style:solid; border-color:black; width:130% ">fvgwsav</p>
 
                         <label for="fname "><i class="fa fa-user "></i>D.O.B/Age</label>
                         <input type="text " id="age " name="firstname " placeholder="D.O.B/Age " style="width: 130%; ">
@@ -337,35 +342,33 @@
 
                         <label for="fname "><i class="fa fa-user "></i>Weight</label >
                         <input type="number " id="weight " name="firstname " placeholder="In kg " style="width: 130%; ">
+                       --->
+                       
+                       </div>
                     </div>
                             <div class="text " id="text ">
                                 
-                                <label for="fname " style="margin-left: 30%; "><i class="fa fa-user "></i>Medicaton</label>
-                            <textarea id="subject1 " name="subject " placeholder=" " style="height:300px ; "></textarea>
-                            <div class="error " id="subjectErr "></div>
+                                <label for="fname " style="margin-left: 50%; margin-top: 30%;"><i class="fa fa-user "></i>All Diagnosis:</label>
+                              <textarea id="subject1 " name="subject " placeholder=" " style="height:700px ; margin-left: 100px;  "></textarea>
+                               <div class="error " id="subjectErr "></div>
                         
-                    
-
-                        
-                            <label for="fname " style="margin-left: 30%; "><i class="fa fa-user "></i>Diagnosis</label>
-                            <textarea id="subject1 " name="subject " placeholder=" " style="height:300px ; "></textarea>
-                            <div class="error " id="subjectErr "></div>
-                            <input class="btn " id="edit1 " type="submit " name="submitbtn " onclick="noDataEditt() " value="Edit " />
+                            </div>
+                            <div>
+                                <div class="text " id="text ">
+                                
+                                    <label for="fname " style="margin-left: 50%; margin-top: 25%;"><i class="fa fa-user "></i>New Diseases:</label>
+                                  <textarea id="subject2 " name="subject " placeholder=" " style="height:300px ; margin-left: 100px;  "></textarea>
+                                   <div class="error " id="subjectErr "></div>
                             
-
                         
-                        
-                        
-
-
-                        
-
-
-
-
-
-
-
+    
+                            
+                                   <label for="fname " style="margin-left: 30%; margin-top: 25%; "><i class="fa fa-user "></i>New Treatments:</label>
+                                   <textarea id="subject3 " name="subject " placeholder=" " style="height:300px; margin-left:100px; "></textarea>
+                                   <div class="error " id="subjectErr "></div>
+                                <input class="btn " id="edit1 " type="submit " name="submitbtn " onclick="noDataEditt() " value="Edit " />
+                                
+                                
                             </div>
                            
 
@@ -413,6 +416,7 @@
         <script>
             window.onload = nrMjekut();
             window.onload = notification2();
+            
             
         </script>
 

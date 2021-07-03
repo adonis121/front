@@ -994,8 +994,8 @@ label {
     padding: 10px 15px 10px 15px ;
     border: 2px solid rgb(65, 67, 194);
     border-radius: 10px;
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
     flex-direction: row;
    
 }

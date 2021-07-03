@@ -912,11 +912,13 @@ function showAdvices() {
             var y = result.data;
             if (y != null) {
                 $.each(y, function(i, item) {
-                    $("#advices").append(' <div class="card border-primary mb-3 col" style="max-width: 18rem;  margin-right:5%;">' +
+                    var data =item.addedDate;
+                    var data1 = data.split("T");
+                    $("#advices").append(' <div class="card border-primary mb-3 col" style=" padding: 2px; margin:2px; justify-content: space-between; max-width: 18rem; ">' +
                         '<div class="card-header">' + item.title + '</div>' +
                         ' <div class="card-body text-primary">' +
                         '<h5 class="card-title">' + item.content + '</h5>' +
-                        '<p class="card-text">' + item.doctorEntity.doctorName + ' ' + item.doctorEntity.doctorSurname + ' ' + item.addedDate + '</p>' +
+                        '<p class="card-text">' + item.doctorEntity.doctorName + ' ' + item.doctorEntity.doctorSurname + ' ' + data1[0] + '</p>' +
                         ' </div>' + '</div>');
 
                 });

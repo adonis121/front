@@ -577,3 +577,128 @@ $("#deleteAdvice").click(function(event){
     }
 });
 
+function dropBoxPacientit() {    
+var docID = localStorage.getItem("persoanlDoc");
+    $.ajax({
+        url: "http://localhost:8030/api/appointmentManagement/listOfPats/"+docID,
+        type: 'GET',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(res) {
+
+            var e = res.errori;
+            var m
+                // localStorage.setItem('admin')
+            if (e == null) {
+                var y = res.data;
+                $.each(y, function(i, item) {
+                          if(item != null){
+                    //if(item.depId == depNumber){
+                    //  alert("erdh kerksa");
+                    $("#doctorss").append('<option id="opsioni" >' + item.name + " " + item.surname + ' <button>' + item.personalNumber + '</button></option>');
+                    document.getElementById("opsioni").value = item.personalNumber;
+                          }
+
+                    //}
+                });
+
+            } else {
+                $("#doctorss").append("No doctors to choose");
+            }
+        },
+        error: function(error) {
+            console.log(error);
+
+        }
+    })
+}
+$(document).on('click', '#opsioni', function(event) {
+    var vlera = $(this).text();
+    var vleraDuhur = vlera.split(" ");
+    document.getElementById("inputPerOre3").innerHTML = vlera;
+    localStorage.setItem("idPacientitDropbox", vleraDuhur[2]);
+    //localStorage.setItem("emriMjekut", vleraDuhur[0] + "" + vleraDuhur[1])    
+  
+
+});
+$(document).on('click', '#opsioni', function(event) {
+    $("#profiliPacieentit").empty();
+    var nrPersonal = localStorage.getItem("idPacientitDropbox");
+   $.ajax({
+        type: "GET",
+        url: "http://localhost:8090/api/systemManagement/admin/PatientByPersonal/" + nrPersonal,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+         
+            if (result != null) {
+
+                $("#profiliPacieentit").append('<label for="fname "><i class="fa fa-user "></i>Patient Name: </label><p type="text "  style="border:2px; border-style:solid; border-color:black; width:130% ">'+result.name+'</p>'+
+                '<label for="fname "><i class="fa fa-user "></i>Patient Surname: </label><p type="text "  style="border:2px; border-style:solid; border-color:black; width:130% ">'+result.surname+'</p>'+
+                '<label for="fname "><i class="fa fa-user "></i>Patient Personal Number: </label><p type="text "  style="border:2px; border-style:solid; border-color:black; width:130% ">'+result.personalNumber+'</p>'+
+                '<label for="fname "><i class="fa fa-user "></i>Blood Type: </label><p type="text "  style="border:2px; border-style:solid; border-color:black; width:130% ">'+result.bloodG+'</p>'+
+                '<label for="fname "><i class="fa fa-user "></i>Height: </label><p type="text "  style="border:2px; border-style:solid; border-color:black; width:130% ">'+result.height+'m</p>'+
+                '<label for="fname "><i class="fa fa-user "></i>Weight: </label><p type="text "  style="border:2px; border-style:solid; border-color:black; width:130% ">'+result.weight+'kg</p>');
+
+
+            } else {
+                $("#profiliPacieentit").append('<p>No data for this patient!</p>');
+            }
+        },
+        error: function(e) {
+            console.log("ERROR: ", e);
+        }
+    })
+
+});
+$(document).on('click', '#opsioni', function(event) {
+    var patId = localStorage.getItem("idPacientitDropbox");
+    $("#subject1").empty();
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8010/api/doctorLogicManagement/getDiagnosisByPat/" + patId,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+            // $("#krejtTerminet").append("Total Appointments:");
+            var y = result.data;
+            if (y != null) {
+                $("#subject1").append("<hr>Diagnosis: </br>");
+
+                $.each(y, function(i, item) {
+                    var myDate = item.dateOfChange;
+                    var sdi = myDate.split("T");
+                    $("#subject1").append("Last updated: " + sdi[0]);
+                    var le = item.diseases;
+
+                    $.each(le, function(j, item2) {
+
+                        $("#subject1").append(':<li>Diseas: ' + item2.diseaseName + '</li>');
+                        // $("#listaInnformatavPersonale2").append('<li>Treatment: ' + item.treatment + '</li></br>' );
+
+                    });
+                    var le2 = item.treatment;
+
+                    $.each(le2, function(k, item3) {
+                        var data1 = item3.startDate;
+                        var starD = data1.split("T");
+                        var data2 = item3.endDate;
+                        var endD = data2.split("T");
+                        $("#subject1").append('<li>Treatment: ' + item3.treatmentName + '</li><li> Use From: ' +
+                            starD[0] + '</li>  Until: ' + endD[0] + '</li><hr>');
+
+                    });
+                });
+            } else {
+
+            }
+        },
+        error: function(e) {
+            console.log("ERROR: ", e);
+        }
+    })
+
+});
+
+
+
