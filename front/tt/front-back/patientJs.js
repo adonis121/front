@@ -723,18 +723,18 @@ function getPersoanlInfo() {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8090/api/systemManagement/admin/PatientByPersonal/"+nrPersonal,
+        url: "http://localhost:8090/api/systemManagement/admin/PatientByPersonal/" + nrPersonal,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
-           
-            if (result != null) {
-    
-            $("#listaInnformatavPersonale").append('<li>Name and Surname: ' +result.name+ ' ' + result.surname + '</li>'+
-            '<li>Email: ' +result.email+ '</li><li>Personal Number: ' + result.personalNumber + '</li>'+
-            '<li>Blood Type: ' +result.bloodG+ ' - Height: ' + result.height + ' - Weight: '+result.weight+'</li>');
 
-                  
+            if (result != null) {
+
+                $("#listaInnformatavPersonale").append('<li>Name and Surname: ' + result.name + ' ' + result.surname + '</li>' +
+                    '<li>Email: ' + result.email + '</li><li>Personal Number: ' + result.personalNumber + '</li>' +
+                    '<li>Blood Type: ' + result.bloodG + ' - Height: ' + result.height + ' - Weight: ' + result.weight + '</li>');
+
+
             } else {
                 $("#listaInnformatavPersonale").append('<li>' + result + '</li>');
             }
@@ -751,16 +751,16 @@ $("#edit").click(function(event) {
     var blood = document.getElementById("degree").value;
     var w = document.getElementById("special2").value;
     var h = document.getElementById("special").value;
-    if (blood != ""  && w!= "" && h!="") {
+    if (blood != "" && w != "" && h != "") {
 
         $.ajax({
-            url: "http://localhost:8090/api/systemManagement/patient/editProfile/"+pId+"/"+blood+"/"+w+"/"+h,
+            url: "http://localhost:8090/api/systemManagement/patient/editProfile/" + pId + "/" + blood + "/" + w + "/" + h,
             type: 'GET',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
 
             success: function(res) {
-               alert("Profile edited successfully!");
+                alert("Profile edited successfully!");
             },
             error: function(e) {
 
@@ -769,7 +769,7 @@ $("#edit").click(function(event) {
             }
         })
 
-    }else {
+    } else {
         alert("Please fill all the forms!");
     }
 });
@@ -780,7 +780,7 @@ function getPersoanlDiagnosis() {
     var patId = localStorage.getItem("persoanlPat");
     $.ajax({
         type: "GET",
-        url: "http://localhost:8010/api/doctorLogicManagement/getDiagnosisByPat/"+patId,
+        url: "http://localhost:8010/api/doctorLogicManagement/getDiagnosisByPat/" + patId,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
@@ -788,33 +788,140 @@ function getPersoanlDiagnosis() {
             var y = result.data;
             if (y != null) {
                 $("#listaInnformatavPersonale2").append("<hr>Diagnosis: </br>");
-              
-               $.each(y, function(i, item) {
-                  var myDate = item.dateOfChange;
-                  var sdi = myDate.split("T");
-                  $("#listaInnformatavPersonale2").append("Last updated: "+sdi[0]);
-                 var le = item.diseases;
-                 
-                 $.each(le, function(j, item2){
-                  
-                    $("#listaInnformatavPersonale2").append(':<li>Diseas: '+ item2.diseaseName+ '</li>');
-                   // $("#listaInnformatavPersonale2").append('<li>Treatment: ' + item.treatment + '</li></br>' );
-        
-                  });
-                  var le2 = item.treatment;
-                 
-                    $.each(le2, function(k, item3){
-                    var data1=item3.startDate;
-                    var starD =data1.split("T");
-                    var data2=item3.endDate;
-                    var endD =data2.split("T");
-                    $("#listaInnformatavPersonale2").append('<li>Treatment: ' + item3.treatmentName + '</li><li> Use From: '+
-                    starD[0]+'</li>  Until: '+endD[0]+'</li><hr>');
-            
-                 });
+
+                $.each(y, function(i, item) {
+                    var myDate = item.dateOfChange;
+                    var sdi = myDate.split("T");
+                    $("#listaInnformatavPersonale2").append("Last updated: " + sdi[0]);
+                    var le = item.diseases;
+
+                    $.each(le, function(j, item2) {
+
+                        $("#listaInnformatavPersonale2").append(':<li>Diseas: ' + item2.diseaseName + '</li>');
+                        // $("#listaInnformatavPersonale2").append('<li>Treatment: ' + item.treatment + '</li></br>' );
+
+                    });
+                    var le2 = item.treatment;
+
+                    $.each(le2, function(k, item3) {
+                        var data1 = item3.startDate;
+                        var starD = data1.split("T");
+                        var data2 = item3.endDate;
+                        var endD = data2.split("T");
+                        $("#listaInnformatavPersonale2").append('<li>Treatment: ' + item3.treatmentName + '</li><li> Use From: ' +
+                            starD[0] + '</li>  Until: ' + endD[0] + '</li><hr>');
+
+                    });
                 });
             } else {
 
+            }
+        },
+        error: function(e) {
+            console.log("ERROR: ", e);
+        }
+    })
+}
+
+
+function validate5() {
+    var int = document.getElementById("suggArea").value;
+
+    if (int.trim() == null) {
+        return false;
+    }
+    return true;
+
+}
+
+$("#suggBtn").click(function(event) {
+
+    //$("#hapsiraListes").empty();
+    if (validate5()) {
+
+        var content = document.getElementById("suggArea").value;
+        var nrPersonal = localStorage.getItem("persoanlPat");
+        //  var oraTerminit = localStorage.getItem("oraPerTermin");
+        $.ajax({
+            type: "post",
+            url: "http://localhost:8020/api/patientLogicManagement/addSuggestion/" + content + "/" + nrPersonal,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+
+            success: function(result) {
+                //         alert("erdh kerksa");
+                //           window.location.reload();
+                var y = result.errori;
+                if (y == null) {
+                    //  $.each(y, function(i, item) {
+                    //   $("#krejtTerminet").append('<p>'+item.dateAndTime+'</p>');
+                    //localStorage.setItem('idPacienetit' , item.personalNumber);
+                    alert("Sugesstion Added");
+
+
+                    // });
+                } else {
+                    //  $("#krejtTerminet").append(result.errori);
+                    alert(result.errori);
+                }
+            },
+            error: function(e) {
+                console.log("ERROR: ", e);
+            }
+        })
+    }
+});
+
+
+function showAdvertisment() {
+    $("#adverts").empty();
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8090/api/systemManagement/admin/getAllAdvert",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+
+            var y = result.data;
+            if (y != null) {
+                $.each(y, function(i, item) {
+
+
+                    $("#img").attr('src', item.aPath);
+                });
+            } else {
+                alert(result.errori)
+            }
+        },
+        error: function(e) {
+            console.log("ERROR: ", e);
+        }
+    })
+}
+
+
+function showAdvices() {
+    $("#advices").empty();
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8010/api/doctorLogicManagement/allAdivce",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+
+            var y = result.data;
+            if (y != null) {
+                $.each(y, function(i, item) {
+                    $("#advices").append(' <div class="card border-primary mb-3 col" style="max-width: 18rem;  margin-right:5%;">' +
+                        '<div class="card-header">' + item.title + '</div>' +
+                        ' <div class="card-body text-primary">' +
+                        '<h5 class="card-title">' + item.content + '</h5>' +
+                        '<p class="card-text">' + item.doctorEntity.doctorName + ' ' + item.doctorEntity.doctorSurname + ' ' + item.addedDate + '</p>' +
+                        ' </div>' + '</div>');
+
+                });
+            } else {
+                alert(result.errori)
             }
         },
         error: function(e) {

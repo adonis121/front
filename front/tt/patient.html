@@ -73,7 +73,7 @@
                     <li class="nav-item"> <button id="terminetSotPacienti" type="button" data-toggle="modal" data-target="#getClinicModal2"><a class="nav-link "><i class="far fa-bell"></i></a></button>
                     </li>
                     <li> <button type="button"> <a class="nav-link "  href="index.html"><i class="fas fa-sign-out-alt"></i></a></button></li>
-                   
+
                     <div class="modal fade" id="getClinicModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -201,20 +201,21 @@
 
         <section id="aboutUs">
             <div class="aboutus-container">
-                <img src="assets/img/well-hospital-chen-jumbo.jpg" class="img-fluid rounded float-end aboutusImg" alt="...">
-                <div class="aboutus-text">
-                    <p class="fs-1 title">ABOUT US</p>
-                    <p class="fs-3">Since our founding, MedNote has been known for quality services, exceptional efficiency and the highest level of professionalism. No matter what service you’re looking for, we guarantee to not only meet, but exceed your expectations
-                        and ensure your full satisfaction. Our team is up for every job, managing projects with the skill and experience our clients have come to expect. Please get in touch to learn more about our team, our company or for details about
-                        the services we provide.
+                <div id="img"></div>
+                <div id="adverts">
 
-                    </p>
 
                 </div>
 
             </div>
         </section>
+        <section id="advices-sec">
+            <div class="advice-container">
+                <div class="row row-cols-1 row-cols-md-3 g-4" id="advices">
 
+                </div>
+            </div>
+        </section>
 
         <hr class="style-four"></hr>
         <section id="repart">
@@ -382,9 +383,9 @@
             <div class="col">
                 <p class="fs-1 title">SEND US A FEEDBACK!</p>
                 <div class="  text-dark bg-light mb-3" style="max-width: 18rem;">
-                    <textarea class="card-body comment" type="text" placeholder="Comment..."></textarea>
+                    <textarea class="card-body comment" id="suggArea" type="text" placeholder="Comment..."></textarea>
                 </div>
-                <button type="button" class="btn btn-outline-secondary" style="color: white; border-color: white;">Submit</button>
+                <button type="button" id="suggBtn" class="btn btn-outline-secondary" style="color: white; border-color: white;">Submit</button>
             </div>
 
 
@@ -493,9 +494,10 @@
         window.onload = shfaqDepartametet();
         window.onload = notification3();
         window.onload = dropBoxMjekt();
-   
+        window.onload = showAdvertisment();
+        window.onload = showAdvices();
     </script>
-    }
+
 
 
 </body>

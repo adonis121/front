@@ -47,7 +47,7 @@
                     <!-- Hapesirat per vendosjen e numrave tek home-->
                     <div class="container" style="display: flex; flex-direction:column;">
                         <div class="row p-2 d-flex align-items-center">
-                            <div class="col " >
+                            <div class="col ">
                                 <div class="card" style="width: 10rem;">
                                     <div class="card-body">
                                         <h5 id="totaliDepa" class="card-title">Nr</h5>
@@ -69,23 +69,23 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Number of Appointments - Total</h6>
 
                                     </div>
-                            
-                                   
-                                   
+
+
+
                                 </div>
                                 <div class="card" style="width: 10rem; margin-left: 25%;">
-                                    <div class="card-body" >
+                                    <div class="card-body">
                                         <h5 id="totaliUsera2" class="card-title">Nr</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">Number of upcoming Appointments</h6>
 
                                     </div>
-                            
-                                   
-                                   
+
+
+
                                 </div>
-                               
+
                             </div>
-                            
+
                         </div>
                         <div class="row p-2 d-flex align-items-center">
                             <div class="col  ">
@@ -116,6 +116,18 @@
                             <div class="col">
                                 <button id="getPatients" type="button" class="btn btn-primary">Get List</button>
                             </div>
+                        </div>
+                        <div class="row p-2 d-flex align-items-center">
+                            <div class="col">
+                                <div class="card" style="width: 10rem;">
+                                    <div class="card-body">
+                                        <h5 id="totaliAdvice" class="card-title">Nr</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Number of advices</h6>
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <hr style="color: royalblue;">
                         <div id="getResultDiv"></div>
@@ -413,10 +425,8 @@
             </div>
         </div>
         <div class="col-auto col-lg-4 text-capitalize text-danger" style="min-height: 100%;max-height: 100%;">
-            <div class="list-group"><a class="text-monospace text-left text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" style="height: 80px;min-height: 50px;">FeedBack 1</a>
-                <a class="text-monospace text-left text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" style="height: 80px;min-height: 50px;"><br>FeedBack 2<br><br></a>
-                <a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" style="height: 80px;min-height: 50px;"><br>FeedBack 3<br><br></a>
-                <a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" style="height: 80px;min-height: 50px;"><br>FeedBack 4<br><br></a>
+            <div class="list-group" id="suggestions">
+
             </div>
         </div>
 
@@ -460,8 +470,10 @@
         window.onload = getTotalPac();
         window.onload = getTotalDoc();
         window.onload = getTotalUser();
+        window.onload = getTotalAdv();
         window.onload = footeriMedNotes();
         window.onload = getUpApp();
+        window.onload = showSuggestion();
     </script>
 </body>
 

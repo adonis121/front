@@ -721,3 +721,58 @@ $("#listaPacientvee").click(function(event) {
     })
 
 });
+
+function showSuggestion() {
+    $("#suggestions").empty();
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8020/api/patientLogicManagement/allSuggestions",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+
+            var y = result.data;
+            if (y != null) {
+                $.each(y, function(i, item) {
+                    $("#suggestions").append('<a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" style="height: 80px;min-height: 50px;">' + item.content + '<br>' + item.patientEntity.patientName + ' ' + item.patientEntity.patientSurname + '<br>' + item.patientEntity.patientEmail + '</a>');
+
+                });
+            } else {
+                alert(result.errori)
+            }
+        },
+        error: function(e) {
+            console.log("ERROR: ", e);
+        }
+    })
+}
+
+function getTotalAdv() {
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8010/api/doctorLogicManagement/totalAdvice",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+
+            var x = result.data;
+            if (x != null) {
+
+                document.getElementById("totaliAdvice").innerHTML = result.data;
+                // $('#hapsiraInfoKlinikes').append('<p>'+result.data+'</p>'+'</br>');
+
+                console.log("Success: ", result.data);
+
+
+
+            }
+        },
+        error: function(e) {
+
+            $("#hapsiraInfoKlinikes").html("<strong>Error</strong>");
+            console.log("ERROR: ", e);
+        }
+    })
+
+
+}
