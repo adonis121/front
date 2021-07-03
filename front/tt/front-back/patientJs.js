@@ -787,14 +787,32 @@ function getPersoanlDiagnosis() {
             // $("#krejtTerminet").append("Total Appointments:");
             var y = result.data;
             if (y != null) {
-                alert("suksesss");
-              /*  $.each(y, function(i, item) {
-                    if (item.canceledByPat == false && item.freeAppoint == false) {
-                        document.getElementById("terminetSotPacienti").style.background = "#FF0000";
-
-                    }
-
-                });*/
+                $("#listaInnformatavPersonale2").append("<hr>Diagnosis: </br>");
+              
+               $.each(y, function(i, item) {
+                  var myDate = item.dateOfChange;
+                  var sdi = myDate.split("T");
+                  $("#listaInnformatavPersonale2").append("Last updated: "+sdi[0]);
+                 var le = item.diseases;
+                 
+                 $.each(le, function(j, item2){
+                  
+                    $("#listaInnformatavPersonale2").append(':<li>Diseas: '+ item2.diseaseName+ '</li>');
+                   // $("#listaInnformatavPersonale2").append('<li>Treatment: ' + item.treatment + '</li></br>' );
+        
+                  });
+                  var le2 = item.treatment;
+                 
+                    $.each(le2, function(k, item3){
+                    var data1=item3.startDate;
+                    var starD =data1.split("T");
+                    var data2=item3.endDate;
+                    var endD =data2.split("T");
+                    $("#listaInnformatavPersonale2").append('<li>Treatment: ' + item3.treatmentName + '</li><li> Use From: '+
+                    starD[0]+'</li>  Until: '+endD[0]+'</li><hr>');
+            
+                 });
+                });
             } else {
 
             }
