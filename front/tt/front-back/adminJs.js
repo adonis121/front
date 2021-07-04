@@ -807,13 +807,24 @@ function getTotalAdv() {
 
 }
 
+$(document).on('click', '#opsioni', function(event) {
+    var vlera = $(this).text();
+    var vleraDuhur = vlera.split(" ");
+    document.getElementById("inputPerOre3").innerHTML = vlera;
+    localStorage.setItem("emriReklames", vleraDuhur);
+   
+
+    // alert(vleraDuhur[2]);
+});
+
 $("#deleteAdv").click(function(event) {
-    validate2();
+    //validate2();
     event.preventDefault();
-    var inputi = document.getElementById("fshijeAdvertin").value;
-    console.log(inputi);
+    var advertName = localStorage.getItem("emriReklames");
+   // console.log(inputi);
+    if(advertName !=""){
     $.ajax({
-        url: "http://localhost:8090/api/systemManagement/admin/deleteAdvert/" + inputi,
+        url: "http://localhost:8090/api/systemManagement/admin/deleteAdvert/" + advertName,
         type: 'post',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -840,5 +851,35 @@ $("#deleteAdv").click(function(event) {
 
         }
     })
+}else {
+    alert("Please choose adverts name!");
+}
 
 });
+
+
+function showAdvertisment() {
+    $("#adverts").empty();
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8090/api/systemManagement/admin/getAllAdvert",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+
+            var y = result.data;
+            if (y != null) {
+                $.each(y, function(i, item) {
+                   
+                    $("#doctorss").append('<option id="opsioni" >' + item.title +'</option>');
+                 
+                });
+            } else {
+                alert(result.errori)
+            }
+        },
+        error: function(e) {
+            console.log("ERROR: ", e);
+        }
+    })
+}

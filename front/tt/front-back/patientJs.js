@@ -931,3 +931,40 @@ function showAdvices() {
         }
     })
 }
+$("#personalDocss").click(function(event) {
+    $("#mjektPErsonal").empty();
+var patID = localStorage.getItem("persoanlPat");
+    $.ajax({
+        url: "http://localhost:8030/api/appointmentManagement/listOfDocs/"+patID,
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(res) {
+
+            var e = res.errori;
+            var m
+                // localStorage.setItem('admin')
+            if (e == null) {
+                var y = res.data;
+                $.each(y, function(i, item) {
+                          if(item != null){
+                    //if(item.depId == depNumber){
+                    //  alert("erdh kerksa");
+                    $("#mjektPErsonal").append('<li>' + item.doctorName + " " + item.doctorSurname+'</li>');
+                    
+                          }
+
+                    //}
+                });
+
+            } else {
+                $("#mjektPErsonal").append("No personal doctors");
+            }
+        },
+        error: function(error) {
+            console.log(error);
+
+        }
+    })
+
+});
