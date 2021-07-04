@@ -167,35 +167,35 @@ function validateDep2() {
 }
 $(document).on('click', '#fshijS', function(event) {
 
-    var sugId =$(this).text();
- 
-  if(sugId !=""){
-      
-     $.ajax({
-         type: "POST",
-         url: "http://localhost:8020/api/patientLogicManagement/deleteSuggestion/"+sugId,
-         contentType: "application/json; charset=utf-8",
-         dataType: "json",
-         success: function(result) {
-             // $("#krejtTerminet").append("Total Appointments:");
-             var y = result.errori;
-             if (y == null) {
-               alert("Suggestion deleted!");
-             } else {
-               alert(y);
-             }
-         },
-         error: function(e) {
-             console.log("ERROR: ", e);
-         }
-     })
- }else {
-     
-     alert("Please choose suggestion to delete");
- }
- 
- });
- 
+    var sugId = $(this).text();
+
+    if (sugId != "") {
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8020/api/patientLogicManagement/deleteSuggestion/" + sugId,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(result) {
+                // $("#krejtTerminet").append("Total Appointments:");
+                var y = result.errori;
+                if (y == null) {
+                    alert("Suggestion deleted!");
+                } else {
+                    alert(y);
+                }
+            },
+            error: function(e) {
+                console.log("ERROR: ", e);
+            }
+        })
+    } else {
+
+        alert("Please choose suggestion to delete");
+    }
+
+});
+
 $("#editDep").click(function(event) {
     validateDep2();
     event.preventDefault();
@@ -764,7 +764,7 @@ function showSuggestion() {
             var y = result.data;
             if (y != null) {
                 $.each(y, function(i, item) {
-                    $("#suggestions").append('<a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" style="height: 150px;min-height: 50px;">' + item.content + '<br>' + item.patientEntity.patientName + ' ' + item.patientEntity.patientSurname + '<br>' + item.patientEntity.patientEmail + '<br>Delete:<button id="fshijS">'+item.suggestionId+'</button></a>');
+                    $("#suggestions").append('<a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" style="height: 150px;min-height: 50px;">' + item.content + '<br>' + item.patientEntity.patientName + ' ' + item.patientEntity.patientSurname + '<br>' + item.patientEntity.patientEmail + '<br>Delete:<button id="fshijS">' + item.suggestionId + '</button></a>');
 
                 });
             } else {
@@ -806,3 +806,39 @@ function getTotalAdv() {
 
 
 }
+
+$("#deleteAdv").click(function(event) {
+    validate2();
+    event.preventDefault();
+    var inputi = document.getElementById("fshijeAdvertin").value;
+    console.log(inputi);
+    $.ajax({
+        url: "http://localhost:8090/api/systemManagement/admin/deleteAdvert/" + inputi,
+        type: 'post',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+
+        success: function(res) {
+            var y = res.errori;
+            if (y == null) {
+                // event.preventDefault();
+
+                alert("Advertisment deleted successfully!");
+
+                window.location.href = "admin.html";
+                console.log("deleted");
+                //  alert("Department added successfully!")
+                // window.location.href = "admin.html";
+            } else {
+                alert(y);
+                // event.preventDefault();
+                window.location.href = "admin.html";
+            }
+        },
+        error: function(error) {
+            console.log(error);
+
+        }
+    })
+
+});
