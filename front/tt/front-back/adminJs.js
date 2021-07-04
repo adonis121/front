@@ -165,6 +165,37 @@ function validateDep2() {
 
 
 }
+$(document).on('click', '#fshijS', function(event) {
+
+    var sugId =$(this).text();
+ 
+  if(sugId !=""){
+      
+     $.ajax({
+         type: "POST",
+         url: "http://localhost:8020/api/patientLogicManagement/deleteSuggestion/"+sugId,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+         success: function(result) {
+             // $("#krejtTerminet").append("Total Appointments:");
+             var y = result.errori;
+             if (y == null) {
+               alert("Suggestion deleted!");
+             } else {
+               alert(y);
+             }
+         },
+         error: function(e) {
+             console.log("ERROR: ", e);
+         }
+     })
+ }else {
+     
+     alert("Please choose suggestion to delete");
+ }
+ 
+ });
+ 
 $("#editDep").click(function(event) {
     validateDep2();
     event.preventDefault();
@@ -428,7 +459,7 @@ $("#editKliniken").click(function(event) {
     }
 });
 
-//errori pershkak lidhjes paicent klinik
+
 $("#infotKlinikes").click(function(event) {
     //event.preventDefault();
     $('#hapsiraInfoKlinikes').empty();
@@ -734,7 +765,7 @@ function showSuggestion() {
             var y = result.data;
             if (y != null) {
                 $.each(y, function(i, item) {
-                    $("#suggestions").append('<a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" style="height: 80px;min-height: 50px;">' + item.content + '<br>' + item.patientEntity.patientName + ' ' + item.patientEntity.patientSurname + '<br>' + item.patientEntity.patientEmail + '</a>');
+                    $("#suggestions").append('<a class="text-monospace text-black-50 bg-light list-group-item list-group-item-action" data-toggle="list" style="height: 150px;min-height: 50px;">' + item.content + '<br>' + item.patientEntity.patientName + ' ' + item.patientEntity.patientSurname + '<br>' + item.patientEntity.patientEmail + '<br>Delete:<button id="fshijS">'+item.suggestionId+'</button></a>');
 
                 });
             } else {
