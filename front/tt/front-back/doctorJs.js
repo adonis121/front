@@ -4,7 +4,7 @@ function nrMjekut(){
 }
 
 $("#shfaqBisedat").click(function(event){
-   //$("#hapsiraListes").empty();
+   $("#hapsiraListes").empty();
    var docNumber = localStorage.getItem("persoanlDoc");
     $.ajax({
         type: "GET",
@@ -80,7 +80,8 @@ $(document).on('click', '.bvepVallai', function(event){
 
 $(document).on('click', '#button-addon2', function(event){
   // alert("diqka1");
-   
+  
+  $("#hapsiraListes").empty();
     var doctorPersonalNumber = localStorage.getItem("persoanlDoc");
     var personalNumber = localStorage.getItem("butoniPerPat");
     var roli = 2;

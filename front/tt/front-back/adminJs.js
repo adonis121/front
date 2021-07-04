@@ -567,11 +567,10 @@ $("#fshijUserin").click(function(event) {
     }
 });
 
-//Thire me 9000 gateway
 function getTotalDep() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:9000/api/systemManagement/admin/totalNumberOfDep",
+        url: "http://localhost:8090/api/systemManagement/admin/totalNumberOfDep",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(result) {
