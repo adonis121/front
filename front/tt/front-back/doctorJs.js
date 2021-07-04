@@ -615,7 +615,7 @@ var docID = localStorage.getItem("persoanlDoc");
 $(document).on('click', '#opsioni', function(event) {
     var vlera = $(this).text();
     var vleraDuhur = vlera.split(" ");
-    document.getElementById("inputPerOre3").innerHTML = vlera;
+    document.getElementById("inputPerOre4").innerHTML = vlera;
     localStorage.setItem("idPacientitDropbox", vleraDuhur[2]);
     //localStorage.setItem("emriMjekut", vleraDuhur[0] + "" + vleraDuhur[1])    
   
@@ -652,8 +652,9 @@ $(document).on('click', '#opsioni', function(event) {
 
 });
 $(document).on('click', '#opsioni', function(event) {
+   
     var patId = localStorage.getItem("idPacientitDropbox");
-    $("#subject1").empty();
+   $("#diagnozatt").empty();
     $.ajax({
         type: "GET",
         url: "http://localhost:8010/api/doctorLogicManagement/getDiagnosisByPat/" + patId,
@@ -663,18 +664,23 @@ $(document).on('click', '#opsioni', function(event) {
             // $("#krejtTerminet").append("Total Appointments:");
             var y = result.data;
             if (y != null) {
-                $("#subject1").append("<hr>Diagnosis: </br>");
-
-                $.each(y, function(i, item) {
+              
+               
+                 
+               $.each(y, function(i, item) {
+                   
+                $("#diagnozatt").append("<hr><li>"+i+".Diagnosis: </li></br>");
                     var myDate = item.dateOfChange;
                     var sdi = myDate.split("T");
-                    $("#subject1").append("Last updated: " + sdi[0]);
+                    $("#diagnozatt").append("Last updated: " + sdi[0]);
+                    $("#diagnozatt").append("Diagnosis ID:<button> "+item.diagnosisId+"</button></br>");
                     var le = item.diseases;
 
                     $.each(le, function(j, item2) {
-
-                        $("#subject1").append(':<li>Diseas: ' + item2.diseaseName + '</li>');
-                        // $("#listaInnformatavPersonale2").append('<li>Treatment: ' + item.treatment + '</li></br>' );
+                    
+                      //  document.getElementById("subject1").value +=' Diseas: ' + item2.diseaseName;
+                        $("#diagnozatt").append('<li>Diseas: ' + item2.diseaseName + ' ID:<button>'+item2.diseasesId+'</button></li>');
+                   //      $("#diagnozatt").append('<li>Treatment: ' + item.treatment + '</li></br>' );
 
                     });
                     var le2 = item.treatment;
@@ -684,7 +690,7 @@ $(document).on('click', '#opsioni', function(event) {
                         var starD = data1.split("T");
                         var data2 = item3.endDate;
                         var endD = data2.split("T");
-                        $("#subject1").append('<li>Treatment: ' + item3.treatmentName + '</li><li> Use From: ' +
+                        $("#diagnozatt").append('<li>Treatment: ' + item3.treatmentName + ' ID:<button>'+item3.treatmentId+'</button></li><li> Use From: ' +
                             starD[0] + '</li>  Until: ' + endD[0] + '</li><hr>');
 
                     });
@@ -701,4 +707,146 @@ $(document).on('click', '#opsioni', function(event) {
 });
 
 
+$(document).on('click', '#edit1', function(event) {
 
+   var docId = localStorage.getItem("persoanlDoc");
+    var patId = localStorage.getItem("idPacientitDropbox");
+    var tN = document.getElementById("subject3").value;
+    var dN = document.getElementById("subject2").value;
+    var sD =  document.getElementById('subject4').value;
+    var eD =  document.getElementById('subject5').value;
+    var inputi2 = document.getElementById("inputPerOre4").textContent;
+ if(tN!= "" && dN !="" && sD !="" && eD !="" && inputi2 !=""){
+     
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:8010/api/doctorLogicManagement/addDiagnosis/"+docId+"/"+patId+"/"+tN+"/"+dN+"/"+sD+"/"+eD,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(result) {
+            // $("#krejtTerminet").append("Total Appointments:");
+            var y = result.errori;
+            if (y == null) {
+              alert("New diagnosis added!");
+            } else {
+              alert(y);
+            }
+        },
+        error: function(e) {
+            console.log("ERROR: ", e);
+        }
+    })
+}else {
+    
+    alert("Please fill all the fields for adding a new diagosis!");
+}
+
+});
+
+
+
+$("#edit3").click(function(event){
+  var dId = document.getElementById("subject6").value;
+  var patID = localStorage.getItem("idPacientitDropbox");
+  var inputi2 = document.getElementById("inputPerOre4").textContent;
+   
+    if(dId != "" && inputi2 != ""){
+  
+     $.ajax({
+         type: "post",
+         url: "http://localhost:8010/api/doctorLogicManagement/deleteDiseases/"+dId+"/"+patID,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+         data: JSON.stringify(addfreeApp),
+         success: function(result) {
+       
+             var y = result.errori;
+             if (y == null) {
+              
+                    alert("Disease Deleted!");
+                    
+                
+             } else {
+           
+               alert(result.errori);
+             }
+         },
+         error: function(e) {
+             console.log("ERROR: ", e);
+         }
+     })
+    }else{
+    alert("please choose the patient and his/her's disease");
+    }
+ });
+
+ $("#edit4").click(function(event){
+     
+    var treatId = document.getElementById("subject6").value;
+    var patId = localStorage.getItem("idPacientitDropbox");
+    var inputi2 = document.getElementById("inputPerOre4").textContent;
+     
+      if(treatId != "" && inputi2 != ""){
+    
+       $.ajax({
+           type: "post",
+           url: "http://localhost:8010/api/doctorLogicManagement/deleteTreatment/"+treatId+"/"+patId,
+           contentType: "application/json; charset=utf-8",
+           dataType: "json",
+           data: JSON.stringify(addfreeApp),
+           success: function(result) {
+         
+               var y = result.errori;
+               if (y == null) {
+                
+                      alert("Treatment Deleted!");
+                      
+                  
+               } else {
+             
+                 alert(result.errori);
+               }
+           },
+           error: function(e) {
+               console.log("ERROR: ", e);
+           }
+       })
+      }else{
+      alert("please choose the patient and his/her's disease");
+      }
+   });
+
+
+$(document).on('click', '#edit2', function(event) {
+
+    var dID = document.getElementById("subject6").value;
+     var patID = localStorage.getItem("idPacientitDropbox");
+     var tN = document.getElementById("subject3").value;
+     var eD =  document.getElementById('subject5').value;
+     var inputi2 = document.getElementById("inputPerOre4").textContent;
+  if(tN!= "" && eD !="" && inputi2 !="" && dID !=""){
+      
+     $.ajax({
+         type: "POST",
+         url: "http://localhost:8010/api/doctorLogicManagement/editTreatment/"+dID+"/"+eD+"/"+tN+"/"+patID,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+         success: function(result) {
+             // $("#krejtTerminet").append("Total Appointments:");
+             var y = result.errori;
+             if (y == null) {
+               alert("Treatment name and ending date edited!");
+             } else {
+               alert(y);
+             }
+         },
+         error: function(e) {
+             console.log("ERROR: ", e);
+         }
+     })
+ }else {
+     
+     alert("Please fill all the fields for adding a new diagosis!");
+ }
+ 
+ });

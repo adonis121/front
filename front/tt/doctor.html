@@ -317,7 +317,7 @@
                              //<option value="medic3">Medic3</option>---->
             
                            </select>
-                            <p id="inputPerOre3"></p>
+                            <p id="inputPerOre4"></p>
 
                          </div>
                         <h2 style="margin-left:125%; margin-bottom: 10px; margin-bottom: 30px;">HistoryRaport</h2>
@@ -349,24 +349,36 @@
                             <div class="text " id="text ">
                                 
                                 <label for="fname " style="margin-left: 50%; margin-top: 30%;"><i class="fa fa-user "></i>All Diagnosis:</label>
-                              <textarea id="subject1 " name="subject " placeholder=" " style="height:700px ; margin-left: 100px;  "></textarea>
+                              <div id="subject1 " style="min-height:700px ; margin-left: 100px; width:300px; margin-right:200px; border:2px; border-style:solid; border-color:black; width:130% "><ul id ="diagnozatt"></ul></div>
                                <div class="error " id="subjectErr "></div>
                         
                             </div>
                             <div>
                                 <div class="text " id="text ">
                                 
-                                    <label for="fname " style="margin-left: 50%; margin-top: 25%;"><i class="fa fa-user "></i>New Diseases:</label>
-                                  <textarea id="subject2 " name="subject " placeholder=" " style="height:300px ; margin-left: 100px;  "></textarea>
+                                    <label for="fname " style="margin-left: 50%; margin-top: 10%;"><i class="fa fa-user "></i>New Diseases:</label>
+                                  <input id="subject2" name="subject " placeholder=" " style="height:300px ; margin-left: 100px; width: 200px;  "/>
                                    <div class="error " id="subjectErr "></div>
-                            
                         
     
                             
-                                   <label for="fname " style="margin-left: 30%; margin-top: 25%; "><i class="fa fa-user "></i>New Treatments:</label>
-                                   <textarea id="subject3 " name="subject " placeholder=" " style="height:300px; margin-left:100px; "></textarea>
+                                   <label for="fname " style="margin-left: 30%; margin-top: 10%; "><i class="fa fa-user "></i>New Treatments:</label>
+                                   <label>Treatment Name: (also fill when you want to update existing treatments:)</label>
+                                   <input id="subject3" name="subject" type ="text" placeholder="Write treatment name.." style="width: 200px; height:100px; margin-left:100px; "/>
+                                   <label>Treatmen starting date:</label>
+                                   <input id="subject4" name="subject" type="date" placeholder="Treatment starting date..." style=" width: 200px; margin-left:100px; "/>
+                                   <label>Treatment ending date: (also fill when you want to update existing treatments)</label>
+                                   <input id="subject5" name="subject"type="date" placeholder="Treatment ending date..." style=" width: 200px; margin-left:100px; "/>
                                    <div class="error " id="subjectErr "></div>
-                                <input class="btn " id="edit1 " type="submit " name="submitbtn " onclick="noDataEditt() " value="Edit " />
+                                <button class="btn" id="edit1" type="submit" name="submitbtn ">Add new Diagnosis</button>
+                                <button class="btn" id="edit2" type="submit" name="submitbtn ">Edit Diagnosis</button>
+                              <label>  (write Diagnosis id for updating treatment:)</label>
+                                <input  type="number" id="subject6"  placeholder="Delete Treatment or Diseases by Id..." style=" width: 200px; margin-top:20px; margin-left:100px; "/>
+                                <div id = "edit5" style= "display: flex; flex-direction: row;">
+                                <button class="btn" id="edit3" type="submit" name="submitbtn ">Delete Disease</button>
+                                <button class="btn" id="edit4" type="submit" name="submitbtn ">Delete Treatment</button>
+                                </div>
+                                
                                 
                                 
                             </div>

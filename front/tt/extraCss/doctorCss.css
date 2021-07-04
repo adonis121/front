@@ -994,8 +994,8 @@ label {
     padding: 10px 15px 10px 15px ;
     border: 2px solid rgb(65, 67, 194);
     border-radius: 10px;
-    width: 90%;
-    margin-left: 5%;
+    width: 95%;
+    margin-left: 3%;
     flex-direction: row;
    
 }
@@ -1010,13 +1010,56 @@ label {
 }
 
 #edit1 {
-    width: 50%;
-    color: white;
+    width: 100%;
+    color: black;
     background-color: cornflowerblue;
     border-radius: 10px;
-    border: 3px blue;
+    border: 4px black;
     
    
+}
+#edit3 {
+    width: 100%;
+    color: black;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    border: 4px black;
+}
+#edit4 {
+    width: 100%;
+    color: black;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    border: 4px black;
+}
+#edit2 {
+    width: 100%;
+    color: black;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    border: 4px black;
+    
+   
+}
+#edit2:hover{
+    color: black;
+    background: wheat;
+  
+}
+#edit1:hover{
+    color: black;
+    background: wheat;
+  
+}
+#edit3:hover{
+    color: black;
+    background: wheat;
+  
+}
+#edit4:hover{
+    color: black;
+    background: wheat;
+  
 }
 #subject1 {
     width: 60%;

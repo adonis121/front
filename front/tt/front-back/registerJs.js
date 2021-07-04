@@ -6,7 +6,7 @@ function validate(){
     var input4 =document.getElementById("input4").value;
     var input5 =document.getElementById("input5").value;
     var input6 =document.getElementById("input6").value;
-    var input7 =document.getElementById("input7").value;
+    var input7 =document.getElementById("opsioni").value;
     var input8 =document.getElementById("input8").value;
 
   
@@ -19,10 +19,11 @@ function validate(){
     }
     else if(document.getElementById("doctor").checked == true){
     if(input1.trim()== "" || input2.trim()=="" || input3.trim()=="" || input4.trim()=="" || input5.trim()==""
-    || input6.trim()=="" || input7.trim()=="" || input8.trim()==""){
+    || input6.trim()=="" || opsioni =="" || input8.trim()==""){
         alert('please fill all the inputs needed for the Doctor');
         
     }else {
+        if(input5 === input6){
         register = {
             
              name:$("#input1").val(),
@@ -31,11 +32,14 @@ function validate(){
              password: $("#input5").val(),
              role: $("#doctor").val(),
              personalNumber: $("#input3").val(),
-             departmentD: $("#input7").val(),
+             departmentD: localStorage.getItem("departamnetiDropBox"),
              specializationD: $("#input8").val()
     
-            
-         
+          
+        }
+         }
+         else{
+             alert("Two passwords should match up!");
          }
     }
    }else if(document.getElementById("patient").checked == true){
@@ -43,6 +47,7 @@ function validate(){
     || input6.trim()==""){
         alert("please fill all the inputs needed for the Patient");
     }else {
+        if(input5 === input6){
         register = {
             // id:$("#profid").val(),
              name:$("#input1").val(),
@@ -55,8 +60,11 @@ function validate(){
              specializationD: $("#input8").val()
     
             
-         
+        }
          }
+         else{
+            alert("Two passwords should match up!");
+        }
     }
 
    }//else if(input6.trim() == input5.trim()){
@@ -66,6 +74,14 @@ function validate(){
    //DUHET ME SHTU KRAHASIMIN MES DY PASSWORD-ave
    
 }
+
+$(document).on('click', '#opsioni', function(event) {
+    var vlera = $(this).text();
+    localStorage.setItem("departamnetiDropBox", vlera);
+   
+
+    // alert(vleraDuhur[2]);
+});
 register = {
     // id:$("#profid").val(),
      name:"",
@@ -111,7 +127,7 @@ $("#submit2").click(function(event) {
                     }
                     else {
                         alert(e);
-                        console.log(e);
+                        
                     }
            
         },
@@ -156,4 +172,35 @@ function footeriMedNotes(){
       }
        })
   
+    }
+
+    function dropBoxDepartamenti(){
+        $.ajax({
+            type : "GET",
+            url :  "http://localhost:8090/api/systemManagement/admin/getAllDep",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(result){
+               
+                var y = result.data;
+                if(y != null ){
+                    $.each(y, function(i, item) {
+                        if(item != null){
+                  //if(item.depId == depNumber){
+                  //  alert("erdh kerksa");
+                  $("#doctorss").append('<option id="opsioni" >' + item.depName + "</option>");
+                  
+                        }
+
+                  //}
+              });
+                
+                 }
+            },
+            error : function(e){
+                
+              $("#hapsiraInfoKlinikes").html("<strong>Error</strong>");
+              console.log("ERROR: ", e);
+            }
+             })
     }

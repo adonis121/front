@@ -34,7 +34,14 @@
                     <input id = "patient" type="radio" name="role" value="2">
                     <label id = "roli1" for="patient">Patient</label></div>
                     <label id = "roli1" for="patient">Please only fill if your are a doctor!</label>
-                    <div class="form-group"><input id="input7" class="form-control" type="text" name="Department" placeholder="Department Name"></div>
+                    <div class="form-group"><!---<input id="input7" class="form-control" type="text" name="Department" placeholder="Department Name">---->
+                        <select name="medics" id="doctorss" class="btn btn-secondary ">
+                            <option>Choose Department:</option>
+                            <!---<option value="medic2">Medic2</option> 
+                            //<option value="medic3">Medic3</option>---->
+           
+                          </select>
+                        </div>
                     <div class="form-group"><input id="input8"class="form-control" type="text" name="Specialization" placeholder="Specialization"></div>
                
                 <div class="form-group">
@@ -79,6 +86,7 @@
     <script src="front-back/registerJs.js"></script>
     <script>
         window.onload=footeriMedNotes();
+        window.onload=dropBoxDepartamenti();
     </script>
     
 </body>
