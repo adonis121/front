@@ -885,9 +885,9 @@ function showAdvertisment() {
             var y = result.data;
             if (y != null) {
                 $.each(y, function(i, item) {
-
-
-                    $("#img").attr('src', item.aPath);
+                   
+                  $('#imgageReklama').append('<img style = "height:200px; width:200px; margin-left:10px; margin-top:10px;" id = "fotoDok'+i+'"/>');
+                    document.getElementById("fotoDok"+i).src = item.apath;
                 });
             } else {
                 alert(result.errori)
